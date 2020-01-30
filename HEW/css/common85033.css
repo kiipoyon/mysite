@@ -30,27 +30,35 @@ a.login{
   margin-left: 800px;
 }
 
+/*ナビゲーションのスタイル*/
+/*header nav .nav{
+  float: right;
+}
+
+header nav ul{
+  width: 80%;
+  margin: 0 auto;
+  padding: 40px 0 0 0;
+  overflow: hidden;
+}
+
+header nav ul li{
+  width: 180px;
+  margin: 0 10px 0 40px;
+  float: left;
+}
+*/
 
 /*ヘッダー*/
 nav.login-name{
   margin: 15px 0 20px 0;
 }
 
-div.login-name{
-  margin-left: 900px;
-  width: 200px;
+a.login-name{
+  text-align: right;
+  margin-left: 800px;
 }
 
-div.login-name div{
-  background-color: #516ab6;
-}
-
-div.login-name div a:link{
-  color: #fff;
-}
-div.login-name div a:visited{
-  color: #fff;
-}
 nav ul.nav{
   display: flex;
 }
@@ -319,15 +327,21 @@ h1.credith1{
 /* ―――――――――― */
 
 input.submit{
+  margin: 0 auto;
   padding: 3px 60px;
   font-size: 1.2em;
   background-color: #f33;
   border:2px #f33 solid;
   color: #fff;
+
 }
 input.submit:hover{
   background-color: #f66;
   border:2px #f66 solid;
+}
+
+div.submit_iti{
+  text-align: center;
 }
 /* ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――― */
 
@@ -372,6 +386,10 @@ div.scroll{
   overflow-y:scroll;
 }
 
+div.scroll img{
+  width: 100px;
+}
+
 img.addtext{
   width: 50%;
 }
@@ -412,7 +430,7 @@ input.card:hover{
 .kaikei{
   margin: 10px 10px 10px 0;
   font-size: 18px;
-  text-align: right;
+  text-align: center;
 }
 
 table.product{
@@ -444,4 +462,28 @@ table.product{
 }
 .popup_text{
   text-align: left;
+}
+
+
+.gazou{
+ width: 200px;
+}
+table.cart_t td{
+  width:200px;
+}
+
+table.cart_r td img{
+  width:100px;
+}
+
+.scroll_d{
+  display: flex;
+}
+
+.scroll_d1{
+  width: 100px;
+}
+
+.scroll_d2{
+  width: 150px;
 }
