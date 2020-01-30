@@ -12,19 +12,23 @@
  *
  */
 
+
+
 // 共通部品を呼び出す
 require 'common/common.php';
+// データベースに接続する
+$pdo = connect();
 
 $flg=0;
 
   	 //ログインボタンが押された場合
   	 if(isset($_POST["loginbtn"])){
 
-            //画面入力のユーザーIDを取得する
-            $id=$_POST["id"];
+        //画面入力のユーザーIDを取得する
+        $id=$_POST["id"];
 
-            //画面入力のパスワードを取得する
-            $password=$_POST["password"];
+        //画面入力のパスワードを取得する
+        $password=$_POST["password"];
 
   	     //ユーザIDの未入力チェック
   	     if(empty($id)){
@@ -35,12 +39,11 @@ $flg=0;
   	     }
   	 }
 
-       if (isset ($_SESSION['roginid'])) {
+      if ($_SESSION['roginid'] ) {
         $id = $_SESSION['roginid'];
         //画面入力のパスワードを取得する
         $password=$_SESSION["password"];
       }
-
 
   	 //IDとパスワードが一致しているか確認する
   	 if(!empty($id) && !empty($password)){
@@ -52,8 +55,6 @@ $flg=0;
 
  	     //ログイン情報を検索し、検索結果をステートメントに設定する($loginidはPOSTで持ってきたもの) ここをprepareにする
           $st=$pdo->prepare("SELECT * FROM user_tbl WHERE user_id=?");
-
-          $_SESSION['roginid'] = $id; // ユーザーIDをセッション変数にセット
 
           //bindValueメソッドでパラメータをセット
           $st->bindValue(1,$id);
@@ -69,16 +70,15 @@ $flg=0;
           //パスワードが一致しているかどうかチェックする
           foreach($logininfo as $login){
               //ログイン情報のパスワードと画面入力したパスワードが一致しているか比較する
-              if($login['password']==$password){
+              if($login['password'] == $password){
                   //一致した場合、成功した（ログイン成功フラグ＝１）と設定する
-                  $flg=1;
+                  $flg = 1;
                 session_regenerate_id(true); // セッションIDをふりなおす
                 $_SESSION['roginid'] = $id; // ユーザーIDをセッション変数にセット
                 $_SESSION['password'] = $password;
                 echo 'ログインしました！';
               }
           }
-
 
           $st2=$pdo->prepare("select name from user_details_tbl where user_id=?");
           //bindValueメソッドでパラメータをセット
@@ -93,13 +93,31 @@ $flg=0;
               $name=$login2['name'];
           }
 
-
       }
 
 
 
 
-    // 最初の画面を表示する
-    require 'view/indexView.php';
+
+
+
+/* idを受け取っているかの判断 */
+if (isset($_GET['iddd'])) {
+    $iddd = $_GET['iddd'];
+}
+
+// 商品を検索する
+$sta = $pdo->query("SELECT * FROM product_tbl where $iddd = product_id");
+$product_tbl = $sta->fetchAll();
+
+
+// セッション情報の保存
+$_SESSION['code'] = $iddd;
+
+// セッション情報の取得
+$product_id = $_SESSION['code'];
+
+// 最初の画面を表示する
+require 'view/product_detailsView.php';
 
 ?>
