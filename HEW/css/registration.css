@@ -1,0 +1,55 @@
+@charset "utf-8";
+
+/* 共通のスタイル */
+
+body{
+  font-size: 1em;
+  line-height: 1.6em;
+  color: #000000;
+  background-color: #F4FBFF;
+  text-align: center;
+  margin: 0 auto;
+  width: 90%;
+}
+
+img{
+  vertical-align: bottom;
+}
+
+a:link{color: #0000ee;}
+a:visited{color: #551a8b;}
+a:hover{}
+a:active{color: #ff0000;}
+
+.registration{
+  margin-top: 20px;
+  margin-bottom: 30px;
+}
+
+/* ページタイトル下の空間確保 */
+.pagetitle{
+  margin-bottom: 30px;
+}
+
+/* 新規登録 */
+table{
+  width: 600px;
+  margin: 0 auto;
+  text-align: left;
+  border: 1px #000 solid;
+}
+
+table tr,td{
+  border: 1px #000 solid;
+}
+
+.regist{
+  width: 150px;
+}
+
+input.button{
+  text-align: center;
+  width: 70px;
+  height: 40px;
+  margin: 5px;
+}

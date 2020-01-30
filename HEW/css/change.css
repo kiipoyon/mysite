@@ -1,0 +1,129 @@
+@charset "utf-8";
+
+/* 共通のスタイル */
+
+body{
+  font-size: 1em;
+  line-height: 1.6em;
+  color: #000000;
+  background-color: #F4FBFF;
+  text-align: center;
+  margin: 0 auto;
+  width: 90%;
+}
+
+img{
+  vertical-align: bottom;
+}
+
+a:link{color: #0000ee;}
+a:visited{color: #551a8b;}
+a:hover{}
+a:active{color: #ff0000;}
+
+nav.login{
+  margin: 15px 0 20px 0;
+}
+
+a.login{
+  text-align: right;
+  margin-left: 800px;
+}
+
+/*ナビゲーションのスタイル*/
+nav ul.nav{
+  display: flex;
+}
+
+nav ul li.nav_flex{
+  width: 100%;
+  height: 40px;
+  text-align:center;
+  background-color: #ddd;
+  color: #000;
+}
+
+/* マウスオーバー時のサブメニュー */
+.changemenu {
+  overflow: hidden;
+  width: 750px;
+  margin: 0 auto;
+  padding: 0;
+  display: flex;
+}
+.changemenu li {
+  list-style: none;
+}
+.changemenu li a {
+  display: block;
+  width: 150px;
+  height: 40px;
+  text-align: center;
+  color: #fff;
+  font-size: 14px;
+  line-height: 2.8;
+  background: #9fb7d4;
+  text-decoration: none;
+  border-right: 1px solid #eee;
+  box-sizing: border-box;
+}
+.changemenu > li:hover > a {/*layer-1*/
+  color: orange;
+  background: #afc6e2;
+}
+.changemenu li ul {
+  width: 150px;
+  display: none;
+  margin-left: -40px;
+  position: absolute;
+}
+.changemenu > li li:hover > a {/*layer-2*/
+  color: olive;
+  background: #afc6e2;
+}
+.changemenu li ul li a {
+  border-top: 1px solid #eee;
+}
+
+.a{
+  margin: 0 50px 0 50px;
+}
+
+/* マイページに戻る */
+.backmypage{
+  margin-top: 250px;
+}
+
+/* 登録内容確認ページ */
+.change{
+  margin-top: 20px;
+  margin-bottom: 30px;
+}
+
+table{
+  width: 600px;
+  margin: 0 auto;
+  text-align: left;
+  border: 1px #000 solid;
+}
+
+table tr,td{
+  border: 1px #000 solid;
+}
+
+.chan{
+  width: 150px;
+}
+
+input.button{
+  text-align: center;
+  width: 70px;
+  height: 40px;
+  margin: 5px;
+}
+
+/* 変更完了ページ */
+p{
+  margin-top: 80px;
+  margin-bottom: 50px;
+}

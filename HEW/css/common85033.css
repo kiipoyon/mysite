@@ -1,0 +1,447 @@
+@charset "utf-8";
+
+/* 共通のスタイル */
+
+body{
+  font-size: 1em;
+  line-height: 1.6em;
+  color: #000000;
+  background-color: #F4FBFF;
+  text-align: center;
+  margin: 0 auto;
+  width: 90%;
+}
+
+img{
+  vertical-align: bottom;
+}
+
+a:link{color: #0000ee;}
+a:visited{color: #551a8b;}
+a:hover{}
+a:active{color: #ff0000;}
+
+nav.login{
+  margin: 15px 0 20px 0;
+}
+
+a.login{
+  text-align: right;
+  margin-left: 800px;
+}
+
+
+/*ヘッダー*/
+nav.login-name{
+  margin: 15px 0 20px 0;
+}
+
+div.login-name{
+  margin-left: 900px;
+  width: 200px;
+}
+
+div.login-name div{
+  background-color: #516ab6;
+}
+
+div.login-name div a:link{
+  color: #fff;
+}
+div.login-name div a:visited{
+  color: #fff;
+}
+nav ul.nav{
+  display: flex;
+}
+
+nav ul li.nav_flex{
+  width: 100%;
+  height: 40px;
+  text-align:center;
+  background-color: #ddd;
+  color: #000;
+}
+
+
+/*スライダーの設定*/
+.slider{
+  margin: 0 auto;
+  width: 80%;
+}
+.slider img{
+  height: auto;
+  width: 100%;
+}
+/*slick setting*/
+.slick-prev:before,
+.slick-next:before {
+  color: #000;
+}
+
+/*メインビジュアルのスタイル*/
+
+div#wrap{
+  margin:0 auto 0 auto;
+  display: flex;
+}
+
+/*日本地図*/
+div.tizu{
+  width: 100%;
+}
+
+/*検索欄*/
+div.kensaku{
+  width: 100%;
+  background-color: #777;
+
+}
+p.iku{
+  width: 100px;
+}
+
+
+
+/*売れ筋ランキング・おすすめ*/
+h1.h_1{
+  text-align: left;
+}
+.multiple {
+  padding: 0;
+}
+.multiple img {
+  width: 100%;
+  max-width: 200px;
+  height: 100%;
+  max-height: 200px;
+}
+.multiple div {
+  margin: 0 5px;
+}
+.multiple .slick-next {
+  right: 17px;　z-index: 100;
+}
+.multiple .slick-prev {
+  left: 23px; z-index: 100;
+}
+
+.multiple div a{
+  text-decoration: none;
+  outline: none;
+}
+
+.multiple div a:link{color: #000;}
+.multiple div a:visited{color: #000;}
+.multiple div a:hover{}
+.multiple div a:active{color: #000;}
+
+/* 値段 */
+.multiple_p1{
+  margin-top: 10px;
+  font-size: 1.5em;
+  color: #E80034;
+}
+
+.multiple_p2{
+  margin-top: 10px;
+  font-size: 1.5em;
+}
+
+
+
+/*――――――――――――――――――――――以下、自分が記述した箇所――――――――――――――――――――――――――――――――――――――――――――――――*/
+/* buy.htmlで使用したところ */
+table.buytable{
+  width: 800px;
+}
+table.buytable tr td{
+  text-align: center;
+  vertical-align: middle;
+}
+
+.cart_in{
+  max-width: 200px;
+  max-height: 200px;
+  padding: auto;
+}
+
+.cart_h1{
+  font-size: 25px;
+  line-height: 40px;
+  text-align: left;
+}
+.cart_count{
+  font-size: 20px;
+  line-height: 40px;
+  text-align: left;
+}
+input.det_button{
+  padding: 2px 40px;
+  font-size: 0.8em;
+  background-color: #449;
+  border:2px #77D solid;
+  color: #fff;
+}
+input.det_button:hover{
+  background-color: #666;
+}
+input.out_button{
+  padding: 2px 40px;
+  font-size: 0.8em;
+  background-color: #333;
+  border:2px #333 solid;
+  color: #fff;
+}
+input.out_button:hover{
+  background-color: #666;
+}
+.text_right{
+  text-align: right;
+}
+.buy_submit{
+  margin: 0 auto;
+  padding: 8px 100px;
+  font-size: 1em;
+  background-color: #f44;
+  border:2px #f66 solid;
+  color: #fff;
+  border-radius: 5px;
+}
+input.buy_submit:hover{
+  color: #fff;
+  background-color: #faa;
+  border-color: #faa;
+}
+
+/* ――――――――――――――――――――credit.htmlで使用したところ―――――――――――――――――――― */
+
+table.sample{
+  margin: 0 auto;
+  padding: 0 auto;
+}
+h1.credit{
+  text-align: center;
+  font-weight: normal;
+  font-size: 20px;
+}
+table.credit{
+  width: 350px;
+  height: 450px;
+  margin: 0 20px;
+  padding: 0px 3px;
+  background-color: #FFF;
+  border-radius: 20px;
+  border:3px #AAA solid;
+  border-collapse: separate;
+  table-layout: fixed;
+}
+h1.credith1{
+  text-align: left;
+  margin: 8px 0 0 10px;
+}
+
+.creditcard{
+  margin: 20px 0 0 20px;
+  border-collapse: collapse;
+  width: 300px;
+  text-align: left;
+}
+.creditcard tr td{
+  width: 50px;
+}
+
+.hurikomi{
+  text-align: left;
+  line-height: 250%;
+  font-size: 90%;
+}
+
+.creditinfo{
+  margin: 20px 0 20px 20px;
+  text-align: left;
+  border-spacing: 5px 0;
+}
+.creditinfo tr td{
+  font-size: 14px;/*
+  border:2px #333 solid;*/
+}
+
+
+.input_num{
+  height: 30px;
+  width: 135px;
+  border-radius: 5px;
+}
+
+.input_mon{
+  margin: 0 10px 0 20px;
+  height: 30px;
+  width: 50px;
+  border-radius: 5px;
+}
+
+.input_year{
+  margin: 0 10px 0 0;
+  height: 30px;
+  width: 70px;
+  border-radius: 5px;
+}
+
+.input_name{
+  height: 30px;
+  width: 250px;
+  border-radius: 5px;
+}
+
+.haisou_free{
+  color: #F00;
+  width: 200px;
+  margin: 0 0 0 50px;
+}
+/*jQuery関連*/
+.text {
+  display: none;
+}
+.text01 {
+  margin: 10px 0 0 30px;
+  display: block;
+  font-size: 12px;
+  line-height: initial;
+  text-align: left;
+}
+.text02{
+  margin: -5px 0 0 30px;
+  font-size: 0px;
+  line-height: 0px;
+  text-align: left;
+}
+/* ―――――――――― */
+
+input.submit{
+  padding: 3px 60px;
+  font-size: 1.2em;
+  background-color: #f33;
+  border:2px #f33 solid;
+  color: #fff;
+}
+input.submit:hover{
+  background-color: #f66;
+  border:2px #f66 solid;
+}
+/* ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――― */
+
+
+.input_2{
+  height: 30px;
+  width: 120px;
+  border-radius: 5px;
+  margin: 10px 0 5px 0;
+}
+
+
+img.c_logo{
+  width: 80%;
+}
+div.c_logo{
+  width: 50px
+}
+
+.addtext{
+  margin: 5px 0 0 20px;
+  text-align: left;
+  font-size: 12px;
+}
+input.addtext{
+  margin: 0 0 0 200px;
+  padding: 1px 15px;
+  font-size: 1em;
+  background-color: #fff;
+  border:2px #f22 solid;
+  color: #f22;
+  border-radius: 5px;
+}
+input.addtext:hover{
+  color: #faa;
+  border-color: #faa;
+}
+
+div.scroll{
+  width: 300px;
+  height: 300px;
+  overflow-y:scroll;
+}
+
+img.addtext{
+  width: 50%;
+}
+td.img{
+  width: 100px;
+  vertical-align: middle;
+}
+
+.credit2{
+  width: 280px;
+  border-spacing: 5px 20px;
+  font-size: 90%;
+}
+.credit2 tr td{
+  width: 140px;
+  text-align: left;
+  margin: 0 0 0 30px;
+}
+
+.muryou{
+  text-align: right;
+  color: #F00;
+}
+input.card{
+  margin: 0 auto;
+  padding: 10px 20px;
+  font-size: 1em;
+  background-color: #fff;
+  border:2px #f22 solid;
+  color: #f22;
+  border-radius: 5px;
+}
+input.card:hover{
+  color: #faa;
+  border-color: #faa;
+}
+
+.kaikei{
+  margin: 10px 10px 10px 0;
+  font-size: 18px;
+  text-align: right;
+}
+
+table.product{
+  margin: 0 auto;
+}
+
+#layer {
+    display: none;
+    position: absolute; 
+    left: 0px;
+    top: 0px;
+    width: 100%;
+    height: 100%;
+    background-color: black;
+    opacity: 0.40;
+}
+#popup {
+    display: none;
+    position: absolute; 
+    left: 50%;
+    top: 50%;
+    width: 500px;
+    height: 300px;
+    margin-left: -250px;
+    margin-top: -150px;
+    background-color: white;
+    border-radius: 5px;
+    text-align: center;
+}
+.popup_text{
+  text-align: left;
+}

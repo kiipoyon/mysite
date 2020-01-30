@@ -1,0 +1,98 @@
+@charset "utf-8";
+
+/* 共通のスタイル */
+
+body{
+  font-size: 1em;
+  line-height: 1.6em;
+  color: #000000;
+  background-color: #F4FBFF;
+  text-align: center;
+  margin: 0 auto;
+  width: 90%;
+}
+
+img{
+  vertical-align: bottom;
+}
+
+a:link{color: #0000ee;}
+a:visited{color: #551a8b;}
+a:hover{}
+a:active{color: #ff0000;}
+
+.login-name{
+  margin-left: 900px;
+  width: 200px;
+}
+
+div.login-name div{
+  background-color: #516ab6;
+}
+
+div.login-name div a:link{
+  color: #fff;
+}
+div.login-name div a:visited{
+  color: #fff;
+}
+
+
+
+/*スライダーの設定*/
+.slider{
+  margin: 0 auto;
+  width: 80%;
+}
+.slider img{
+  height: auto;
+  width: 100%;
+}
+/*slick setting*/
+.slick-prev:before,
+.slick-next:before {
+  color: #000;
+}
+
+
+h1.midasi{
+  margin-top: 80px;
+  border-radius: 5px;
+}
+
+.multiple {
+  padding: 0;
+  margin-top: 40px;
+}
+.multiple img {
+  width: 100%;
+  max-width: 200px;
+  height: 200px;
+}
+.multiple div {
+  margin: 0 5px;
+}
+.multiple .slick-next {
+  right: 17px;　z-index: 100;
+}
+.multiple .slick-prev {
+  left: 23px; z-index: 100;
+}
+
+.multiple div a{
+  text-decoration: none;
+  outline: none;
+}
+
+
+/* 値段 */
+.multiple_p1{
+  margin-top: 10px;
+  font-size: 1.5em;
+  color: #E80034;
+}
+
+.multiple_p2{
+  margin-top: 10px;
+  font-size: 1.5em;
+}
