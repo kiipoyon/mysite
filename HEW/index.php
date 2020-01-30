@@ -33,8 +33,8 @@ $flg=0;
   	         //パスワードの未入力チェック
   	         echo "パスワードが未入力です";
   	     }
-  	 }
-
+       }
+       
        if (isset ($_SESSION['roginid'])) {
         $id = $_SESSION['roginid'];
         //画面入力のパスワードを取得する
@@ -42,42 +42,50 @@ $flg=0;
       }
 
 
+
+
+
   	 //IDとパスワードが一致しているか確認する
   	 if(!empty($id) && !empty($password)){
 
         
-  	     //データベースに接続する
-  	     $pdo=new PDO('mysql:host=localhost;dbname=haldb;charset=utf8','dbadmin','dbadmin');
+            //データベースに接続する
+            $pdo=new PDO('mysql:host=localhost;dbname=haldb;charset=utf8','dbadmin','dbadmin');
+
+            //ログイン情報を検索し、検索結果をステートメントに設定する($loginidはPOSTで持ってきたもの) ここをprepareにする
+            $st=$pdo->prepare("SELECT * FROM user_tbl WHERE user_id=?");
+
+            //$id = $_POST['id']; // ユーザーIDをセッション変数にセット
+
+            //bindValueメソッドでパラメータをセット
+            $st->bindValue(1,$password);
+
+            //executeでクエリを実行
+            $st->execute();
+
+            //処理結果を配列logininfoに設定する loginidが主キーならこの処理はいらない
+            $logininfo=$st->fetch();
+
+            //ログイン成功フラグを初期化する（ログイン成功フラグ＝０にする）
+            $flg=0;
+            //パスワードが一致しているかどうかチェックする
+            //foreach($logininfo as $login){
+            //ログイン情報のパスワードと画面d入力したパスワードが一致しているか比較する
 
 
- 	     //ログイン情報を検索し、検索結果をステートメントに設定する($loginidはPOSTで持ってきたもの) ここをprepareにする
-          $st=$pdo->prepare("SELECT * FROM user_tbl WHERE user_id=?");
 
-          $_SESSION['roginid'] = $id; // ユーザーIDをセッション変数にセット
 
-          //bindValueメソッドでパラメータをセット
-          $st->bindValue(1,$id);
 
-          //executeでクエリを実行
-          $st->execute();
+            if(password_verify($password, $logininfo['password'])){
+            $flg=1;
+            session_regenerate_id(true); // セッションIDをふりなおす
+            $_SESSION['roginid'] = $id; // ユーザーIDをセッション変数にセット
+            $_SESSION['password'] = $password;
+            }else{
+            print '認証成功しない';
+            }
 
-          //処理結果を配列logininfoに設定する loginidが主キーならこの処理はいらない
-          $logininfo=$st->fetchAll();
-
-          //ログイン成功フラグを初期化する（ログイン成功フラグ＝０にする）
-          $flg=0;
-          //パスワードが一致しているかどうかチェックする
-          foreach($logininfo as $login){
-              //ログイン情報のパスワードと画面入力したパスワードが一致しているか比較する
-              if($login['password']==$password){
-                  //一致した場合、成功した（ログイン成功フラグ＝１）と設定する
-                  $flg=1;
-                session_regenerate_id(true); // セッションIDをふりなおす
-                $_SESSION['roginid'] = $id; // ユーザーIDをセッション変数にセット
-                $_SESSION['password'] = $password;
-                echo 'ログインしました！';
-              }
-          }
+          //}
 
 
           $st2=$pdo->prepare("select name from user_details_tbl where user_id=?");
@@ -95,6 +103,8 @@ $flg=0;
 
 
       }
+
+
 
 
 
