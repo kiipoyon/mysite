@@ -51,7 +51,7 @@
         <a href="mypage.php#tobe2" class="init-bottom">購入履歴</a>
       </li>
       <li class="menu__single">
-        <a href="cart.php" class="init-bottom">買い物かごを見る</a>
+        <a href="buy.php" class="init-bottom">買い物かごを見る</a>
       </li>
       <li class="menu__single">
         <a href="request.php" class="init-bottom">お問い合わせをする</a>
@@ -140,7 +140,7 @@
               <?php } ?>
                 <td>
                   <a href="product_details.php?iddd=<?php echo $g['product_id'] ?>" method="GET">
-                    <img class="gazou" src="images/<?php echo $g['product_id'] ?>.jpg">
+                    <img class="gazou" src="images/<?php echo $g['images'] ?>">
                     <p><?php echo nl2br($g['product_name']) ?></p>
                     <p><?php echo nl2br($g['producing_area']) ?></p>
                     <p><?php echo nl2br($g['additional_date']) ?></p>
@@ -157,7 +157,7 @@
             <?php } ?>
         </table>
 
-        <?php 
+        <?php
           $count=$sta->rowCount();
 
           if($count == 0){
