@@ -14,6 +14,8 @@
 
 // 共通部品を呼び出す
 require 'common/common.php';
+// データベースに接続する
+$pdo = connect();
 
 $flg=0;
 
@@ -68,13 +70,6 @@ $flg=0;
 
             //ログイン成功フラグを初期化する（ログイン成功フラグ＝０にする）
             $flg=0;
-            //パスワードが一致しているかどうかチェックする
-            //foreach($logininfo as $login){
-            //ログイン情報のパスワードと画面d入力したパスワードが一致しているか比較する
-
-
-
-
 
             if(password_verify($password, $logininfo['password'])){
             $flg=1;
@@ -84,9 +79,6 @@ $flg=0;
             }else{
             print '認証成功しない';
             }
-
-          //}
-
 
           $st2=$pdo->prepare("select name from user_details_tbl where user_id=?");
           //bindValueメソッドでパラメータをセット
@@ -101,13 +93,18 @@ $flg=0;
               $name=$login2['name'];
           }
 
-
       }
+      //売れ筋ランキングとおすすめの表示
+      $st = $pdo->query("SELECT * FROM product_tbl
+                        INNER JOIN orderdetails_tbl 
+                        ON product_tbl.product_id = orderdetails_tbl.product_id
+                        WHERE orderdetails_tbl.order_date > current_timestamp + interval -30 day
+                        group by product_tbl.product_id
+                        ORDER BY SUM(orderdetails_tbl.quantity) DESC");
+      $product_tbl = $st->fetchAll();
 
-
-
-
-
+      $sta = $pdo->query("SELECT * FROM product_tbl");
+      $producta_tbl = $sta->fetchAll();
 
     // 最初の画面を表示する
     require 'view/indexView.php';
