@@ -34,10 +34,10 @@
         <a href="index.php" class="init-bottom">トップページへ</a>
       </li>
       <li class="menu__single">
-        <a href="mypage.php#tobe" class="init-bottom">お気に入り</a>
+        <a href="mypage.php#tobe" class="init-bottom">購入履歴</a>
       </li>
       <li class="menu__single">
-        <a href="mypage.php#tobe2" class="init-bottom">購入履歴</a>
+        <a href="mypage.php#tobe2" class="init-bottom">マイページ</a>
       </li>
       <li class="menu__single">
         <a href="buy.php" class="init-bottom">買い物かごを見る</a>
@@ -92,7 +92,7 @@
                 {code: 4 , name:"中部", color:"#77e18e", hoverColor:"#aff9bf", prefectures:[15,16,17,18,19,20,21,22,23,24]},
                 {code: 5 , name:"近畿", color:"#f2db7b", hoverColor:"#f6e8ac", prefectures:[25,26,27,28,29,30]},
                 {code: 6 , name:"中国、四国", color:"#f9ca6c", hoverColor:"#ffe5b0", prefectures:[31,32,33,34,35,36,37,38,39]},
-                {code: 8 , name:"九州、沖縄", color:"#f7a6a6", hoverColor:"#ffcece", prefectures:[40,41,42,43,44,45,46,47]},
+                {code: 7 , name:"九州、沖縄", color:"#f7a6a6", hoverColor:"#ffcece", prefectures:[40,41,42,43,44,45,46,47]},
             ];
 
             $("#map-container").japanMap(
@@ -109,7 +109,7 @@
                     fontColor : "black",
                     fontShadowColor : "white",
                     onSelect:function(data){
-                    window.location.href = "list.php" + "?id=" + data.code;
+                    window.location.href = "list.php" + "?idd=" + data.code;
                     },
                 }
             );
