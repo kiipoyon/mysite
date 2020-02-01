@@ -15,17 +15,14 @@
   <nav class="login">
     <a href="login.php" class="login">
     	<?php
-
-
-     	if($flg==1){
-    	    echo "<a href='mypage.php' class='login-name'>ようこそ".$id."さん!</a>";
-    	    echo "<a href='mypage.php' class='login-name'>会員情報</a>";
-    	    echo "<a href='index.php' class='login-name'>ログアウト</a>";
-    	}else{
-    	    echo "ログイン(新規登録)";
-    	}
-
-    	?>
+         if ($flg == 1) {
+             echo "<a href='mypage.php' class='login-name'>ようこそ".$id.'さん!</a>';
+             echo "<a href='mypage.php' class='login-name'>会員情報</a>";
+             echo "<a href='session_out.php' class='login-name'>ログアウト</a>";
+         } else {
+             echo 'ログイン(新規登録)';
+         }
+        ?>
     </a>
   </nav>
 
@@ -159,31 +156,39 @@
     <script type="text/javascript" src="slick/slick.min.js"></script>
 <!-- ランキング -->
   <h1 class="h_1">売れ筋ランキング</h1>
-  <a href="buyout.php" method="GET">hhhh</a>
+
     <div class="multiple">
-        <div><a href="product_details.html"><img src="images/3.jpg" alt=""><p>15,980</p><p>パイナップル</p><p>熊本県</p></a></div>
-        <div><a href="product_details.html"><img src="images/4.jpg" alt=""><p>15,980</p><p>松茸</p><p>静岡県</p></a></div>
-        <div><a href="#"><img src="images/5.jpg" alt=""><p>15,980</p><p>パイナップル</p><p>熊本県</p></a></div>
-        <div><a href="#"><img src="images/3.jpg" alt=""><p>15,980</p><p>パイナップル</p><p>熊本県</p></a></div>
-        <div><a href="#"><img src="images/3.jpg" alt=""><p>15,980</p><p>パイナップル</p><p>熊本県</p></a></div>
-        <div><a href="#"><img src="images/3.jpg" alt=""><p>15,980</p><p>パイナップル</p><p>熊本県</p></a></div>
-        <div><a href="#"><img src="images/3.jpg" alt=""><p>15,980</p><p>パイナップル</p><p>熊本県</p></a></div>
-        <div><a href="#"><img src="images/3.jpg" alt=""><p>15,980</p><p>パイナップル</p><p>熊本県</p></a></div>
+      <?php foreach ($product_tbl as $g) {
+    ?>
+        <div>
+          <a href="product_details.php?iddd=<?php echo $g['product_id'] ?>" method="GET">
+            <img class="gazou" src="images/<?php echo $g['images'] ?>">
+            <p><?php echo nl2br($g['product_name']) ?></p>
+            <p><?php echo nl2br($g['producing_area']) ?></p>
+            <p class="price"><?php echo($g['price']) ?>円</p>
+          </a>
+        </div>
+      <?php } ?>
     </div>
+
   <a href="#">一覧表示</a>
 
   <hr>
 
   <h1 class="h_1">おすすめ</h1>
+
     <div class="multiple">
-        <div><a href="#"><img src="images/3.jpg" alt=""><p class="multiple_p1">¥15,980</p><p>パイナップル</p><p>熊本県</p></a></div>
-        <div><a href="#"><img src="images/3.jpg" alt=""><p class="multiple_p2">15,980</p><p>パイナップル</p><p>熊本県</p></a></div>
-        <div><a href="#"><img src="images/3.jpg" alt=""><p>15,980</p><p>パイナップル</p><p>熊本県</p></a></div>
-        <div><a href="#"><img src="images/3.jpg" alt=""><p>15,980</p><p>パイナップル</p><p>熊本県</p></a></div>
-        <div><a href="#"><img src="images/3.jpg" alt=""><p>15,980</p><p>パイナップル</p><p>熊本県</p></a></div>
-        <div><a href="#"><img src="images/3.jpg" alt=""><p>15,980</p><p>パイナップル</p><p>熊本県</p></a></div>
-        <div><a href="#"><img src="images/3.jpg" alt=""><p>15,980</p><p>パイナップル</p><p>熊本県</p></a></div>
-        <div><a href="#"><img src="images/3.jpg" alt=""><p>15,980</p><p>パイナップル</p><p>熊本県</p></a></div>
+      <?php foreach ($producta_tbl as $g) {
+    ?>
+        <div>
+          <a href="product_details.php?iddd=<?php echo $g['product_id'] ?>" method="GET">
+            <img class="gazou" src="images/<?php echo $g['images'] ?>">
+            <p><?php echo nl2br($g['product_name']) ?></p>
+            <p><?php echo nl2br($g['producing_area']) ?></p>
+            <p class="price"><?php echo($g['price']) ?>円</p>
+          </a>
+        </div>
+      <?php } ?>
     </div>
 
   <a href="#">一覧表示</a>
@@ -214,7 +219,7 @@
 <!-- フッター -->
 <hr>
   <footer>
-    <div class="footer_copyright"><small>copyright &copy; 2019 K. All rights reserved.</small></div>
+    <div class="footer_copyright"><small>copyright © 2019 K. All rights reserved.</small></div>
   </footer>
 
   </body>
