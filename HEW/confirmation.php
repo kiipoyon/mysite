@@ -147,7 +147,7 @@
           <input type="submit" name="" value="送信" class="sousin">
           <input type="hidden" name="flag" value="1">
           <input type="hidden" name="image" value="<?php print $rename;?>">
-          <input type="reset" name="" value="再入力" class="reverse">
+          <button type="button" onclick="history.back()">再入力</button>
         </td>
       </tr>
     </table>
