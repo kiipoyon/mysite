@@ -15,6 +15,13 @@
 // 共通部品を呼び出す
 require 'common/common.php';
 // データベースに接続する
+
+
+
+$protocol = empty($_SERVER["HTTPS"]) ? "http://" : "https://";
+$thisurl = $protocol . $_SERVER["HTTP_HOST"] . $_SERVER["REQUEST_URI"];
+
+
 $pdo = connect();
 
 $flg=0;
