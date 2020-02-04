@@ -24,7 +24,7 @@
 
     <p>変更が完了しました。</p>
 
-    <a href="change.php">会員情報変更トップに戻る</a>
+    <a href="mypage.php">会員情報変更トップに戻る</a>
 
     </main>
 

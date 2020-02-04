@@ -62,8 +62,8 @@
           <td class="chan">住所</td>
           <td>
             〒
-            
-            
+
+
           </td>
         </tr>
       </table>
@@ -79,7 +79,7 @@
 
     <br>
 
-    <a href="change.php">会員情報変更トップに戻る</a>
+    <a href="mypage.php">会員情報変更トップに戻る</a>
 
     </main>
 
