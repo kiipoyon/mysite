@@ -151,7 +151,7 @@ if (isset($_POST['syusei'])) {
     <h1 class="change">パスワードの変更</h1>
 	<a>現在のパスワード、新しいパスワードを入力してください。</a><br>
 	<br><a>全て必須項目です。</a>
-    <form method="post" action="">
+    <form method="POST" action="">
     <div style="color:red;"><?php echo htmlspecialchars($errormessage, ENT_QUOTES); ?></div>
 
       <table>

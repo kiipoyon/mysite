@@ -1,3 +1,6 @@
+<?php
+require 'common/common.php';
+?>
 <!DOCTYPE html>
 
 <html>
@@ -21,6 +24,12 @@
 
 <!-- メインビジュアル -->
     <main>
+
+    <?php
+    // セッション情報の取得
+    $newpas1 = $_SESSION['newpas1'];
+    echo $newpas1;
+    ?>
 
     <p>変更が完了しました。</p>
 
