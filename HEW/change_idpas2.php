@@ -107,13 +107,6 @@
 
      //$pdo->commit();
 
-     $_SESSION = array();
-
-
-     session_destroy();
-
-     exit;
-
      header ('location:change_idpas3.php');
 
  }
