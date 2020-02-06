@@ -97,13 +97,15 @@
      $sql = 'UPDATE user_tbl SET password=:password WHERE user_id=:id';
      $stmt = $pdo -> prepare($sql);
      $stmt->bindParam(':password',$newpas,PDO::PARAM_STR);
-     $stmt->bindValue(':id',$id,PDO::PARAM_STR);
+     $stmt->bindParam(':id',$id,PDO::PARAM_STR);
 
      //必須項目置き換え
 //      $stmt->bindValue(1, $newpas1);
 //      $stmt->bindValue(1,$id);
 
      $stmt->execute();
+
+     //$pdo->commit();
 
      $_SESSION = array();
 
@@ -113,7 +115,7 @@
      exit;
 
      header ('location:change_idpas3.php');
-;
+
  }
 
 
@@ -160,7 +162,7 @@
 
     <h1 class="change">変更内容の確認</h1>
 
-    <form method="POST" action="change_idpas3.php">
+    <form method="POST" action="">
 
       <table>
         <tr>
