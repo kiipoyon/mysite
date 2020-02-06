@@ -26,6 +26,9 @@ if (isset ($_SESSION['roginid'])) {
     $id = $_SESSION['roginid'];
     //画面入力のパスワードを取得する
     $password=$_SESSION["password"];
+}else{
+    header("Location: login.php");
+    exit;
 }
 
 
