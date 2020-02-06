@@ -56,7 +56,7 @@ div.login-name div a:visited{
 
 
 h1.midasi{
-  margin-top: 80px;
+  margin-top: 250px;
   border-radius: 5px;
 }
 
@@ -85,14 +85,4 @@ h1.midasi{
 }
 
 
-/* 値段 */
-.multiple_p1{
-  margin-top: 10px;
-  font-size: 1.5em;
-  color: #E80034;
-}
 
-.multiple_p2{
-  margin-top: 10px;
-  font-size: 1.5em;
-}

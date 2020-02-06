@@ -76,6 +76,7 @@ nav ul li.nav_flex{
   display: none;
   margin-left: -40px;
   position: absolute;
+  margin-bottom:100px;
 }
 .changemenu > li li:hover > a {/*layer-2*/
   color: olive;
@@ -86,7 +87,7 @@ nav ul li.nav_flex{
 }
 
 .a{
-  margin: 0 50px 0 50px;
+  margin: 0 50px ; 50px;
 }
 
 /* マイページに戻る */
