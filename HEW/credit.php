@@ -39,16 +39,15 @@ $flg=0;
   	         echo "パスワードが未入力です";
   	     }
        }
-       
+
        if (isset ($_SESSION['roginid'])) {
         $id = $_SESSION['roginid'];
         //画面入力のパスワードを取得する
         $password=$_SESSION["password"];
+      }else{
+              header("Location: login.php");
+       exit;
       }
-
-
-
-
 
   	 //IDとパスワードが一致しているか確認する
   	 if(!empty($id) && !empty($password)){
@@ -60,10 +59,8 @@ $flg=0;
             //ログイン情報を検索し、検索結果をステートメントに設定する($loginidはPOSTで持ってきたもの) ここをprepareにする
             $st=$pdo->prepare("SELECT * FROM user_tbl WHERE user_id=?");
 
-            //$id = $_POST['id']; // ユーザーIDをセッション変数にセット
-
             //bindValueメソッドでパラメータをセット
-            $st->bindValue(1,$password);
+            $st->bindValue(1,$id);
 
             //executeでクエリを実行
             $st->execute();
@@ -73,13 +70,6 @@ $flg=0;
 
             //ログイン成功フラグを初期化する（ログイン成功フラグ＝０にする）
             $flg=0;
-            //パスワードが一致しているかどうかチェックする
-            //foreach($logininfo as $login){
-            //ログイン情報のパスワードと画面d入力したパスワードが一致しているか比較する
-
-
-
-
 
             if(password_verify($password, $logininfo['password'])){
             print '認証成功';
@@ -90,9 +80,6 @@ $flg=0;
             }else{
             print '認証成功しない';
             }
-
-          //}
-
 
           $st2=$pdo->prepare("select name from user_details_tbl where user_id=?");
           //bindValueメソッドでパラメータをセット
@@ -106,19 +93,16 @@ $flg=0;
           foreach($logininfo2 as $login2){
               $name=$login2['name'];
           }
-
-
       }
 
-
-
-$gggg = $_SESSION['cart'];
-$product_id = $_SESSION['code'];
-
-    // セッション情報の取得
-    $sum = $_SESSION['sum'];
-
-
+    if (isset ($_SESSION['sum'])) {
+        // セッション情報の取得
+        $sum = $_SESSION['sum'];
+      }else{
+        //買い物かごの中身が無ければ商品一覧を表示する
+        header("Location: list.php");
+       exit;
+      }
 
 foreach($_SESSION['cart'] as $code => $num) {
     // 商品テーブルを検索する
