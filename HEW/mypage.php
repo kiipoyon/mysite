@@ -26,9 +26,6 @@ if (isset ($_SESSION['roginid'])) {
     $id = $_SESSION['roginid'];
     //画面入力のパスワードを取得する
     $password=$_SESSION["password"];
-}else{
-    header("Location: login.php");
-    exit;
 }
 
 
@@ -48,7 +45,7 @@ if(!empty($id) && !empty($password)){
     //$id = $_POST['id']; // ユーザーIDをセッション変数にセット
 
     //bindValueメソッドでパラメータをセット
-    $st->bindValue(1,$password);
+    $st->bindValue(1,$id);
 
     //executeでクエリを実行
     $st->execute();
