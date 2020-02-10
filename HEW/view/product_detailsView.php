@@ -60,19 +60,18 @@ $(function() {
         <a href="index.php" class="init-bottom">トップページへ</a>
       </li>
       <li class="menu__single">
-        <a href="mypage.html#tobe" class="init-bottom">お気に入り</a>
+        <a href="mypage.php#tobe2" class="init-bottom">購入履歴</a>
       </li>
       <li class="menu__single">
-        <a href="mypage.html#tobe2" class="init-bottom">購入履歴</a>
+        <a href="mypage.php#tobe1" class="init-bottom">会員情報変更</a>
       </li>
       <li class="menu__single">
-        <a href="cart.html" class="init-bottom">買い物かごを見る</a>
+        <a href="buy.php" class="init-bottom">買い物かごを見る</a>
       </li>
       <li class="menu__single">
-        <a href="request.html" class="init-bottom">お問い合わせをする</a>
+        <a href="request.php" class="init-bottom">お問い合わせをする</a>
       </li>
     </ul>
-
   </header>
 
 <!-- メインビジュアル -->

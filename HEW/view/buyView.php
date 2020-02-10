@@ -29,10 +29,10 @@
         <a href="index.php" class="init-bottom">トップページへ</a>
       </li>
       <li class="menu__single">
-        <a href="mypage.php#tobe" class="init-bottom">お気に入り</a>
+        <a href="mypage.php#tobe2" class="init-bottom">購入履歴</a>
       </li>
       <li class="menu__single">
-        <a href="mypage.php#tobe2" class="init-bottom">購入履歴</a>
+        <a href="mypage.php#tobe1" class="init-bottom">会員情報変更</a>
       </li>
       <li class="menu__single">
         <a href="buy.php" class="init-bottom">買い物かごを見る</a>
