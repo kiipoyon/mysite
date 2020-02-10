@@ -97,7 +97,7 @@ $address = $_SESSION['address'];
 
     <h1 class="change">変更内容の確認</h1>
 
-    <form method="post" action="change_basicinfo3.php">
+    <form method="POST" action="">
 
       <table>
         <tr>
@@ -136,7 +136,7 @@ $address = $_SESSION['address'];
       <br>
 
       <div>
-        <input type="submit" value="次へ" class="button">
+        <input type="submit" value="次へ" class="button" name="change_idpas_last">
         <input type="button" value="修正" class="button" onclick="history.back()">
       </div>
 
