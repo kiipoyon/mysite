@@ -141,7 +141,7 @@ if (isset($_POST['syusei'])) {
   </nav>
 
     <header>
-      <h1><a href="index.php"><img src="images/rogo.jpg" alt="ろご"></a></h1>
+      <h1><a href="index.php"><img src="images/logo.png" alt="ろご"></a></h1>
     </header>
 
 
