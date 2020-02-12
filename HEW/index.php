@@ -18,6 +18,8 @@ require 'common/common.php';
 
 
 
+
+
 $protocol = empty($_SERVER["HTTPS"]) ? "http://" : "https://";
 $thisurl = $protocol . $_SERVER["HTTP_HOST"] . $_SERVER["REQUEST_URI"];
 
@@ -67,7 +69,7 @@ $flg=0;
             //$id = $_POST['id']; // ユーザーIDをセッション変数にセット
 
             //bindValueメソッドでパラメータをセット
-            $st->bindValue(1,$password);
+            $st->bindValue(1,$id);
 
             //executeでクエリを実行
             $st->execute();
@@ -79,12 +81,17 @@ $flg=0;
             $flg=0;
 
             if(password_verify($password, $logininfo['password'])){
-            $flg=1;
-            session_regenerate_id(true); // セッションIDをふりなおす
-            $_SESSION['roginid'] = $id; // ユーザーIDをセッション変数にセット
-            $_SESSION['password'] = $password;
+                if(!empty($logininfo['secret_id'])){
+                    //header ('location:onetimea.php');
+                    echo"入ってる";
+                }else{
+                    echo"入ってない";
+                }
+                $flg=1;
+                session_regenerate_id(true); // セッションIDをふりなおす
+                $_SESSION['roginid'] = $id; // ユーザーIDをセッション変数にセット
+                $_SESSION['password'] = $password;
             }else{
-            print '認証成功しない';
             }
 
           $st2=$pdo->prepare("select name from user_details_tbl where user_id=?");
@@ -101,6 +108,8 @@ $flg=0;
           }
 
       }
+
+
       //売れ筋ランキングとおすすめの表示
       $st = $pdo->query("SELECT * FROM product_tbl
                         INNER JOIN orderdetails_tbl 

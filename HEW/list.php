@@ -60,7 +60,7 @@ $flg=0;
             //$id = $_POST['id']; // ユーザーIDをセッション変数にセット
 
             //bindValueメソッドでパラメータをセット
-            $st->bindValue(1,$password);
+            $st->bindValue(1,$id);
 
             //executeでクエリを実行
             $st->execute();
@@ -151,8 +151,10 @@ if($categoly == 1){
     $area = "乳製品";
 }elseif($categoly == 5){
     $area = "果物";
-}else{
+}elseif($categoly == 6){
     $area = "日本酒・ワイン・酒";
+}else{
+    $area = "加工品";
 }
 
 // 商品を検索する
@@ -227,15 +229,9 @@ $product_tbl = $sta->fetchAll();
     $query .= ';';
 
     // 詳しい情報の表示
-    //最後削除
-    var_dump($query);
 
     $sta = $pdo->query($query);
     $product_tbl = $sta->fetchAll();
-}
-
-if($sta != ""){
-  print "all";
 }
 
 
