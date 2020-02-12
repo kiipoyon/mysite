@@ -9,46 +9,40 @@
     <title>特産横丁</title>
 
     <link rel="stylesheet" href="css/reset.css">
-    <link rel="stylesheet" href="css/common.css">
     <link rel="stylesheet" href="css/list.css">
+    <link rel="stylesheet" href="css/common.css">
     <!-- googleアイコン -->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <script type="text/javascript" src="js/list.js"></script>
   </head>
 
   <body>
 
-
-
 <!-- ヘッダー -->
   <nav class="login">
     <a href="login.php" class="login">
-    	<?php
-
-
-     	if($flg==1){
-    	    echo "<a href='mypage.php' class='login-name'>ようこそ".$id."さん!</a>";
-    	    echo "<a href='mypage.php' class='login-name'>会員情報</a>";
-    	    echo "<a href='index.php' class='login-name'>ログアウト</a>";
-    	}else{
-    	    echo "ログイン(新規登録)";
-    	}
-
-    	?>
+      <?php
+      if($flg == 1){
+          echo "<a href='mypage.php' class='login-name'>ようこそ".$id."さん!</a>";
+          echo "<a href='mypage.php' class='login-name'>会員情報</a>";
+          echo "<a href='index.php' class='login-name'>ログアウト</a>";
+      }else{
+          echo "ログイン(新規登録)";
+      }
+      ?>
     </a>
   </nav>
   <header>
-    <h1><a href="index.html"><img src="images/rogo.jpg" alt="ろご"></a></h1>
+    <h1><a href="index.php"><img src="images/logo.png" alt="ろご"></a></h1>
 <!-- グローバルナビゲーション -->
-    <ul class="menu">
+<ul class="menu">
       <li class="menu__single">
         <a href="index.php" class="init-bottom">トップページへ</a>
       </li>
       <li class="menu__single">
-        <a href="mypage.php#tobe" class="init-bottom">お気に入り</a>
+        <a href="mypage.php#tobe2" class="init-bottom">購入履歴</a>
       </li>
       <li class="menu__single">
-        <a href="mypage.php#tobe2" class="init-bottom">購入履歴</a>
+        <a href="mypage.php#tobe1" class="init-bottom">会員情報変更</a>
       </li>
       <li class="menu__single">
         <a href="buy.php" class="init-bottom">買い物かごを見る</a>
@@ -63,12 +57,9 @@
 <!-- メインビジュアル -->
 <main>
 
-
 <div class="main">
+  <!-- サイドバー -->
   <div class="main_flex1">
-
-
-
       <p class="conditions">絞り込み条件</p>
       <p class="area_title">
         <i class="material-icons miCSS">search</i>
@@ -110,11 +101,10 @@
       </div>
   </div>
 
-
+<!-- メインコンテンツ -->
   <div class="main_flex2">
-
     <h1 id="abc"><?php echo $area?></h1>
-
+    <!-- 並べ替え -->
     <div class="cp_ipselect cp_sl02">
       <form action="list.php" method="post">
         <select id="sort" required name="sort"  onchange="this.form.submit()">
@@ -131,8 +121,6 @@
         $idx = 0;
         $col = 3; // カラム数
     ?>
-
-
         <table>
             <?php foreach ($product_tbl as $g) { ?>
               <?php if ($idx % $col == 0) { ?>
@@ -156,23 +144,16 @@
               </tr>
             <?php } ?>
         </table>
-
         <?php
           $count=$sta->rowCount();
-
           if($count == 0){
               $declaration = "該当なし";
               print $declaration;
           }
         ?>
-
-
-
-
   </div>
 </div>
 </main>
-
 
 <!-- フッター -->
 <hr>

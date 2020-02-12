@@ -9,29 +9,11 @@
     <title>特産横丁</title>
 
     <link rel="stylesheet" href="css/reset.css">
-    <link rel="stylesheet" href="css/common.css">
     <link rel="stylesheet" href="css/product_details.css">
+    <link rel="stylesheet" href="css/common.css">
     <!-- googleアイコン -->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" integrity="sha256-+N4/V/SbAFiW1MPBCXnfnP9QSN3+Keu+NlB+0ev/YKQ=" crossorigin="anonymous" />
-    <style type="text/css">
-      /* タブっぽく並べて */
-      #tabs ul {overflow:hidden; height:2em; list-style:none; border-bottom:1px solid #cccccc;}
-      #tabs li {float:left; display:inline; margin-left:10px; padding:5px; border:1px solid #ccc; border-bottom:none; border-radius:10px 10px 0 0;}
-      /* 最初はパネルは非表示 */
-      #tabs .panel {display:none;}
-    </style>
-<script type="text/javascript" src="js/jquery-3.4.1.min.js"></script>
-<script type="text/javascript">
-$(function() {
-  $('#tabs a[href^="#panel"]').click(function(){
-    $("#tabs .panel").hide();
-    $(this.hash).fadeIn();
-    return false;
-  });
-  $('#tabs a[href^="#panel"]:eq(0)').trigger('click');
-})
-</script>
   </head>
 
   <body>
@@ -39,8 +21,6 @@ $(function() {
     <nav class="login">
     <a href="login.php" class="login">
     	<?php
-
-
      	if($flg==1){
     	    echo "<a href='mypage.php' class='login-name'>ようこそ".$id."さん!</a>";
     	    echo "<a href='mypage.php' class='login-name'>会員情報</a>";
@@ -48,12 +28,11 @@ $(function() {
     	}else{
     	    echo "ログイン(新規登録)";
     	}
-
     	?>
     </a>
   </nav>
   <header>
-    <h1><a href="index.html"><img src="images/rogo.jpg" alt="ろご"></a></h1>
+    <h1><a href="index.php"><img src="images/logo.png" alt="ろご"></a></h1>
 <!-- グローバルナビゲーション -->
     <ul class="menu">
       <li class="menu__single">
@@ -139,7 +118,7 @@ $(document).ready(function(){
         <div class="container">
 
             <div class="container_flex1">
-              <img src="images/<?php echo $g['product_id'] ?>.jpg">
+              <img src="images/<?php echo $g['images'] ?>">
             </div>
 
             <div class="container_flex2">
