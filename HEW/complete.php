@@ -14,12 +14,8 @@
   </head>
 
   <body>
-<!-- ヘッダー -->
-  <nav class="login">
-    <a href="login.php" class="login">ログイン（新規登録）</a>
-  </nav>
   <header>
-    <h1><a href="index.php"><img src="images/rogo.jpg" alt="ろご"></a></h1>
+    <h1><a href="index.php"><img src="images/logo.png" alt="ろご"></a></h1>
 <!-- グローバルナビゲーション -->
     <ul class="menu">
       <li class="menu__single">
