@@ -135,7 +135,7 @@ if(!empty($id) && !empty($password)){
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
     <script src="js/common.js"></script>
     <script type="text/javascript" src="slick/slick.min.js"></script>
-      <a href="index.php"><img class="rogo" src="images/rogo.jpg" alt="ろご"></a>
+      <a href="index.php"><img class="rogo" src="images/logo.png" alt="ろご"></a>
 
 <!-- グローバルナビゲーション -->
     <ul class="menu">
