@@ -186,7 +186,7 @@ $(function() {
 <script src="js/mailaddress.js"></script>
 <script>
 $(document).ready(function(){
-  $(".email").emailautocomplete({ //補完機能をつけたい箇所を指定
+  $(".request_email").emailautocomplete({ //補完機能をつけたい箇所を指定
     domains: ["yahoo.co.jp", "gmail.com", "gmail.com", "ezweb.ne.jp", "au.com", "docomo.ne.jp", "i.softbank.jp", "softbank.ne.jp", "excite.co.jp", "googlemail.com", "hotmail.com", "icloud.com", "live.jp", "me.com", "mineo.jp", "nifty.com", "outlook.com", "outlook.jp", "yahoo.ne.jp", "ybb.ne.jp", "ymobile.ne.jp", ] //補完機能に追加したいドメインを記述
   });
 });
