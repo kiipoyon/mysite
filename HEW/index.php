@@ -1,30 +1,11 @@
 <?php
-//COPYRIGHT="All Rights Reserved. Copyright 2019 (C) HAL.AC.JP"
-//
-/*
- * ショッピングカート
- *
- * ファイル名　　：　index.php
- * ファイル説明　：　初期処理
- * 　　　　　　　　　
- * 更新履歴		更新日	  担当者	内容
- *　1.0.0	 2019/05/01	  HAL石丸	新規作成
- *
- */
-
 // 共通部品を呼び出す
 require 'common/common.php';
 // データベースに接続する
-
-
-
-
+$pdo = connect();
 
 $protocol = empty($_SERVER["HTTPS"]) ? "http://" : "https://";
 $thisurl = $protocol . $_SERVER["HTTP_HOST"] . $_SERVER["REQUEST_URI"];
-
-
-$pdo = connect();
 
 $flg=0;
 
@@ -52,10 +33,6 @@ $flg=0;
         $password=$_SESSION["password"];
       }
 
-
-
-
-
   	 //IDとパスワードが一致しているか確認する
   	 if(!empty($id) && !empty($password)){
 
@@ -65,8 +42,6 @@ $flg=0;
 
             //ログイン情報を検索し、検索結果をステートメントに設定する($loginidはPOSTで持ってきたもの) ここをprepareにする
             $st=$pdo->prepare("SELECT * FROM user_tbl WHERE user_id=?");
-
-            //$id = $_POST['id']; // ユーザーIDをセッション変数にセット
 
             //bindValueメソッドでパラメータをセット
             $st->bindValue(1,$id);
@@ -81,16 +56,17 @@ $flg=0;
             $flg=0;
 
             if(password_verify($password, $logininfo['password'])){
+                $flg=1;
+                session_regenerate_id(true); // セッションIDをふりなおす
+                $_SESSION['roginid'] = $id; // ユーザーIDをセッション変数にセット
+                $_SESSION['password'] = $password;
+                //2段階認証の処理
                 if(!empty($logininfo['secret_id'])){
                     //header ('location:onetimea.php');
                     echo"入ってる";
                 }else{
                     echo"入ってない";
                 }
-                $flg=1;
-                session_regenerate_id(true); // セッションIDをふりなおす
-                $_SESSION['roginid'] = $id; // ユーザーIDをセッション変数にセット
-                $_SESSION['password'] = $password;
             }else{
             }
 
