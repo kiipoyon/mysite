@@ -330,8 +330,8 @@ if (isset($_POST['signup'])) {
       <br>
 
       <div>
-      <input type="submit" value="次へ" class="button" name ="signup">
       <input type="reset" value="クリア" class="button">
+      <input type="submit" value="次へ" class="button" name ="signup">
       </div>
     </form>
 

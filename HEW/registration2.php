@@ -226,8 +226,8 @@ if (isset($_POST['signup_last'])) {
       <br>
 
       <div>
-        <input type="submit" value="次へ" class="button" name ="signup_last">
         <input type="button" value="修正" class="button" onclick="history.back()">
+        <input type="submit" value="次へ" class="button" name ="signup_last">
       </div>
     </form>
 
