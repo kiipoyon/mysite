@@ -16,10 +16,10 @@ img{
   vertical-align: bottom;
 }
 
-a:link{color: #0000ee; text-decoration: none;}
-a:visited{color: #551a8b;}
+a:link{color: #b16a23; text-decoration: none;}
+a:visited{color: #b16a23;}
 a:hover{}
-a:active{color: #ff0000;}
+a:active{color: #b16a23;}
 
 nav.login{
   margin: 15px 0 20px 0;
@@ -46,11 +46,11 @@ a.login{
     min-width: 9em;
     height: 45px;
     line-height: 45px;
-    background: #516ab6;/*背景色*/
+    background: #d5802b;/*背景色*/
 }
 
 .menu > li:hover {
-    background: #00bfff;
+    opacity: 0.9;
     -webkit-transition: all .2s;
     transition: all .2s;
 }
