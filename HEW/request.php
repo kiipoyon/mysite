@@ -310,7 +310,7 @@ $(document).ready(function(){
         </tr>
         <tr>
           <td class="i_first"><span>＊</span>メールアドレス</td>
-          <td colspan="2" class="i_connect"><input type="email" id="i_t6" class="inquiry_email" name="mail" placeholder="tokusan@email.com"></td>
+          <td colspan="2" class="i_connect"><input type="email" id="i_t6" class="request_email" name="mail" placeholder="tokusan@email.com"></td>
           <td class="i_fourth"><span id="i_msg6"></span></td>
         </tr>
         <tr>
