@@ -104,6 +104,7 @@ if (isset($_POST['signup'])) {
 
     <title>特産横丁</title>
 
+    <link rel="stylesheet" href="css/common.css">
     <link rel="stylesheet" href="css/reset.css">
     <link rel="stylesheet" href="css/registration.css">
   </head>
