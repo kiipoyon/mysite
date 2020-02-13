@@ -2,9 +2,9 @@
 
 require 'common/common.php';
 
-
 // データベースに接続する
 $pdo = connect();
+
 $flg=0;
 
 //ログインボタンが押された場合
@@ -37,6 +37,7 @@ if (isset ($_SESSION['roginid'])) {
 
 //IDとパスワードが一致しているか確認する
 if(!empty($id) && !empty($password)){
+
 
 
     //データベースに接続する
@@ -95,9 +96,12 @@ if(!empty($id) && !empty($password)){
 }
 
       //購入履歴の表示
-      $st = $pdo->query("SELECT product_id FROM order_tbl
-                        group by product_id
-                        ORDER BY product_id");
+      $st = $pdo->query("SELECT * FROM orderdetails_tbl
+                        INNER JOIN product_tbl 
+                        ON orderdetails_tbl.product_id = product_tbl.product_id
+                        GROUP BY orderdetails_tbl.product_id
+                        ORDER BY orderdetails_tbl.product_id");
+
       $order_tbl = $st->fetchAll();
 
 ?>
@@ -232,7 +236,7 @@ if(!empty($id) && !empty($password)){
       <?php foreach ($order_tbl as $g) {
     ?>
         <div>
-          <a href="mypage.php?iddd=<?php echo $g['product_id'] ?>" method="GET">
+          <a href="product_details.php?iddd=<?php echo $g['product_id'] ?>" method="GET">
             <img class="gazou" src="images/<?php echo $g['images'] ?>">
             <p><?php echo nl2br($g['product_name']) ?></p>
             <p><?php echo nl2br($g['producing_area']) ?></p>
