@@ -2,24 +2,16 @@
 
 /* 共通のスタイル */
 
-body{
-  font-size: 1em;
-  line-height: 1.6em;
-  color: #000000;
-  background-color: #F4FBFF;
+/* ナビ */
+ul.menu {
+  position: relative;
+  width: 100%;
+  height: 50px;
+  max-width: 1100px;
+  margin: 30px auto 80px auto;
   text-align: center;
-  margin: 0 auto;
-  width: 90%;
+  list-style: none;
 }
-
-img{
-  vertical-align: bottom;
-}
-
-a:link{color: #0000ee;}
-a:visited{color: #551a8b;}
-a:hover{}
-a:active{color: #ff0000;}
 
 .login-name{
   margin-left: 900px;
@@ -36,8 +28,6 @@ div.login-name div a:link{
 div.login-name div a:visited{
   color: #fff;
 }
-
-
 
 /*スライダーの設定*/
 .slider{
@@ -85,4 +75,55 @@ h1.midasi{
 }
 
 
+
+
+/* 会員情報変更 */
+
+/* マウスオーバー時のサブメニュー */
+
+
+.changemenu {
+  overflow: hidden;
+  width: 750px;
+  margin: 0 auto;
+  padding: 0;
+  display: flex;
+}
+.changemenu li {
+  list-style: none;
+}
+.changemenu li a {
+  display: block;
+  width: 150px;
+  height: 40px;
+  text-align: center;
+  color: #fff;
+  font-size: 14px;
+  line-height: 2.8;
+  background: #d5802b;
+  text-decoration: none;
+  border-right: 1px solid #eee;
+  box-sizing: border-box;
+}
+.changemenu > li:hover > a {/*layer-1*/
+  opacity: 0.9;
+}
+.changemenu li ul {
+  width: 150px;
+  display: none;
+  margin-left: -40px;
+  position: absolute;
+  margin-bottom:100px;
+}
+.changemenu > li li:hover > a {/*layer-2*/
+  color: olive;
+  background: #afc6e2;
+}
+.changemenu li ul li a {
+  border-top: 1px solid #eee;
+}
+
+.a{
+  margin: 0 50px ; 50px;
+}
 
