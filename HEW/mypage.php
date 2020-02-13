@@ -2,6 +2,9 @@
 
 require 'common/common.php';
 
+
+// データベースに接続する
+$pdo = connect();
 $flg=0;
 
 //ログインボタンが押された場合
@@ -89,9 +92,13 @@ if(!empty($id) && !empty($password)){
         $name=$login2['name'];
     }
 
-
 }
 
+      //購入履歴の表示
+      $st = $pdo->query("SELECT product_id FROM order_tbl
+                        group by product_id
+                        ORDER BY product_id");
+      $order_tbl = $st->fetchAll();
 
 ?>
 
@@ -220,14 +227,19 @@ if(!empty($id) && !empty($password)){
 
   </main>
        <section id="tobe2"><h1 class="midasi">購入履歴</h1></section>
-        <div class="multiple">
-        <div><a href="#"><img src="images/3.jpg" alt=""></a></div>
-        <div><a href="#"><img src="images/4.jpg" alt=""></a></div>
-        <div><a href="#"><img src="images/5.jpg" alt=""></a></div>
-        <div><a href="#"><img src="images/7.jpg" alt=""></a></div>
-        <div><a href="#"><img src="images/3.jpg" alt=""></a></div>
-        <div><a href="#"><img src="images/3.jpg" alt=""></a></div>
 
+    <div class="multiple">
+      <?php foreach ($order_tbl as $g) {
+    ?>
+        <div>
+          <a href="mypage.php?iddd=<?php echo $g['product_id'] ?>" method="GET">
+            <img class="gazou" src="images/<?php echo $g['images'] ?>">
+            <p><?php echo nl2br($g['product_name']) ?></p>
+            <p><?php echo nl2br($g['producing_area']) ?></p>
+            <p class="price"><?php echo($g['price']) ?>円</p>
+          </a>
+        </div>
+      <?php } ?>
     </div>
     <script type="text/javascript">
       $('.multiple').slick({
