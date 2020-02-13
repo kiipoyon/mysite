@@ -147,10 +147,6 @@ $(document).ready(function(){
                     <input type = "submit" name = "submit" value = "&#xf07a; カートに入れる" class="fas cart fa-lg">
                 </form>
                 <?php } ?>
-
-              <form action="#" method="POST" id="contact">
-                <input type="submit" value="&#xf004; お気に入り追加" class="fas favorite fa-lg">
-              </form>
             </div>
         </div>
     </div>
