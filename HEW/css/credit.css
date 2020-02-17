@@ -67,7 +67,7 @@ h1.credith1{
 }
 
 .creditinfo{
-  margin: 20px 0 20px 20px;
+  margin: 20px 0 20px 0px;
   text-align: left;
   border-spacing: 5px 0;
 }
@@ -84,22 +84,22 @@ h1.credith1{
 }
 
 .input_mon{
-  margin: 0 10px 0 20px;
+
   height: 30px;
-  width: 50px;
+  width: 30px;
+  margin-right: 10px;
   border-radius: 5px;
 }
 
 .input_year{
-  margin: 0 10px 0 0;
   height: 30px;
-  width: 70px;
+  width: 30px;
   border-radius: 5px;
 }
 
 .input_name{
   height: 30px;
-  width: 250px;
+  width: 200px;
   border-radius: 5px;
 }
 
