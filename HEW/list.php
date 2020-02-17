@@ -1,21 +1,9 @@
 <?php
-//COPYRIGHT="All Rights Reserved. Copyright 2019 (C) HAL.AC.JP"
-//
-/*
- * ファイル名　　：　list.php
- * ファイル説明　：　初期処理
- * 　　　　　　　　　
- * 更新履歴		更新日	  担当者	内容
- *　1.0.0	 2019/05/01	  HAL石丸	新規作成
- *
- */
-
-
-
 // 共通部品を呼び出す
 require 'common/common.php';
 // データベースに接続する
 $pdo = connect();
+
 
 $flg=0;
 
@@ -43,10 +31,6 @@ $flg=0;
         $password=$_SESSION["password"];
       }
 
-
-
-
-
   	 //IDとパスワードが一致しているか確認する
   	 if(!empty($id) && !empty($password)){
 
@@ -71,25 +55,13 @@ $flg=0;
             //ログイン成功フラグを初期化する（ログイン成功フラグ＝０にする）
             $flg=0;
             //パスワードが一致しているかどうかチェックする
-            //foreach($logininfo as $login){
-            //ログイン情報のパスワードと画面d入力したパスワードが一致しているか比較する
-
-
-
-
-
             if(password_verify($password, $logininfo['password'])){
-            print '認証成功';
             $flg=1;
             session_regenerate_id(true); // セッションIDをふりなおす
             $_SESSION['roginid'] = $id; // ユーザーIDをセッション変数にセット
             $_SESSION['password'] = $password;
             }else{
-            print '認証成功しない';
             }
-
-          //}
-
 
           $st2=$pdo->prepare("select name from user_details_tbl where user_id=?");
           //bindValueメソッドでパラメータをセット
@@ -103,18 +75,18 @@ $flg=0;
           foreach($logininfo2 as $login2){
               $name=$login2['name'];
           }
-
-
       }
 
+    //一ページに表示する記事の数をmax_viewに定数として定義
+    define('max_view',9);
 
 
 
-// idを受け取っているかの判断
-if (isset($_GET['idd'])) {
-    $idd = $_GET['idd'];
+if(isset($_POST['hogehoge_status'])){
+    $idd = $_POST['hogehoge_status'];
     $area = "";
 
+//地図から検索
 if ($idd == 1) {
     $area = "北海道";
 }elseif($idd == 2){
@@ -131,14 +103,23 @@ if ($idd == 1) {
     $area = "九州・沖縄";
 }
 
-// 商品を検索する
+    //商品を検索する
+    //基本の構文
     $sta = $pdo->query("SELECT * FROM product_tbl WHERE region = $idd");
-    $product_tbl = $sta->fetchAll();
+    //$product_tbl = $sta->fetchAll();
+    $sta = " WHERE region = $idd ";
 
-    var_dump($sta);
+    //sql文をセッションに入れる
+    $_SESSION['sql'] = $sta;
 
-}elseif (isset($_GET['categoly'])) {
-    $categoly = $_GET['categoly'];
+
+
+
+
+
+//カテゴリーを検索
+}elseif (isset($_POST['categoly'])) {
+    $categoly = $_POST['categoly'];
     $area = "";
 
 if($categoly == 1){
@@ -157,82 +138,126 @@ if($categoly == 1){
     $area = "加工品";
 }
 
-// 商品を検索する
-$sta = $pdo->query("SELECT * FROM product_tbl WHERE $categoly = categoly");
-$product_tbl = $sta->fetchAll();
+    // 商品を検索する
+    //基本の構文
+    $sta = $pdo->query("SELECT * FROM product_tbl WHERE $categoly = categoly");
+    //$product_tbl = $sta->fetchAll();
+
+    $sta = " WHERE $categoly = categoly ";
+
+    //sql文をセッションに入れる
+    $_SESSION['sql'] = $sta;
 
 
 
-}else{
+
+
+
+}elseif (isset($_POST['submit'])){
     //詳細検索をする
-    //クエリの生成
-    $query = "SELECT * FROM product_tbl";
     $area = "検索結果";
-    $where ="";
+    $sta = "";
     //ジャンルで検索
     if(!empty($_POST["genre"])){
         $genre = $_POST["genre"];
-        var_dump($genre);
-        $where .= " categoly = '$genre' AND";
+        $sta .= " categoly = '$genre' AND";
     }
     //キーワードで検索
     if(!empty($_POST["keyword"])){
         $keyword = $_POST["keyword"];
-        $where .= " product_name LIKE '%$keyword%' AND";
+        $sta .= " product_name LIKE '%$keyword%' AND";
     }
     //価格で検索
     if(!empty($_POST["mini"])){
         $mini = $_POST["mini"];
-        $where .= " price >='$mini' AND";
+        $sta .= " price >='$mini' AND";
     }
     if(!empty($_POST["max"])){
         $max = $_POST["max"];
-        $where .= " price <='$max'  AND";
-    }
-    //最後のANDがあった場合は削除
-    $where = rtrim($where, 'AND'); 
-
-    //$whereの中身がある場合は$queryにWHEREを付けて追加する。
-    if(!empty($where)) {
-        $query .= " WHERE";
-        $query .= " $where ";
+        $sta .= " price <='$max' AND";
     }
 
 
+    if(!empty($sta)){
+        //最後のANDがあった場合は削除
+        $sta = rtrim($sta, 'AND');
+        $where = " WHERE";
+        $where .= $sta;
+        $sta = $where;
+        //sql文をセッションに入れる
+        $_SESSION['sql'] = $sta;
+    }else{
+        $_SESSION['sql'] = $sta;
+    }
 
     //sortを指定
     if(!empty($_POST["sort"])){
         $sort = $_POST["sort"];
         if($sort == "cheap_price"){
-            print $sort;
             $sort1 = "price";
             $query = rtrim($query, 'WHERE');
             $query .= " ORDER BY ";
             $query .= " $sort1 ";
             $query .= " ASC";
         }elseif($sort == "high_price"){
-            print $sort;
             $sort1 = "price";
             $query = rtrim($query, 'WHERE');
             $query .= " ORDER BY ";
             $query .= " $sort1 ";
             $query .= " DESC";
         }else{
-        print $sort;
         $query = rtrim($query, 'WHERE');
         $query .= " ORDER BY ";
         $query .= " $sort ";
         $query .= " DESC";
         }
     }
-    // SQL文の最後
-    $query .= ';';
 
-    // 詳しい情報の表示
-
-    $sta = $pdo->query($query);
-    $product_tbl = $sta->fetchAll();
+}else{
+    $sta = "";
 }
+
+        if(isset($_SESSION['sql'])){
+            $sta = $_SESSION['sql'];
+        }
+
+        //必要なページ数を求める
+        $count = "SELECT COUNT(*) AS count FROM product_tbl";
+        $count .= $sta;
+        $count = $pdo->prepare($count);
+        $count->execute();
+        var_dump($count);
+        $total_count = $count->fetch(PDO::FETCH_ASSOC);
+        var_dump($total_count);
+        $pages = ceil($total_count['count'] / max_view);
+        var_dump($pages);
+
+        //現在いるページのページ番号を取得
+        if(!isset($_GET['page_id'])){ 
+            $now = 1;
+        }else{
+            $now = $_GET['page_id'];
+        }
+
+        //基本構文
+        $def = "SELECT * FROM product_tbl ";
+        $def .= $sta;
+        $def .= " LIMIT :start,:max ";
+        //表示する記事を取得するSQLを準備
+        $select = $pdo->prepare($def);
+
+        if ($now == 1){
+        //1ページ目の処理
+                $select->bindValue(":start",$now -1,PDO::PARAM_INT);
+                $select->bindValue(":max",max_view,PDO::PARAM_INT);
+            } else {
+        //1ページ目以外の処理
+                $select->bindValue(":start",($now -1 ) * max_view,PDO::PARAM_INT);
+                $select->bindValue(":max",max_view,PDO::PARAM_INT);
+            }
+        //実行し結果を取り出しておく
+            $select->execute();
+            $data = $select->fetchAll(PDO::FETCH_ASSOC);
 
 
 

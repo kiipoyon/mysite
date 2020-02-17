@@ -36,7 +36,6 @@ $flg=0;
   	 //IDとパスワードが一致しているか確認する
   	 if(!empty($id) && !empty($password)){
 
-        
             //データベースに接続する
             $pdo=new PDO('mysql:host=localhost;dbname=haldb;charset=utf8','dbadmin','dbadmin');
 
@@ -60,12 +59,15 @@ $flg=0;
                 session_regenerate_id(true); // セッションIDをふりなおす
                 $_SESSION['roginid'] = $id; // ユーザーIDをセッション変数にセット
                 $_SESSION['password'] = $password;
-                //2段階認証の処理
-                if(!empty($logininfo['secret_id'])){
-                    //header ('location:onetimea.php');
-                    echo"入ってる";
+                if(isset($logininfo['secret_id'])){
+                    //2段階認証
+                    if(isset($_SESSION['secret_id'])){
+                    echo "入っている";
+                    }else{
+                    header ('location:onetimea.php');
+                    }
                 }else{
-                    echo"入ってない";
+                    echo "入っていない";
                 }
             }else{
             }
@@ -95,7 +97,7 @@ $flg=0;
                         ORDER BY SUM(orderdetails_tbl.quantity) DESC");
       $product_tbl = $st->fetchAll();
 
-      $sta = $pdo->query("SELECT * FROM product_tbl");
+      $sta = $pdo->query("SELECT * FROM product_tbl LIMIT 10");
       $producta_tbl = $sta->fetchAll();
 
     // 最初の画面を表示する

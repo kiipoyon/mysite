@@ -1,19 +1,4 @@
 <?php
-//COPYRIGHT="All Rights Reserved. Copyright 2019 (C) HAL.AC.JP"
-//
-/*
- * ショッピングカート
- *
- * ファイル名　　：　index.php
- * ファイル説明　：　初期処理
- * 　　　　　　　　　
- * 更新履歴		更新日	  担当者	内容
- *　1.0.0	 2019/05/01	  HAL石丸	新規作成
- *
- */
-
-
-
 // 共通部品を呼び出す
 require 'common/common.php';
 // Daoを呼び出す
@@ -81,7 +66,8 @@ $flg=0;
             print '認証成功しない';
             }
 
-          $st2=$pdo->prepare("select name from user_details_tbl where user_id=?");
+          $st2=$pdo->prepare("SELECT * FROM user_details_tbl WHERE user_id=?");
+          
           //bindValueメソッドでパラメータをセット
           $st2->bindValue(1,$id);
 
@@ -90,32 +76,85 @@ $flg=0;
 
           $logininfo2=$st2->fetchAll();
 
-          foreach($logininfo2 as $login2){
-              $name=$login2['name'];
-          }
+          $st3=$pdo->prepare("SELECT * FROM credit_tbl WHERE user_id=?");
+          
+          //bindValueメソッドでパラメータをセット
+          $st3->bindValue(1,$id);
+
+          //executeでクエリを実行
+          $st3->execute();
+
+          $logininfo3=$st3->fetchAll();
+          
+
       }
 
     if (isset ($_SESSION['sum'])) {
         // セッション情報の取得
         $sum = $_SESSION['sum'];
+        echo $sum;
       }else{
         //買い物かごの中身が無ければ商品一覧を表示する
         header("Location: list.php");
        exit;
       }
 
-foreach($_SESSION['cart'] as $code => $num) {
-    // 商品テーブルを検索する
-    $goods_dao = new GoodsDao();
-    $goods = new Goods();
-    $goods = $goods_dao->getGoodsByCode($code);
-
-    $goods->setNum($num);
-
-    strip_tags($num);
-    $sum += $num * $goods->getPrice();
-    $rows[] = $goods;
+    // カート内商品点数分繰り返す
+    foreach($_SESSION['cart'] as $code => $num) {
+      // 商品テーブルを検索する
+      $goods_dao = new GoodsDao();
+      $goods = new Goods();
+      $goods = $goods_dao->getGoodsByCode($code);
+  
+      $goods->setNum($num);
+  
+      strip_tags($num);
+      $rows[] = $goods;
     }
+
+
+        // サブミットボタンが押された場合
+        if (@$_POST['submit']) {
+
+          $method = $_POST['method'];
+          $card_no = $_POST['card_no'];
+          $expiration_month = $_POST['expiration_month'];
+          $expiration_year = $_POST['expiration_year'];
+          $nominee = $_POST['nominee'];
+          $delivery = $_POST['delivery'];
+          $delivery_day = $_POST['delivery_day'];
+          $delivery_time = $_POST['delivery_time'];
+          //注文ID作成
+          $res = null;
+          $string_length = 26;
+          $base_string = ['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z','A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z',0,1,2,3,4,5,6,7,8,9];
+  
+          for( $i=0; $i<$string_length; $i++ ) {
+              $res .= $base_string[mt_rand( 0, count($base_string)-1)];
+          }
+
+          $_SESSION["res"] = $res;
+  
+          var_dump($res);
+
+          foreach($_SESSION['cart'] as $code => $num) {
+            //execメソッドでクエリを実行。insert文を実行した場合挿入件数が戻り値として返る
+            $count = $pdo->exec("INSERT INTO order_tbl(order_id,product_id,method,card_no,expiration_month,expiration_year,nominee,delivery,delivery_day,delivery_time,Destination)
+            VALUES('','$code','$method','$card_no','$expiration_month','$expiration_year','$nominee','$delivery','$delivery_day','$delivery_time','$res')");
+            }
+            echo "{$count}件データを挿入しました。".PHP_EOL;
+            
+          foreach($_SESSION['cart'] as $code => $num) {
+            //execメソッドでクエリを実行。insert文を実行した場合挿入件数が戻り値として返る
+            $count1 = $pdo->exec("INSERT INTO orderdetails_tbl(order_id,user_id,product_id,quantity,order_no)
+            VALUES('','$id','$code','$num','$res')");
+            }
+            echo "{$count1}件データを挿入しました。".PHP_EOL;
+
+
+          header("Location: buyout.php");
+
+        }
 
 //再送信のエラーを消す
 header('Expires: -1');

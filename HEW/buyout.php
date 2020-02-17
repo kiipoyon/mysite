@@ -46,8 +46,6 @@ $flg=0;
             //ログイン情報を検索し、検索結果をステートメントに設定する($loginidはPOSTで持ってきたもの) ここをprepareにする
             $st=$pdo->prepare("SELECT * FROM user_tbl WHERE user_id=?");
 
-            //$id = $_POST['id']; // ユーザーIDをセッション変数にセット
-
             //bindValueメソッドでパラメータをセット
             $st->bindValue(1,$id);
 
@@ -56,17 +54,11 @@ $flg=0;
 
             //処理結果を配列logininfoに設定する loginidが主キーならこの処理はいらない
             $logininfo=$st->fetch();
+            var_dump($logininfo);
 
             //ログイン成功フラグを初期化する（ログイン成功フラグ＝０にする）
             $flg=0;
             //パスワードが一致しているかどうかチェックする
-            //foreach($logininfo as $login){
-            //ログイン情報のパスワードと画面d入力したパスワードが一致しているか比較する
-
-
-
-
-
             if(password_verify($password, $logininfo['password'])){
             print '認証成功';
             $flg=1;
@@ -77,40 +69,10 @@ $flg=0;
             print '認証成功しない';
             }
 
-          //}
-
-
-          $st2=$pdo->prepare("select name from user_details_tbl where user_id=?");
-          //bindValueメソッドでパラメータをセット
-          $st2->bindValue(1,$id);
-
-          //executeでクエリを実行
-          $st2->execute();
-
-          $logininfo2=$st2->fetchAll();
-
-          foreach($logininfo2 as $login2){
-              $name=$login2['name'];
-          }
-
-
       }
 
 
-    // サブミットボタンが押された場合
-    if (@$_POST['submit']) {
-        // HTTP POSTから入力項目を取得する
 
-        $method = $_POST['method'];
-        echo $method;
-        $card_no = $_POST['card_no'];
-        $expiration_month = $_POST['expiration_month'];
-        $expiration_year = $_POST['expiration_year'];
-        $nominee = $_POST['nominee'];
-        $delivery = $_POST['delivery'];
-        $delivery_day = $_POST['delivery_day'];
-        $delivery_time = $_POST['delivery_time'];
-        $Destination = "fff";
 
 
 
@@ -130,14 +92,25 @@ $flg=0;
         $sum += $num * $goods->getPrice();
         $rows[] = $goods;
         }
+
+        $res = $_SESSION["res"];
+
 //PDOオブジェクトの生成
 $pdo = new PDO('mysql:host=localhost;dbname=haldb;charset=utf8','dbadmin','dbadmin');
 
-//execメソッドでクエリを実行。insert文を実行した場合挿入件数が戻り値として返る
-$count = $pdo->exec("INSERT INTO order_tbl(order_id,product_id,method,card_no,expiration_month,expiration_year,nominee,delivery,delivery_day,delivery_time,Destination)
-VALUES('','$id','$method','$card_no','$expiration_month','$expiration_year','$nominee','$delivery','$delivery_day','$delivery_time','$Destination')");
 
-echo "{$count}件データを挿入しました。".PHP_EOL;
+            $lo = "SELECT * FROM orderdetails_tbl
+            INNER JOIN product_tbl
+            ON orderdetails_tbl.product_id = product_tbl.product_id
+            where orderdetails_tbl.order_no= '$res'";
+
+
+            var_dump($lo);
+            //処理結果を配列logininfoに設定する loginidが主キーならこの処理はいらない
+	// SQL実行
+	$log = $pdo->query($lo);
+
+            var_dump($log);
 
 // 変数とタイムゾーンを初期化
 $auto_reply_subject = null;
@@ -147,24 +120,27 @@ date_default_timezone_set('Asia/Tokyo');
 // 件名を設定
 $auto_reply_subject = 'ご購入ありがとうございます。';
 
+
+
 // 本文を設定
-$auto_reply_text = "この度は、お問い合わせ頂き誠にありがとうございます。
-下記の内容でお問い合わせを受け付けました。\n\n";
-$auto_reply_text .= "お問い合わせ日時：" . date("Y-m-d H:i") . "\n";
-$auto_reply_text .= "" . "\n";
-$auto_reply_text .= "メールアドレス：" . "k.ishimaru0821@gmail.com" . "\n\n";
-$auto_reply_text .= "GRAYCODE 事務局";
+$auto_reply_text = "この度は、ご購入頂き誠にありがとうございます。\n下記の内容で注文を受け付けました。\n\n";
+$auto_reply_text .= "ご注文内容：" . "\n";
+$auto_reply_text .= "ご注文番号：" . $res . "\n";
+$auto_reply_text .= "ご注文日時：" . date("Y-m-d H:i") . "\n";
+// 取得したデータを出力
+foreach( $log as $logber ) {
+$auto_reply_text .= "商品名：" . "$logber[product_name] ". "\n\n";
+$auto_reply_text .= "価格：" . "$logber[price] ". "\n\n";
+}
+$auto_reply_text .= "あなたのユーザーID：" . $id . "\n";
+//$auto_reply_text .= "メールアドレス：" . $loginin['mail_address'] . "\n\n";
+$auto_reply_text .= "特産横丁";
 
 // メール送信
 mb_send_mail("k.ishimaru0821@gmail.com", $auto_reply_subject, $auto_reply_text);
 
 
-foreach($_SESSION['cart'] as $code => $num) {
-//execメソッドでクエリを実行。insert文を実行した場合挿入件数が戻り値として返る
-$count1 = $pdo->exec("INSERT INTO orderdetails_tbl(order_id,user_id,product_id,quantity)
-VALUES('','$id','$code','$num')");
-        }
-    }
+
 
 
 
