@@ -45,7 +45,7 @@
     <td>
         <h1 class="credith1">お支払方法</h1>
 <!-- ――――――――――――――――――――左側テーブル内テーブル１―――――――――――――――――――― -->
-      <form action="buyout.php" method="POST">
+      <form action="" method="POST">
       <table class="creditcard">
         <tr>
           <td colspan="2">
@@ -65,60 +65,31 @@
 
 <!-- ――――――――――――――――――――左側テーブル内テーブル２―――――――――――――――――――― -->
       <table class="creditinfo">
+      <?php foreach ($logininfo3 as $g) { ?>
         <tr>
+          <td>
+          <?php
+            $get = substr(($g['expiration_date']),2);
+            $left = substr(($g['expiration_date']),0,2);
+          ?>
+          </td>
           <td><p>カード番号</p>
-          <input type="text" id="disable1" class="input_num" name="card_no" placeholder="0000 0000 0000 0000"></td>
+          <input type="text" id="disable1" class="input_num" name="card_no" placeholder="0000 0000 0000 0000" value="<?php echo($g['credit_number']) ?>"></td>
           <td><p>　有効期限</p>
-      <label>
-        <select id="disable2" name="expiration_month" class="input_mon">
-          <option value="月">月
-          <option value="1">1
-          <option value="2">2
-          <option value="3">3
-          <option value="4">4
-          <option value="5">5
-          <option value="6">6
-          <option value="7">7
-          <option value="8">8
-          <option value="9">9
-          <option value="10">10
-          <option value="11">11
-          <option value="12">12
-        </select>
-      </label>
-      <label>
-        <select id="disable3" name="expiration_year" class="input_year">
-          <option value="年">年
-          <option value="2019">2019
-          <option value="2020">2020
-          <option value="2021">2021
-          <option value="2022">2022
-          <option value="2023">2023
-          <option value="2024">2024
-          <option value="2025">2025
-          <option value="2026">2026
-          <option value="2027">2027
-          <option value="2028">2028
-          <option value="2029">2029
-          <option value="2030">2030
-          <option value="2031">2031
-          <option value="2032">2032
-          <option value="2033">2033
-          <option value="2034">2034
-          <option value="2035">2035
-          <option value="2036">2036
-          <option value="2037">2037
-          <option value="2038">2038
-          </select>
-        </label>
-        </td>
+            <div style="display:inline-flex">
+              <input type="text" id="disable2" class="input_mon" name="expiration_month" placeholder="年" value="<?php print($get) ?>">
+
+              <input type="text" id="disable3" class="input_year" name="expiration_year" placeholder="月" value="<?php print($left); ?>">
+            </div>
+          </td>
         </tr>
         <tr>
           <td colspan="2">
             <p>カードに記載された名前</p>
-        <div><input type="text" id="disable4" class="input_name" name="nominee" placeholder="TARO TOKUSAN"></div>
+        <div><input type="text" id="disable4" class="input_name" name="nominee" placeholder="TARO TOKUSAN" value="<?php echo($g['nominee'])?>"></div>
           </td>
         </tr>
+        <?php } ?>
         </table>
       <input type="submit" id="disable5"  class="card" value="カード情報の追加"><br>
 <!-- ――――――――――――――――――――左側テーブル内テーブル３―――――――――――――――――――― -->
@@ -226,24 +197,16 @@
           <td>
   <tr>
     <td>
-      <h1 class="credith1">送付先</h1>
-        <p id="jyuusyo" class="addtext">
-          <div class="text01">
-          〒450-0002<br>
-          愛知県名古屋市中村区<br>
-          名駅4丁目27-1<br>
-          総合校舎スパイラルタワーズ
-          </div>
-        </p>
-        <p id="jyuusyo" class="addtext">
-          <div class="text02">
-          〒450-0002<br>
-          愛知県名古屋市中村区<br>
-          名駅４丁目２７−１<br>
-          ファミリーマート内
-          </div>
-        </p>
-        <input class="addtext" type="button" value="変更">
+    <?php foreach ($logininfo2 as $g) { ?>
+        <h1 class="credith1">送付先</h1>
+          <p id="jyuusyo" class="addtext">
+              <div class="text01">
+                <p>〒<?php echo($g['postal_code']) ?></p>
+                <p><?php echo($g['street_address']) ?></p>
+              </div>
+              </p>
+              <input class="addtext" type="submit" value="変更" name="fsubmit">
+      <?php } ?>
         <hr>
     </td>
   </tr>
