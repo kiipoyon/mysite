@@ -69,6 +69,11 @@ unset($_SESSION["query"]);
                     }
                 }else{
                 }
+                if(isset($logininfo['authority'])){
+                    $fff = '<a href="insert.php">出品者</a>';
+                }else{
+                    $fff = "";
+                }
             }else{
             }
 
@@ -88,6 +93,7 @@ unset($_SESSION["query"]);
       }
 
 
+
       //売れ筋ランキングとおすすめの表示
       $st = $pdo->query("SELECT * FROM product_tbl
                         INNER JOIN orderdetails_tbl 
@@ -99,6 +105,8 @@ unset($_SESSION["query"]);
 
       $sta = $pdo->query("SELECT * FROM product_tbl LIMIT 10");
       $producta_tbl = $sta->fetchAll();
+
+
 
     // 最初の画面を表示する
     require 'view/indexView.php';
