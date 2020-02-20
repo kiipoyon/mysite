@@ -70,13 +70,11 @@ $flg=0;
 
 
             if(password_verify($password, $logininfo['password'])){
-            print '認証成功';
             $flg=1;
             session_regenerate_id(true); // セッションIDをふりなおす
             $_SESSION['roginid'] = $id; // ユーザーIDをセッション変数にセット
             $_SESSION['password'] = $password;
             }else{
-            print '認証成功しない';
             }
 
           //}
