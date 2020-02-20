@@ -94,11 +94,11 @@ if(!empty($id) && !empty($password)){
 
 }
 
-      //購入履歴の表示
-      $st = $pdo->query("SELECT * FROM order_tbl
-                        group by product_id
-                        ORDER BY product_id");
-      $order_tbl = $st->fetchAll();
+//購入履歴の表示
+$st = $pdo->query("SELECT * FROM product_tbl
+              inner join orderdetails_tbl
+              on product_tbl.product_id=orderdetails_tbl.product_id");
+$order_tbl = $st->fetchAll();
 
 ?>
 
@@ -123,20 +123,19 @@ if(!empty($id) && !empty($password)){
     </head>
   <body>
   <nav class="login">
-    <a href="login.php" class="login">
-    	<?php
-
-
-     	if($flg==1){
-     	    echo "<a href='mypage.php' class='login-name'>ようこそ".$id."さん!</a>";
-    	    echo "<a href='mypage.php' class='login-name'>会員情報</a>";
-    	    echo "<a href='session_out.php' class='login-name'>ログアウト</a>";
-    	}else{
-    	    echo "ログイン(新規登録)";
-    	}
-
-    	?>
-    </a>
+    <div>
+      <a href="login.php" class="login">
+        <?php
+          if ($flg == 1) {
+              echo "<div><a href='mypage.php' class='login-name'>ようこそ".$id.'さん!</a></div>';
+              echo "<div><a href='mypage.php' class='login-name'>会員情報</a></div>";
+              echo "<div><a href='session_out.php' class='login-name'>ログアウト</a></div>";
+          } else {
+              echo 'ログイン(新規登録)';
+          }
+          ?>
+      </a>
+    </div>
   </nav>
     <header>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
@@ -263,24 +262,6 @@ if(!empty($id) && !empty($password)){
       });
     </script>
     <br>
-        <ul class="menu">
-      <li class="menu__single">
-        <a href="index.php" class="init-bottom">トップページ</a>
-      </li>
-      <li class="menu__single">
-        <a href="#tobe" class="init-bottom">お気に入り</a>
-      </li>
-      <li class="menu__single">
-        <a href="#tobe2" class="init-bottom">購入履歴</a>
-      </li>
-      <li class="menu__single">
-        <a href="cart.php" class="init-bottom">買い物かごを見る</a>
-      </li>
-      <li class="menu__single">
-        <a href="request.php" class="init-bottom">お問い合わせをする</a>
-      </li>
-    <!-- 他グローバルナビメニュー省略 -->
-    </ul>
     <hr>
   <footer>
     <div class="footer_copyright"><small>copyright &copy; 2019 K. All rights reserved.</small></div>
