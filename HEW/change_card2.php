@@ -103,8 +103,8 @@ if (isset($_POST['syusei'])) {
       <br>
 
       <div>
-        <input type="submit" value="次へ" class="button" name="syusei">
         <input type="reset" value="クリア" class="button">
+        <input type="submit" value="次へ" class="button" name="syusei">
       </div>
 
     </form>

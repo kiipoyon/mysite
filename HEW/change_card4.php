@@ -9,22 +9,23 @@
     <title>特産横丁</title>
 
     <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" type="text/css" href="css/common.css">
     <link rel="stylesheet" href="css/change.css">
   </head>
 
   <body>
 
     <header>
-      <h1><a href="index.php"><img src="images/rogo.jpg" alt="ろご"></a></h1>
+      <h1><a href="index.php"><img src="images/logo.png" alt="ろご"></a></h1>
     </header>
 
 
 <!-- メインビジュアル -->
     <main>
 
-    <p>変更が完了しました。</p>
+    <p class="comp">変更が完了しました。</p>
 
-    <a href="change.php">会員情報変更トップに戻る</a>
+    <a href="mypage.php">会員情報変更トップに戻る</a>
 
     </main>
 

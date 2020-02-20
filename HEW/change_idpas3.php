@@ -12,6 +12,7 @@ require 'common/common.php';
     <title>特産横丁</title>
 
     <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" type="text/css" href="css/common.css">
     <link rel="stylesheet" href="css/change.css">
   </head>
 
@@ -28,10 +29,9 @@ require 'common/common.php';
     <?php
     // セッション情報の取得
     $newpas1 = $_SESSION['newpas1'];
-    echo $newpas1;
     ?>
 
-    <p>変更が完了しました。</p>
+    <p class="comp">変更が完了しました。</p>
 
     <a href="mypage.php">会員情報変更トップに戻る</a>
 

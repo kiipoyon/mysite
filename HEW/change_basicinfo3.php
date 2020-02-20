@@ -7,6 +7,7 @@
 <meta charset="utf-8">
 <title>特産横丁</title>
 <link rel="stylesheet" href="css/reset.css">
+<link rel="stylesheet" type="text/css" href="css/common.css">
 <link rel="stylesheet" href="css/change.css">
 </head>
 <body>
@@ -15,8 +16,8 @@
 </header>
 <!-- メインビジュアル -->
 <main>
-<p>変更が完了しました。</p>
-<a href="change.php">会員情報変更トップに戻る</a>
+<p class="comp">変更が完了しました。</p>
+<a href="mypage.php">会員情報変更トップに戻る</a>
 </main>
 <!-- フッター -->
 <hr>

@@ -90,6 +90,7 @@ if(isset($_POST['syusei'])){
     <title>特産横丁</title>
 
     <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" type="text/css" href="css/common.css">
     <link rel="stylesheet" href="css/change.css">
   </head>
 
@@ -327,8 +328,8 @@ if(isset($_POST['syusei'])){
       <br>
 
       <div>
-        <input type="submit" value="次へ" class="button" name="syusei">
         <input type="reset" value="クリア" class="button">
+        <input type="submit" value="次へ" class="button" name="syusei">
       </div>
 
     </form>

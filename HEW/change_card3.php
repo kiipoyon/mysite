@@ -107,8 +107,8 @@ if (isset($_POST['syusei'])) {
       <br>
 
       <div>
-      <input type="submit" value="次へ" class="button" name="syusei">
-      <input type="button" value="修正" class="button" onclick="history.back()">
+        <input type="button" value="修正" class="button" onclick="history.back()">
+        <input type="submit" value="次へ" class="button" name="syusei">
       </div>
 
     </form>

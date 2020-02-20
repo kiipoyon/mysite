@@ -82,6 +82,7 @@ $address = $_SESSION['address'];
     <title>特産横丁</title>
 
     <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" type="text/css" href="css/common.css">
     <link rel="stylesheet" href="css/change.css">
   </head>
 
@@ -136,8 +137,8 @@ $address = $_SESSION['address'];
       <br>
 
       <div>
-        <input type="submit" value="次へ" class="button" name="change_idpas_last">
         <input type="button" value="修正" class="button" onclick="history.back()">
+        <input type="submit" value="次へ" class="button" name="change_idpas_last">
       </div>
 
     </form>
