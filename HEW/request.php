@@ -196,6 +196,13 @@ $(document).ready(function(){
   <ul>
     <li><a href="#panel1">リクエスト</a></li>
     <li><a href="#panel2">お問い合わせ</a></li>
+    <?php 
+      if(!empty($id)){
+    ?>
+      <li><a href="#panel3">出品者登録</a></li>
+    <?php
+      }
+    ?>
   </ul>
 
   <div id="panel1" class="panel">
@@ -271,58 +278,111 @@ $(document).ready(function(){
     </form>
   </div>
 
-  <div id="panel2" class="panel">
-    <h1 class="request">お問い合わせ</h1>
-    <p class="main">
-      特産横丁に関するご意見・ご質問・ご提案などを承るお問い合わせフォームです。下記に必要事項をご入力のうえ、送信してください。<br>
-      お問い合わせの内容により、返信させていただくまでにお時間を頂戴する場合や返信いたしかねる場合、お電話・お手紙を差し上げる場合などもございます。あらかじめご了承ください。<br>
-      <span style="color:red;">＊</span>は必須項目です
-    </p>
+<div id="panel2" class="panel">
+  <h1 class="request">お問い合わせ</h1>
+  <p class="main">
+    特産横丁に関するご意見・ご質問・ご提案などを承るお問い合わせフォームです。下記に必要事項をご入力のうえ、送信してください。<br>
+    お問い合わせの内容により、返信させていただくまでにお時間を頂戴する場合や返信いたしかねる場合、お電話・お手紙を差し上げる場合などもございます。あらかじめご了承ください。<br>
+    <span style="color:red;">＊</span>は必須項目です
+  </p>
 
-    <form action="confirmation2.php" method="post" onsubmit="return inquiryCheck()">
+  <form action="confirmation2.php" method="post" onsubmit="return inquiryCheck()">
 
-      <table class="inquiry">
-        <tr>
-          <td class="i_first"><span>＊</span>お問い合わせ内容</td>
-          <td colspan="2" class="i_connect"><textarea class="inquiry_other" id="i_t1" name="content"></textarea></td>
-          <td class="r_fourth"><span id="i_msg1"></span></td>
-        </tr>
-        <tr>
-          <td rowspan="4" class="i_first"><span>＊</span>お名前</td>
-          <td class="i_second"><span>＊</span>姓　：</td>
-          <td class="i_third"><input type="text" id="i_t2" name="sei"></td>
-          <td class="i_fourth"><span id="i_msg2"></span></td>
-        </tr>
-        <tr>
-          <td class="i_second"><span>＊</span>名　：</td>
-          <td class="i_third"><input type="text" id="i_t3" name="mei"></td>
-          <td class="i_fourth"><span id="i_msg3"></span></td>
-        </tr>
-        <tr>
-          <td class="i_second"><span>＊</span>セイ：</td>
-          <td class="i_third"><input type="text" id="i_t4" name="k_sei"></td>
-          <td class="i_fourth"><span id="i_msg4"></span></td>
-        </tr>
-        <tr>
-          <td class="i_second"><span>＊</span>メイ：</td>
-          <td class="i_third"><input type="text" id="i_t5" name="k_mei"></td>
-          <td class="i_fourth"><span id="i_msg5"></span></td>
-        </tr>
-        <tr>
-          <td class="i_first"><span>＊</span>メールアドレス</td>
-          <td colspan="2" class="i_connect"><input type="email" id="i_t6" class="request_email" name="mail" placeholder="tokusan@email.com"></td>
-          <td class="i_fourth"><span id="i_msg6"></span></td>
-        </tr>
-        <tr>
-          <td colspan="4" class="button">
-            <input type="submit" name="submit" value="確認" class="kakunin">
-            <input type="reset" class="reset">
-          </td>
-        </tr>
-      </table>
-    </form>
+    <table class="inquiry">
+      <tr>
+        <td class="i_first"><span>＊</span>お問い合わせ内容</td>
+        <td colspan="2" class="i_connect"><textarea class="inquiry_other" id="i_t1" name="content"></textarea></td>
+        <td class="r_fourth"><span id="i_msg1"></span></td>
+      </tr>
+      <tr>
+        <td rowspan="4" class="i_first"><span>＊</span>お名前</td>
+        <td class="i_second"><span>＊</span>姓　：</td>
+        <td class="i_third"><input type="text" id="i_t2" name="sei"></td>
+        <td class="i_fourth"><span id="i_msg2"></span></td>
+      </tr>
+      <tr>
+        <td class="i_second"><span>＊</span>名　：</td>
+        <td class="i_third"><input type="text" id="i_t3" name="mei"></td>
+        <td class="i_fourth"><span id="i_msg3"></span></td>
+      </tr>
+      <tr>
+        <td class="i_second"><span>＊</span>セイ：</td>
+        <td class="i_third"><input type="text" id="i_t4" name="k_sei"></td>
+        <td class="i_fourth"><span id="i_msg4"></span></td>
+      </tr>
+      <tr>
+        <td class="i_second"><span>＊</span>メイ：</td>
+        <td class="i_third"><input type="text" id="i_t5" name="k_mei"></td>
+        <td class="i_fourth"><span id="i_msg5"></span></td>
+      </tr>
+      <tr>
+        <td class="i_first"><span>＊</span>メールアドレス</td>
+        <td colspan="2" class="i_connect"><input type="email" id="i_t6" class="request_email" name="mail" placeholder="tokusan@email.com"></td>
+        <td class="i_fourth"><span id="i_msg6"></span></td>
+      </tr>
+      <tr>
+        <td colspan="4" class="button">
+          <input type="submit" name="submit" value="確認" class="kakunin">
+          <input type="reset" class="reset">
+        </td>
+      </tr>
+    </table>
+  </form>
 
-  </div>
+</div>
+
+<div id="panel3" class="panel">
+  <h1 class="request">出品者登録</h1>
+  <p class="main">
+    特産横丁に出品を希望している方の登録フォームです。<br>
+    以下の内容を全て記入登録の後送信してください。<br>
+    その後、記入されたメールアドレスにメールが送られます。
+  </p>
+
+  <form action=".php" method="post" onsubmit="return inquiryCheck()">
+
+    <table class="inquiry">
+      <tr>
+        <td class="i_first">企業名<br>(出品者名)</td>
+        <td colspan="2" class="i_connect"><input type="text" id="s_t1" name="sei"></textarea></td>
+        <td class="r_fourth"><span id="i_msg1"></span></td>
+      </tr>
+      <tr>
+        <td rowspan="4" class="i_first">責任者名</td>
+        <td class="i_second">姓　：</td>
+        <td class="i_third"><input type="text" id="s_t2" name="sei"></td>
+        <td class="i_fourth"><span id="i_msg2"></span></td>
+      </tr>
+      <tr>
+        <td class="i_second">名　：</td>
+        <td class="i_third"><input type="text" id="s_t3" name="mei"></td>
+        <td class="i_fourth"><span id="i_msg3"></span></td>
+      </tr>
+      <tr>
+        <td class="i_second">セイ：</td>
+        <td class="i_third"><input type="text" id="s_t4" name="k_sei"></td>
+        <td class="i_fourth"><span id="i_msg4"></span></td>
+      </tr>
+      <tr>
+        <td class="i_second">メイ：</td>
+        <td class="i_third"><input type="text" id="s_t5" name="k_mei"></td>
+        <td class="i_fourth"><span id="i_msg5"></span></td>
+      </tr>
+      <tr>
+        <td class="i_first">メールアドレス</td>
+        <td colspan="2" class="i_connect"><input type="email" id="s_t6" class="request_email" name="mail" placeholder="tokusan@email.com"></td>
+        <td class="i_fourth"><span id="i_msg6"></span></td>
+      </tr>
+      <tr>
+        <td colspan="4" class="button">
+          <input type="submit" name="submit" value="確認" class="kakunin">
+          <input type="reset" class="reset">
+        </td>
+      </tr>
+    </table>
+  </form>
+
+</div>
 
 
 </div>
