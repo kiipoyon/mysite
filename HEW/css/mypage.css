@@ -18,9 +18,6 @@ ul.menu {
   width: 200px;
 }
 
-div.login-name div{
-  background-color: #516ab6;
-}
 
 div.login-name div a:link{
   color: #fff;
@@ -111,19 +108,20 @@ h1.midasi{
 .changemenu li ul {
   width: 150px;
   display: none;
-  margin-left: -40px;
   position: absolute;
   margin-bottom:100px;
 }
-.changemenu > li li:hover > a {/*layer-2*/
-  color: olive;
-  background: #afc6e2;
-}
+
 .changemenu li ul li a {
   border-top: 1px solid #eee;
 }
 
 .a{
-  margin: 0 50px ; 50px;
+  margin: 0 50px ;
+}
+
+.a ul li a{
+  display: inline-block;
+  margin-left: 40px;
 }
 
