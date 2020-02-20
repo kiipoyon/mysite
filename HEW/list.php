@@ -80,6 +80,38 @@ $flg=0;
     //一ページに表示する記事の数をmax_viewに定数として定義
     define('max_view',9);
 
+if(isset($_GET['idd'])){
+    $idd = $_GET['idd'];
+    echo $idd;
+    //地図から検索
+    if ($idd == 1) {
+        $area = "北海道";
+    }elseif($idd == 2){
+        $area = "東北";
+    }elseif($idd == 3){
+        $area = "関東";
+    }elseif($idd == 4){
+        $area = "中部";
+    }elseif($idd == 5){
+        $area = "関西";
+    }elseif($idd == 6){
+        $area = "中国・四国";
+    }else{
+        $area = "九州・沖縄";
+    }
+
+        //商品を検索する
+        //基本の構文
+        $sta = $pdo->query("SELECT * FROM product_tbl WHERE region = $idd");
+        //$product_tbl = $sta->fetchAll();
+        $sta = " WHERE region = $idd ";
+
+        //sql文をセッションに入れる
+        $_SESSION['sql'] = $sta;
+
+
+}
+
 
 
 if(isset($_POST['hogehoge_status'])){
@@ -218,29 +250,24 @@ if($categoly == 1){
 }else{
     $sta = "";
 }
-
         if(isset($_SESSION['sql'])){
             $sta = $_SESSION['sql'];
         }
-
-        var_dump($sta);
 
         if(isset($_SESSION['query'])){
             $query = $_SESSION['query'];
             $sta .= $query;
         }
 
-
         //必要なページ数を求める
         $count = "SELECT COUNT(*) AS count FROM product_tbl";
         $count .= $sta;
         $count = $pdo->prepare($count);
         $count->execute();
-        var_dump($count);
+
         $total_count = $count->fetch(PDO::FETCH_ASSOC);
-        var_dump($total_count);
+        $total = intval($total_count);
         $pages = ceil($total_count['count'] / max_view);
-        var_dump($pages);
 
         //現在いるページのページ番号を取得
         if(!isset($_GET['page_id'])){ 
@@ -268,11 +295,6 @@ if($categoly == 1){
         //実行し結果を取り出しておく
             $select->execute();
             $data = $select->fetchAll(PDO::FETCH_ASSOC);
-
-
-
-
-
 
 
 // 最初の画面を表示する
