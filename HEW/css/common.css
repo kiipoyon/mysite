@@ -42,11 +42,6 @@ nav.login div{
   width: 50%;
 }
 
-/* ロゴ */
-h1 img{
-  float: both;
-}
-
 /* ナビ */
 .menu {
     position: relative;
@@ -264,4 +259,10 @@ h1.h_1{
 .multiple_p2{
   margin-top: 10px;
   font-size: 1.5em;
+}
+
+
+/* 各ページのtable */
+table{
+  background-color: #fffaf4;
 }
