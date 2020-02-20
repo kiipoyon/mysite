@@ -69,13 +69,11 @@ $flg=0;
             $flg=0;
             //パスワードが一致しているかどうかチェックする
             if(password_verify($password, $logininfo['password'])){
-            print '認証成功';
             $flg=1;
             session_regenerate_id(true); // セッションIDをふりなおす
             $_SESSION['roginid'] = $id; // ユーザーIDをセッション変数にセット
             $_SESSION['password'] = $password;
             }else{
-            print '認証成功しない';
             }
 
           $st2=$pdo->prepare("select name from user_details_tbl where user_id=?");
