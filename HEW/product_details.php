@@ -115,8 +115,14 @@ $flg=0;
 
 /* idを受け取っているかの判断 */
 if (isset($_GET['iddd'])) {
-    $iddd = $_GET['iddd'];
+    $_SESSION['syouhin'] = $_GET['iddd'];
+    $iddd = $_SESSION['syouhin'];
 }
+
+if (isset($_SESSION['syouhin'])) {
+    $iddd = $_SESSION['syouhin'];
+}
+
 
 // 商品を検索する
 $sta = $pdo->query("SELECT * FROM product_tbl where $iddd = product_id");
@@ -129,6 +135,59 @@ $_SESSION['code'] = $iddd;
 // セッション情報の取得
 $product_id = $_SESSION['code'];
 
+
+// レビュー機能
+if (isset($_POST['btn_submit'])) {
+    $view_name = $_POST['view_name'];
+    $message = $_POST['message'];
+    $star = $_POST['star'];
+    if (isset ($_SESSION['roginid'])) {
+        $id = $_SESSION['roginid'];
+      }else{
+          $id = "";
+      }
+    //execメソッドでクエリを実行。insert文を実行した場合挿入件数が戻り値として返る
+    $count = $pdo->exec("INSERT INTO postreview_tbl(review_id,user_id,product_id,post_name,post_review,star,additional_date)
+    VALUES('','$id',$product_id,'$view_name','$message','$star',now())");
+    header('Location: ');
+}
+
+//表示する記事を取得するSQLを準備
+$select = $pdo->prepare("SELECT * FROM postreview_tbl WHERE product_id = $iddd");
+$select->execute();
+$data = $select->fetchAll(PDO::FETCH_ASSOC);
+
+//レビューの数をカウント
+$selectc = ("SELECT COUNT(*) FROM postreview_tbl WHERE product_id = $iddd");
+
+$row_count = $select->rowCount();
+
+//レビューの星の数をカウント
+$selectcs = ("SELECT SUM(star) FROM postreview_tbl WHERE product_id = $iddd");
+$stmt = $pdo->prepare($selectcs); $stmt->execute();
+$row = $stmt->fetchColumn();
+$rowa = intval($row);
+
+if(isset($rowa)){
+    if($row_count != 0){
+        $review = $rowa / $row_count;
+        $reviewa = $review * 2;
+        $reviewb = floor($reviewa);
+        $reviewc = $reviewb/2;
+    }else{
+        $reviewc = 0;
+    }
+}
+
+
+
+if (isset($_POST['delete'])) {
+// SQL文を作成
+$sql = "DELETE FROM postreview_tbl WHERE user_id = '$id' AND product_id = '$iddd'";
+
+// クエリ実行（データを取得）
+$res = $pdo->query($sql);
+}
 // 最初の画面を表示する
 require 'view/product_detailsView.php';
 

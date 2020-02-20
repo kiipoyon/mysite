@@ -36,7 +36,7 @@ $flg=0;
 
         
             //データベースに接続する
-            $pdo=new PDO('mysql:host=localhost;dbname=haldb;charset=utf8','dbadmin','dbadmin');
+            $pdo = connect();
 
             //ログイン情報を検索し、検索結果をステートメントに設定する($loginidはPOSTで持ってきたもの) ここをprepareにする
             $st=$pdo->prepare("SELECT * FROM user_tbl WHERE user_id=?");
@@ -85,6 +85,7 @@ $flg=0;
 if(isset($_POST['hogehoge_status'])){
     $idd = $_POST['hogehoge_status'];
     $area = "";
+    unset($_SESSION["query"]);
 
 //地図から検索
 if ($idd == 1) {
@@ -121,6 +122,7 @@ if ($idd == 1) {
 }elseif (isset($_POST['categoly'])) {
     $categoly = $_POST['categoly'];
     $area = "";
+    unset($_SESSION["query"]);
 
 if($categoly == 1){
     $area = "海鮮・水産加工品";
@@ -147,11 +149,6 @@ if($categoly == 1){
 
     //sql文をセッションに入れる
     $_SESSION['sql'] = $sta;
-
-
-
-
-
 
 }elseif (isset($_POST['submit'])){
     //詳細検索をする
@@ -189,30 +186,35 @@ if($categoly == 1){
     }else{
         $_SESSION['sql'] = $sta;
     }
-
-    //sortを指定
-    if(!empty($_POST["sort"])){
-        $sort = $_POST["sort"];
-        if($sort == "cheap_price"){
-            $sort1 = "price";
-            $query = rtrim($query, 'WHERE');
-            $query .= " ORDER BY ";
-            $query .= " $sort1 ";
-            $query .= " ASC";
-        }elseif($sort == "high_price"){
-            $sort1 = "price";
-            $query = rtrim($query, 'WHERE');
-            $query .= " ORDER BY ";
-            $query .= " $sort1 ";
-            $query .= " DESC";
-        }else{
-        $query = rtrim($query, 'WHERE');
-        $query .= " ORDER BY ";
-        $query .= " $sort ";
+//sortを指定
+}elseif(!empty($_POST["sort"])){
+    if (isset ($_SESSION['sql'])) {
+        $sta = $_SESSION['sql'];
+        var_dump($sta);
+      }
+    $sort = $_POST["sort"];
+    if($sort == "cheap_price"){
+        $sort1 = "price";
+        $query = " ORDER BY ";
+        $query .= " $sort1 ";
+        $query .= " ASC";
+        $_SESSION['query'] = $query;
+        var_dump($query);
+    }elseif($sort == "high_price"){
+        $sort1 = "price";
+        $query = " ORDER BY ";
+        $query .= " $sort1 ";
         $query .= " DESC";
-        }
+        $_SESSION['query'] = $query;
+        var_dump($query);
+    }elseif($sort == "additional_date"){
+        $sort1 = "additional_date";
+        $query = " ORDER BY ";
+        $query .= " $sort1 ";
+        $query .= " DESC";
+        $_SESSION['query'] = $query;
+        var_dump($query);
     }
-
 }else{
     $sta = "";
 }
@@ -220,6 +222,14 @@ if($categoly == 1){
         if(isset($_SESSION['sql'])){
             $sta = $_SESSION['sql'];
         }
+
+        var_dump($sta);
+
+        if(isset($_SESSION['query'])){
+            $query = $_SESSION['query'];
+            $sta .= $query;
+        }
+
 
         //必要なページ数を求める
         $count = "SELECT COUNT(*) AS count FROM product_tbl";

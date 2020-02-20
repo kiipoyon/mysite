@@ -9,6 +9,8 @@ $thisurl = $protocol . $_SERVER["HTTP_HOST"] . $_SERVER["REQUEST_URI"];
 
 $flg=0;
 
+unset($_SESSION["query"]);
+
   	 //ログインボタンが押された場合
   	 if(isset($_POST["loginbtn"])){
 
@@ -37,7 +39,7 @@ $flg=0;
   	 if(!empty($id) && !empty($password)){
 
             //データベースに接続する
-            $pdo=new PDO('mysql:host=localhost;dbname=haldb;charset=utf8','dbadmin','dbadmin');
+            $pdo = connect();
 
             //ログイン情報を検索し、検索結果をステートメントに設定する($loginidはPOSTで持ってきたもの) ここをprepareにする
             $st=$pdo->prepare("SELECT * FROM user_tbl WHERE user_id=?");
@@ -62,12 +64,10 @@ $flg=0;
                 if(isset($logininfo['secret_id'])){
                     //2段階認証
                     if(isset($_SESSION['secret_id'])){
-                    echo "入っている";
                     }else{
                     header ('location:onetimea.php');
                     }
                 }else{
-                    echo "入っていない";
                 }
             }else{
             }
