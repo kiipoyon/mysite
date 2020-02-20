@@ -7,9 +7,9 @@
     <meta charset="utf-8">
 
     <title>特産横丁</title>
-
-    <link rel="stylesheet" href="css/common.css">
+    
     <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/common.css">
     <link rel="stylesheet" href="css/login.css">
   </head>
 
@@ -42,8 +42,8 @@
       <br>
 
       <div>
-        <input type=submit value="ログイン" class="button" name="loginbtn">
         <input type=reset value="クリア" class="button">
+        <input type=submit value="ログイン" class="button" name="loginbtn">
       </div>
       </form>
 
