@@ -16,11 +16,6 @@ img{
   vertical-align: bottom;
 }
 
-a:link{color: #0000ee;}
-a:visited{color: #551a8b;}
-a:hover{}
-a:active{color: #ff0000;}
-
 nav.login{
   margin: 15px 0 20px 0;
 }
