@@ -16,10 +16,6 @@ img{
   vertical-align: bottom;
 }
 
-a:link{color: #0000ee;}
-a:visited{color: #551a8b;}
-a:hover{}
-a:active{color: #ff0000;}
 
 nav.login{
   margin: 15px 0 20px 0;
@@ -62,13 +58,14 @@ nav ul li.nav_flex{
   color: #fff;
   font-size: 14px;
   line-height: 2.8;
-  background: #d5802b;
+  background: #9fb7d4;
   text-decoration: none;
   border-right: 1px solid #eee;
   box-sizing: border-box;
 }
 .changemenu > li:hover > a {/*layer-1*/
-  opacity: 0.9;
+  color: orange;
+  background: #afc6e2;
 }
 .changemenu li ul {
   width: 150px;
@@ -76,21 +73,17 @@ nav ul li.nav_flex{
   margin-left: -40px;
   position: absolute;
   margin-bottom:100px;
-
-.changemenu li ul {
-  width: 150px;
-  display: none;
-  margin-left: -40px;
-  position: absolute;
-  margin-bottom:100px;
 }
-
+.changemenu > li li:hover > a {/*layer-2*/
+  color: olive;
+  background: #afc6e2;
+}
 .changemenu li ul li a {
   border-top: 1px solid #eee;
 }
 
 .a{
-  margin: 0 50px ; 50px;
+  margin: 0 50px ;
 }
 
 /* マイページに戻る */
@@ -126,3 +119,7 @@ input.button{
   margin: 5px;
 }
 
+/* 変更完了 */
+.comp{
+  margin: 100px auto;
+}
