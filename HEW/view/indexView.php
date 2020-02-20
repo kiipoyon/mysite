@@ -13,17 +13,19 @@
 
     <!-- ヘッダー -->
   <nav class="login">
-    <a href="login.php" class="login">
-    	<?php
-         if ($flg == 1) {
-             echo "<a href='mypage.php' class='login-name'>ようこそ".$id.'さん!</a>';
-             echo "<a href='mypage.php' class='login-name'>会員情報</a>";
-             echo "<a href='session_out.php' class='login-name'>ログアウト</a>";
-         } else {
-             echo 'ログイン(新規登録)';
-         }
-        ?>
-    </a>
+    <div>
+      <a href="login.php" class="login">
+        <?php
+          if ($flg == 1) {
+              echo "<div><a href='mypage.php' class='login-name'>ようこそ".$id.'さん!</a></div>';
+              echo "<div><a href='mypage.php' class='login-name'>会員情報</a></div>";
+              echo "<div><a href='session_out.php' class='login-name'>ログアウト</a></div>";
+          } else {
+              echo 'ログイン(新規登録)';
+          }
+          ?>
+      </a>
+    </div>
   </nav>
 
   <header>
