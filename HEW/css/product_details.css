@@ -73,7 +73,6 @@ div#tabs{
 div.main{
   display: flex;
   width: 100%;
-  background-color: #fff;
   margin: 0 auto;
 }
 
@@ -181,7 +180,7 @@ p.p_area{
 
 .syohin{
   text-align: left;
-  margin-top: 250px;
+  margin-top: 50px;
   font-size: 1.5rem;
 }
 
@@ -302,7 +301,192 @@ h1{
 	font-size:30px;
 }
 
+/* 商品レビュー */
+.btn_submit{
+  display:block;
+  width: 100px;
+  height:40px;
+  color: #FFF;
+  text-decoration: none;
+  text-align: center;
+  background-color: #f39800; /*ボタン色*/
+  border-radius: 5px; /*角丸*/
+  -webkit-transition: all 0.5s;
+  transition: all 0.5s;
+  margin: 35px auto;
+}
+.btn_submit:hover{
+  background-color: #f9c500; /*ボタン色*/
+}
+
+.view_name{
+  width: 400px;
+}
+
+div.postreview{
+  background-color: #99dfff;
+  margin: 2px;
+  border-radius: 10px;
+}
+
+div.postreview_flex{
+  display: flex;
+}
+
+p.post_name{
+  font-size: 1.5rem;
+  padding: 10px;
+}
+
+p.additional_date{
+  padding: 10px;
+}
+
+p.post_review{
+  text-align: left;
+  padding: 25px;
+}
 
 
+.cp_iptxt {
+	position: relative;
+  width: 60%;
+	margin: 0 auto;
+}
+.cp_iptxt input[type='text'] {
+	font: 15px/24px sans-serif;
+	box-sizing: border-box;
+  width: 100%;
+	padding: 0.3em;
+	transition: 0.3s;
+	letter-spacing: 1px;
+	border: none;
+	border-bottom: 2px solid #1b2538;
+	background: transparent;
+}
+.ef input[type='text']:focus {
+	border-bottom: 2px solid #da3c41;
+	outline: none;
+}
+
+textarea{
+  width: 60%;
+  height: 100px;
+  background-color: rgba(255,255,255,0);
+  padding: 5px;
+  border: 2px solid #000;
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  border-top: none;
+  border-right: none;
+  border-left: none;
+}
+
+textarea:focus{
+	border-bottom: 2px solid #da3c41;
+}
+
+/* バリデーションチェック */
+.review_m{
+  color: red;
+}
+
+/* 星 */
+.evaluation{
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: center;
+}
+.evaluation input[type='radio']{
+  display: none;
+}
+.evaluation label{
+  position: relative;
+  padding: 10px 10px 0;
+  color: gray;
+  cursor: pointer;
+  font-size: 50px;
+}
+.evaluation label:hover,
+.evaluation label:hover ~ label,
+.evaluation input[type='radio']:checked ~ label{
+  color: #ffcc00;
+}
+
+p.post_star{
+  color: #ffcc00;
+  font-size: 30px;
+}
 
 
+/* 星の表示 */
+.rate {
+  position: relative;
+  display: inline-block;
+  width: 100px;
+  height: 16px;
+  font-size: 26px;
+}
+.rate:before, .rate:after {
+  position: absolute;
+  top: 0;
+  left: -15px;
+  content: '★★★★★';
+  display: inline-block;
+  height: 16px;
+  line-height: 16px;
+}
+.rate:before {
+  color: #ddd;
+}
+.rate:after {
+  color: #ffa500;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.rate0:after {
+  width: 0;
+}
+
+.rate1:after {
+  width: 16px;
+}
+
+.rate1-5:after {
+  width: 24px;
+}
+
+.rate2:after {
+  width: 32px;
+}
+
+.rate2-5:after {
+  width: 40px;
+}
+
+.rate3:after {
+  width: 48px;
+}
+
+.rate3-5:after {
+  width: 56px;
+}
+
+.rate4:after {
+  width: 64px;
+}
+
+.rate4-5:after {
+  width: 72px;
+}
+
+.rate5:after {
+  width: 80px;
+}
+
+.wrap {
+  width: 250px;
+  margin: 0 auto;
+}
