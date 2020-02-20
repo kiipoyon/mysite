@@ -14,9 +14,9 @@ session_start();
     <meta charset="utf-8">
 
     <title>特産横丁</title>
-
-    <link rel="stylesheet" href="css/common.css">
+    
     <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/common.css">
     <link rel="stylesheet" href="css/registration.css">
 
   <body>
@@ -29,7 +29,7 @@ session_start();
 
     <h1 class="pagetitle">登録完了</h1>
 
-    <p>登録が完了しました</p>
+    <p class="comp">登録が完了しました</p>
 
     <br>
 
