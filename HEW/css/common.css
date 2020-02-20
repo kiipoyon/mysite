@@ -33,11 +33,18 @@ a:active{color: #b16a23;}
 /* ログイン（新規登録） */
 nav.login{
   margin: 15px 0 20px 0;
+  text-align: right;
+  width: 90%;
 }
 
-a.login{
-  text-align: right;
-  margin-left: 800px;
+nav.login div{
+  margin-left: 55%;
+  width: 50%;
+}
+
+/* ロゴ */
+h1 img{
+  float: both;
 }
 
 /* ナビ */
