@@ -67,13 +67,6 @@
       </p>
       <hr>
       <div class="area_conc">
-        <a href="list.php?idd=1#abc" class="area" method="GET">北海道</a>
-        <a href="list.php?idd=2#abc" class="area" method="GET">東北</a>
-        <a href="list.php?idd=3#abc" class="area" method="GET">関東</a>
-        <a href="list.php?idd=4#abc" class="area" method="GET">中部</a>
-        <a href="list.php?idd=5#abc" class="area" method="GET">関西</a>
-        <a href="list.php?idd=6#abc" class="area" method="GET">中国・四国</a>
-        <a href="list.php?idd=7#abc" class="area" method="GET">九州・沖縄</a>
         <form name="form1" method="POST" action="list.php" >
         <a href="javascript:document.form1.submit()">北海道</A>
         <input type="hidden" name="hogehoge_status" value="1">
@@ -108,12 +101,6 @@
         カテゴリー
       </p>
       <hr>
-      <a href="list.php?categoly=1#abc" class="area" method="GET">海鮮・水産加工品</a>
-      <a href="list.php?categoly=2#abc" class="area" method="GET">肉・ハム</a>
-      <a href="list.php?categoly=3#abc" class="area" method="GET">野菜</a>
-      <a href="list.php?categoly=4#abc" class="area" method="GET">乳製品</a>
-      <a href="list.php?categoly=5#abc" class="area" method="GET">果物</a>
-      <a href="list.php?categoly=6#abc" class="area" method="GET">日本酒・ワイン・酒</a>
         <form name="cateform1" method="POST" action="list.php" >
         <a href="javascript:document.cateform1.submit()">海鮮・水産加工品</A>
         <input type="hidden" name="categoly" value="1">
@@ -171,18 +158,18 @@
       </form>
     </div>
     <div>
-    <p>
-            <?php
-              //ページネーションを表示
-                  for ( $n = 1; $n <= $pages; $n ++){
-                      if ( $n == $now ){
-                          echo "<span style='padding: 5px;'>$now</span>";
-                      }else{
-                          echo "<a href='list.php?page_id=$n' style='padding: 5px;'>$n</a>";
-                      }
+      <p>
+        <?php
+          //ページネーションを表示
+              for ( $n = 1; $n <= $pages; $n ++){
+                  if ( $n == $now ){
+                      echo "<span style='padding: 5px;'>$now</span>";
+                  }else{
+                      echo "<a href='list.php?page_id=$n' style='padding: 5px;'>$n</a>";
                   }
-              ?>
-              </p>
+              }
+        ?>
+      </p>
     </div>
     <div class="syouhin">
     <?php
@@ -213,6 +200,22 @@
               </tr>
             <?php } ?>
         </table>
+
+            </div>
+    <div>
+      <p class = "pagination">
+        <?php
+          //ページネーションを表示
+              for ( $n = 1; $n <= $pages; $n ++){
+                  if ( $n == $now ){
+                      echo "<span style='padding: 5px;'>$now</span>";
+                  }else{
+                      echo "<a href='list.php?page_id=$n' style='padding: 5px;'>$n</a>";
+                  }
+              }
+        ?>
+      </p>
+    </div>
 
 
 

@@ -79,27 +79,70 @@ $(document).ready(function(){
   </p>
   <hr>
   <div class="area_conc">
-    <a href="list.php?id=1#abc" class="area" method="GET">北海道</a>
-    <a href="list.php?id=2#abc" class="area" method="GET">東北</a>
-    <a href="list.php?id=3#abc" class="area" method="GET">関東</a>
-    <a href="list.php?id=4#abc" class="area" method="GET">中部</a>
-    <a href="list.php?id=5#abc" class="area" method="GET">関西</a>
-    <a href="list.php?id=6#abc" class="area" method="GET">中国・四国</a>
-    <a href="list.php?id=7#abc" class="area" method="GET">九州・沖縄</a>
-  </div>
+        <form name="form1" method="POST" action="list.php" >
+        <a href="javascript:document.form1.submit()">北海道</A>
+        <input type="hidden" name="hogehoge_status" value="1">
+        </form>
+        <form name="form2" method="POST" action="list.php" >
+        <a href="javascript:document.form2.submit()">東北</A>
+        <input type="hidden" name="hogehoge_status" value="2">
+        </form>
+        <form name="form3" method="POST" action="list.php" >
+        <a href="javascript:document.form3.submit()">関東</A>
+        <input type="hidden" name="hogehoge_status" value="3">
+        </form>
+        <form name="form4" method="POST" action="list.php" >
+        <a href="javascript:document.form4.submit()">中部</A>
+        <input type="hidden" name="hogehoge_status" value="4">
+        </form>
+        <form name="form5" method="POST" action="list.php" >
+        <a href="javascript:document.form5.submit()">関西</A>
+        <input type="hidden" name="hogehoge_status" value="5">
+        </form>
+        <form name="form6" method="POST" action="list.php" >
+        <a href="javascript:document.form6.submit()">中国・四国</A>
+        <input type="hidden" name="hogehoge_status" value="6">
+        </form>
+        <form name="form7" method="POST" action="list.php" >
+        <a href="javascript:document.form7.submit()">九州・沖縄</A>
+        <input type="hidden" name="hogehoge_status" value="7">
+        </form>
+      </div>
+      <p class="area_title">
+        <i class="material-icons miCSS">search</i>
+        カテゴリー
+      </p>
+      <hr>
+        <form name="cateform1" method="POST" action="list.php" >
+        <a href="javascript:document.cateform1.submit()">海鮮・水産加工品</A>
+        <input type="hidden" name="categoly" value="1">
+        </form>
+        <form name="cateform2" method="POST" action="list.php" >
+        <a href="javascript:document.cateform2.submit()">肉・ハム</A>
+        <input type="hidden" name="categoly" value="2">
+        </form>
+        <form name="cateform3" method="POST" action="list.php" >
+        <a href="javascript:document.cateform3.submit()">野菜</A>
+        <input type="hidden" name="categoly" value="3">
+        </form>
+        <form name="cateform4" method="POST" action="list.php" >
+        <a href="javascript:document.cateform4.submit()">乳製品</A>
+        <input type="hidden" name="categoly" value="4">
+        </form>
+        <form name="cateform5" method="POST" action="list.php" >
+        <a href="javascript:document.cateform5.submit()">果物</A>
+        <input type="hidden" name="categoly" value="5">
+        </form>
+        <form name="cateform6" method="POST" action="list.php" >
+        <a href="javascript:document.cateform6.submit()">日本酒・ワイン・酒</A>
+        <input type="hidden" name="categoly" value="6">
+        </form>
+        <form name="cateform7" method="POST" action="list.php" >
+        <a href="javascript:document.cateform7.submit()">加工品</A>
+        <input type="hidden" name="categoly" value="7">
+        </form>
   <p class="area_title">
-    <i class="material-icons miCSS">search</i>
-    カテゴリー
-  </p>
-  <hr>
-  <a href="list.php?categoly='#abc" class="area" method="GET">海鮮・水産加工品</a>
-  <a href="list.php?categoly=2#abc" class="area" method="GET">肉・ハム</a>
-  <a href="list.php?categoly=3#abc" class="area" method="GET">野菜</a>
-  <a href="list.php?categoly=4#abc" class="area" method="GET">乳製品</a>
-  <a href="list.php?categoly=5#abc" class="area" method="GET">果物</a>
-  <a href="list.php?categoly=6#abc" class="area" method="GET">日本酒・ワイン・酒</a>
-  <p class="area_title">
-    <i class="material-icons miCSS">search</i>
+  <i class="material-icons miCSS">search</i>
     価格
   </p>
   <hr>
@@ -124,6 +167,52 @@ $(document).ready(function(){
             <div class="container_flex2">
               <p class="p_name"><?php echo($g['product_name']) ?></p>
               <p class="p_area"><?php echo nl2br($g['producing_area']) ?></p>
+              <a href="#syohin">レビュー数:<?php echo $row_count; ?></a>
+              <div class="wrap">
+                <?php
+                if($reviewc == 1){
+                ?>
+                <span class="rate rate1"></span>
+                <?php
+                }elseif($reviewc == 1.5){
+                  ?>
+                  <span class="rate rate1-5"></span>
+                  <?php
+                }elseif($reviewc == 2){
+                  ?>
+                  <span class="rate rate2"></span>
+                  <?php
+                }elseif($reviewc == 2.5){
+                  ?>
+                  <span class="rate rate2-5"></span>
+                  <?php
+                }elseif($reviewc == 3){
+                  ?>
+                  <span class="rate rate3"></span>
+                  <?php
+                }elseif($reviewc == 3.5){
+                  ?>
+                  <span class="rate rate3-5"></span>
+                  <?php
+                }elseif($reviewc == 4){
+                  ?>
+                  <span class="rate rate4"></span>
+                  <?php
+                }elseif($reviewc == 4.5){
+                  ?>
+                  <span class="rate rate4-5"></span>
+                  <?php
+                }elseif($reviewc == 5){
+                  ?>
+                  <span class="rate rate5"></span>
+                  <?php
+                }elseif($reviewc == 0){
+                  ?>
+                  <p>まだレビューがありません</p>
+                  <?php
+                }
+                ?>
+              </div>
 
               <div class="kago">
                 <p>価格</p>
@@ -155,13 +244,87 @@ $(document).ready(function(){
         <p><?php echo nl2br($g['description']) ?></p>
       </div>
 
-      <p class="syohin">仕様<hr></p>
-      <div class="siyou">
-        <p>仕様</p>
-      </div>
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jQuery-Validation-Engine/2.6.4/validationEngine.jquery.min.css">
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jQuery-Validation-Engine/2.6.4/jquery.validationEngine.min.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jQuery-Validation-Engine/2.6.4/languages/jquery.validationEngine-ja.js"></script>
+      <p class="syohin" id="syohin">商品レビュー<hr></p>
+        <form method="post" action="product_details.php" method="POST" enctype="multipart/form-data" onsubmit="return reviewCheck()" id="form-name">
 
-      <p class="syohin">商品レビュー<hr></p>
-        <p>最新レビュー</p>
+        <div class="cp_iptxt">
+          <label class="ef">
+          <input type="text" placeholder="お名前" name="view_name" id="view_name"  class="validate[required]">
+          <p class="review_m"><span id = "msg1"></span></p>
+          </label>
+        </div>
+
+        <div class="box">
+          <div class="textarea-wrap">
+            <textarea rows="4" cols="40" placeholder="ひと言レビュー" name="message" id="message" class="validate[required]"></textarea>
+            <p class="review_m"><span id = "msg2"></span></p>
+          </div>
+        </div>
+
+        <div class="evaluation">
+          <input id="star1" type="radio" name="star" value="5" class="validate[required]" />
+          <label for="star1">★</label>
+          <input id="star2" type="radio" name="star" value="4" class="validate[required]" />
+          <label for="star2">★</label>
+          <input id="star3" type="radio" name="star" value="3" class="validate[required]" />
+          <label for="star3">★</label>
+          <input id="star4" type="radio" name="star" value="2" class="validate[required]" />
+          <label for="star4">★</label>
+          <input id="star5" type="radio" name="star" value="1" class="validate[required]" />
+          <label for="star5">★</label>
+        </div>
+
+          <input type="submit" class = "btn_submit" name="btn_submit" value="書き込む">
+        </form>
+
+        <script> 
+        $(document).ready(function () {
+          $("#form-name").validationEngine('attach', {
+            promptPosition: "bottomLeft" //アラートの吹き出しを左下に設定
+          });
+        });
+        </script>
+
+        <hr>
+        <form action="product_details.php" method="POST" onSubmit="return allCheck()">
+        <?php foreach ($data as $g) { ?>
+          <div class="postreview">
+            <div class="postreview_flex">
+              <p class="post_name"><?php echo nl2br($g['post_name']) ?></p>
+              <p class="additional_date"><?php echo nl2br($g['additional_date']) ?></p>
+              <p class="post_star">
+                <?php 
+                  if($g['star'] == "1"){
+                          echo "★";
+                        }elseif($g['star'] == "2"){
+                          echo "★★";
+                        }elseif($g['star'] == "3"){
+                          echo "★★★";
+                        }elseif($g['star'] == "4"){
+                          echo "★★★★";
+                        }elseif($g['star'] == "5"){
+                          echo "★★★★★";
+                        } 
+                ?>
+              </p>
+            </div>
+              <p class="post_review"><?php echo nl2br($g['post_review']) ?></p>
+              <?php
+                if (isset ($_SESSION['roginid'])) {
+                  if ($id == $g['user_id']) {
+              ?>
+                <input type="submit" value="削除" name="delete">
+              <?php
+                }
+              }
+              ?>
+          </div>
+        <?php } ?>
+        </form>
   </div>
 </div>
 
