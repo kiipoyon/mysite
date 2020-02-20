@@ -62,14 +62,13 @@ nav ul li.nav_flex{
   color: #fff;
   font-size: 14px;
   line-height: 2.8;
-  background: #9fb7d4;
+  background: #d5802b;
   text-decoration: none;
   border-right: 1px solid #eee;
   box-sizing: border-box;
 }
 .changemenu > li:hover > a {/*layer-1*/
-  color: orange;
-  background: #afc6e2;
+  opacity: 0.9;
 }
 .changemenu li ul {
   width: 150px;
@@ -77,11 +76,15 @@ nav ul li.nav_flex{
   margin-left: -40px;
   position: absolute;
   margin-bottom:100px;
+
+.changemenu li ul {
+  width: 150px;
+  display: none;
+  margin-left: -40px;
+  position: absolute;
+  margin-bottom:100px;
 }
-.changemenu > li li:hover > a {/*layer-2*/
-  color: olive;
-  background: #afc6e2;
-}
+
 .changemenu li ul li a {
   border-top: 1px solid #eee;
 }
@@ -123,8 +126,3 @@ input.button{
   margin: 5px;
 }
 
-/* 変更完了ページ */
-p{
-  margin-top: 80px;
-  margin-bottom: 50px;
-}
