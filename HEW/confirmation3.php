@@ -17,7 +17,8 @@ if (isset($_POST['submit2'])) {
   require 'common/common.php';
   $id = $_SESSION['roginid'];
 
-  $pdo = new PDO('mysql:host=localhost;dbname=haldb;charset=utf8','dbadmin','dbadmin');
+  
+  $pdo = connect();
   $count = $pdo->exec("INSERT INTO seller_tbl(user_id,company_name,name,name_read,mail_address)
   VALUES('$id','$company','$name','$name_read','$mail_address')");
 
@@ -80,7 +81,7 @@ if (isset($_POST['submit2'])) {
 <!-- メインビジュアル -->
 <main>
 
-  <h1 class="request">出品者登録</h1>
+  <h2 class="request">出品者登録</h2>
 
   <form action="" method="post">
 

@@ -59,7 +59,7 @@ $mail = htmlspecialchars($_POST["mail"]);
 <!-- メインビジュアル -->
 <main>
 
-  <h1 class="request">お問い合わせ内容確認</h1>
+  <h2 class="request">お問い合わせ内容確認</h2>
 
   <form action="sousin2.php" method="post">
 

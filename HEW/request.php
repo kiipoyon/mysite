@@ -43,8 +43,7 @@ $flg=0;
   	 if(!empty($id) && !empty($password)){
 
         
-            //データベースに接続する
-            $pdo=new PDO('mysql:host=localhost;dbname=haldb;charset=utf8','dbadmin','dbadmin');
+            $pdo = connect();
 
             //ログイン情報を検索し、検索結果をステートメントに設定する($loginidはPOSTで持ってきたもの) ここをprepareにする
             $st=$pdo->prepare("SELECT * FROM user_tbl WHERE user_id=?");
@@ -71,11 +70,13 @@ $flg=0;
 
 
             if(password_verify($password, $logininfo['password'])){
+            print '認証成功';
             $flg=1;
             session_regenerate_id(true); // セッションIDをふりなおす
             $_SESSION['roginid'] = $id; // ユーザーIDをセッション変数にセット
             $_SESSION['password'] = $password;
             }else{
+            print '認証成功しない';
             }
 
           //}
@@ -204,7 +205,7 @@ $(document).ready(function(){
   </ul>
 
   <div id="panel1" class="panel">
-    <h1 class="request">リクエスト</h1>
+    <h2 class="request">リクエスト</h2>
     <p class="main">
       特産横丁のWebページに新しく掲載してほしい商品をリクエストするフォームです。下記に必要事項を入力の上、送信してください。<br>
       リクエストのあった商品は生産者・生産会社にお問い合わせ・協議の結果、掲載されない場合がございます。<br>
@@ -277,7 +278,7 @@ $(document).ready(function(){
   </div>
 
 <div id="panel2" class="panel">
-  <h1 class="request">お問い合わせ</h1>
+  <h2 class="request">お問い合わせ</h2>
   <p class="main">
     特産横丁に関するご意見・ご質問・ご提案などを承るお問い合わせフォームです。下記に必要事項をご入力のうえ、送信してください。<br>
     お問い合わせの内容により、返信させていただくまでにお時間を頂戴する場合や返信いたしかねる場合、お電話・お手紙を差し上げる場合などもございます。あらかじめご了承ください。<br>
@@ -330,19 +331,19 @@ $(document).ready(function(){
 </div>
 
 <div id="panel3" class="panel">
-  <h1 class="request">出品者登録</h1>
+  <h2 class="request">出品者登録</h2>
   <p class="main">
     特産横丁に出品を希望している方の登録フォームです。<br>
     以下の内容を全て記入登録の後送信してください。<br>
     その後、記入されたメールアドレスにメールが送られます。
   </p>
 
-  <form action=".php" method="post" onsubmit="return inquiryCheck()">
+  <form action="confirmation3.php" method="post">
 
     <table class="inquiry">
       <tr>
         <td class="i_first">企業名<br>(出品者名)</td>
-        <td colspan="2" class="i_connect"><input type="text" id="s_t1" name="sei"></textarea></td>
+        <td colspan="2" class="i_connect"><input type="text" id="s_t1" name="company"></textarea></td>
         <td class="r_fourth"><span id="i_msg1"></span></td>
       </tr>
       <tr>

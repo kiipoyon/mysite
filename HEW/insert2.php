@@ -36,8 +36,7 @@ $flg=0;
   	 if(!empty($id) && !empty($password)){
 
         
-            //データベースに接続する
-            $pdo=new PDO('mysql:host=localhost;dbname=haldb;charset=utf8','dbadmin','dbadmin');
+            $pdo = connect();
 
             //ログイン情報を検索し、検索結果をステートメントに設定する($loginidはPOSTで持ってきたもの) ここをprepareにする
             $st=$pdo->prepare("SELECT * FROM user_tbl WHERE user_id=?");
@@ -162,7 +161,8 @@ if (isset($_POST['submit'])) {
     $region = "7";
   }
 
-  $pdo = new PDO('mysql:host=localhost;dbname=haldb;charset=utf8','dbadmin','dbadmin');
+  
+  $pdo = connect();
 
  $count = $pdo->exec("INSERT INTO product_tbl(product_name,producing_area,images,region,categoly,description,price,additional_date)
  VALUES('$product_name1','$pref_name1','$image1','$region','$categoly1','$description1','$price1',NOW())");
@@ -214,7 +214,7 @@ if (isset($_POST['submit'])) {
 
   </header>
 
-    <h1>商品登録</h1>
+    <h2>商品登録</h2>
 
     <form method="post" method="">
 

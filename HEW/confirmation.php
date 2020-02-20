@@ -71,7 +71,7 @@
 <!-- メインビジュアル -->
 <main>
 
-  <h1 class="request">リクエスト内容確認</h1>
+  <h2 class="request">リクエスト内容確認</h2>
 
   <form action="sousin.php" method="post" enctype="multipart/form-data">
 
