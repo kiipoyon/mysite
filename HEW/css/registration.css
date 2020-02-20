@@ -48,3 +48,8 @@ input.button{
   height: 40px;
   margin: 5px;
 }
+
+/* 登録完了 */
+.comp{
+  margin: 100px auto;
+}
