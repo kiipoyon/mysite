@@ -135,3 +135,8 @@ input.buy_submit:hover{
   background-color: #faa;
   border-color: #faa;
 }
+
+.center{
+  width: 100%;
+  margin: 0 auto;
+}
