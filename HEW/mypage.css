@@ -1,0 +1,122 @@
+@charset "utf-8";
+
+/* 共通のスタイル */
+
+/* ナビ */
+ul.menu {
+  position: relative;
+  width: 100%;
+  height: 50px;
+  max-width: 1100px;
+  margin: 30px auto 80px auto;
+  text-align: center;
+  list-style: none;
+}
+
+
+div.login-name div a:link{
+  color: #fff;
+}
+div.login-name div a:visited{
+  color: #fff;
+}
+
+/*スライダーの設定*/
+.slider{
+  margin: 0 auto;
+  width: 80%;
+}
+.slider img{
+  height: auto;
+  width: 100%;
+}
+/*slick setting*/
+.slick-prev:before,
+.slick-next:before {
+  color: #000;
+}
+
+
+h1.midasi{
+  margin-top: 250px;
+  border-radius: 5px;
+}
+
+.multiple {
+  padding: 0;
+  margin-top: 40px;
+}
+.multiple img {
+  width: 100%;
+  max-width: 200px;
+  height: 200px;
+}
+.multiple div {
+  margin: 0 5px;
+}
+.multiple .slick-next {
+  right: 17px;　z-index: 100;
+}
+.multiple .slick-prev {
+  left: 23px; z-index: 100;
+}
+
+.multiple div a{
+  text-decoration: none;
+  outline: none;
+}
+
+
+
+
+/* 会員情報変更 */
+
+/* マウスオーバー時のサブメニュー */
+
+
+.changemenu {
+  overflow: hidden;
+  width: 750px;
+  margin: 0 auto;
+  padding: 0;
+  display: flex;
+}
+.changemenu li {
+  list-style: none;
+}
+.changemenu li a {
+  display: block;
+  width: 150px;
+  height: 40px;
+  text-align: center;
+  color: #fff;
+  font-size: 14px;
+  line-height: 2.8;
+  background: #d5802b;
+  text-decoration: none;
+  border-right: 1px solid #eee;
+  box-sizing: border-box;
+}
+.changemenu > li:hover > a {/*layer-1*/
+  opacity: 0.9;
+}
+.changemenu li ul {
+  width: 150px;
+  display: none;
+  position: absolute;
+  margin-bottom:100px;
+}
+
+.changemenu li ul li a {
+  border-top: 1px solid #eee;
+}
+
+.a{
+  margin: 0 50px ;
+}
+
+.a ul li a{
+  display: inline-block;
+  margin-left: 40px;
+}
+
