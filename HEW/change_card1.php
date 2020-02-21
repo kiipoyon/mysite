@@ -97,7 +97,7 @@ if (empty($number) || empty($nominee) || empty($expiration_date)){
 
     <br>
 
-    <a href="change.php">会員情報変更トップに戻る</a>
+    <a href="mypage.php">会員情報変更トップに戻る</a>
 
     </main>
 
