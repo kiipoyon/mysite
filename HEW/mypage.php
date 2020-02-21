@@ -113,6 +113,7 @@ $order_tbl = $st->fetchAll();
     <meta charset="utf-8">
 
     <title>特産横丁 マイページ</title>
+      <link rel="stylesheet" href="css/normalize.css">
       <link rel="stylesheet" href="css/reset.css">
       <link rel="stylesheet" href="css/mypage.css">
       <link rel="stylesheet" href="css/common.css">
@@ -124,17 +125,15 @@ $order_tbl = $st->fetchAll();
   <body>
   <nav class="login">
     <div>
-      <a href="login.php" class="login">
         <?php
           if ($flg == 1) {
-              echo "<div><a href='mypage.php' class='login-name'>ようこそ".$id.'さん!</a></div>';
-              echo "<div><a href='mypage.php' class='login-name'>会員情報</a></div>";
-              echo "<div><a href='session_out.php' class='login-name'>ログアウト</a></div>";
+              echo "<div><a>ようこそ".$id.'さん!</a></div>';
+              echo "<div><a href='mypage.php'>会員情報</a></div>";
+              echo "<div><a href='session_out.php'>ログアウト</a></div>";
           } else {
               echo 'ログイン(新規登録)';
           }
           ?>
-      </a>
     </div>
   </nav>
     <header>
