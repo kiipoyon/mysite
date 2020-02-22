@@ -13,11 +13,6 @@ ul.menu {
   list-style: none;
 }
 
-.login-name{
-  margin-left: 900px;
-  width: 200px;
-}
-
 
 div.login-name div a:link{
   color: #fff;
@@ -86,6 +81,13 @@ h1.midasi{
   padding: 0;
   display: flex;
 }
+
+.m{
+  padding: 0 50px 0 0;
+
+}
+
+
 .changemenu li {
   list-style: none;
 }
@@ -116,12 +118,13 @@ h1.midasi{
   border-top: 1px solid #eee;
 }
 
+
 .a{
   margin: 0 50px ;
+  /* text-align: center; */
 }
 
-.a ul li a{
-  display: inline-block;
-  margin-left: 40px;
-}
+
+
+
 
