@@ -40,8 +40,7 @@ if(!empty($id) && !empty($password)){
 
 
     //データベースに接続する
-    $pdo=new PDO('mysql:host=localhost;dbname=haldb;charset=utf8','dbadmin','dbadmin');
-
+    $pdo = connect();
     //ログイン情報を検索し、検索結果をステートメントに設定する($loginidはPOSTで持ってきたもの) ここをprepareにする
     $st=$pdo->prepare("SELECT * FROM user_tbl WHERE user_id=?");
 
@@ -103,7 +102,6 @@ $order_tbl = $st->fetchAll();
 ?>
 
 
-
 <!DOCTYPE html>
 
   <html>
@@ -127,11 +125,11 @@ $order_tbl = $st->fetchAll();
     <div>
         <?php
           if ($flg == 1) {
-              echo "<div><a>ようこそ".$id.'さん!</a></div>';
+              echo "<div><p>ようこそ".$id.'さん!</p></div>';
               echo "<div><a href='mypage.php'>会員情報</a></div>";
               echo "<div><a href='session_out.php'>ログアウト</a></div>";
           } else {
-              echo 'ログイン(新規登録)';
+              echo "<div><a href='login.php'>ログイン(新規登録)</a></div>";
           }
           ?>
     </div>
@@ -163,7 +161,7 @@ $order_tbl = $st->fetchAll();
 
     </header>
     <!-- メインビジュアル -->
-  <main>
+
 
     <h2>会員情報変更</h2>
 
@@ -208,6 +206,7 @@ $order_tbl = $st->fetchAll();
       </li>
     </ul>
 
+
 <!-- サブメニューscript -->
     <script type="text/javascript">
       $(function() {
@@ -223,7 +222,7 @@ $order_tbl = $st->fetchAll();
     </script>
 	<br>
 
-  </main>
+
        <section id="tobe2"><h1 class="midasi">購入履歴</h1></section>
 
     <div class="multiple">
