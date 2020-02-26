@@ -1,72 +1,9 @@
 @charset "utf-8";
-
-/* 共通のスタイル */
-
-body{
-  font-size: 1em;
-  line-height: 1.6em;
-  color: #000000;
-  background-color: #F4FBFF;
-  text-align: center;
-  margin: 0 auto;
-  width: 90%;
-}
-
-img{
-  vertical-align: bottom;
-}
-
-a:link{color: #0000ee;}
-a:visited{color: #551a8b;}
-a:hover{}
-a:active{color: #ff0000;}
-
-nav.login{
-  margin: 15px 0 20px 0;
-}
-
-a.login{
-  text-align: right;
-  margin-left: 800px;
-}
-
-
-/*ヘッダー*/
-nav.login-name{
-  margin: 15px 0 20px 0;
-}
-
-div.login-name{
-  margin-left: 900px;
-  width: 200px;
-}
-
-div.login-name div{
-  background-color: #516ab6;
-}
-
-div.login-name div a:link{
-  color: #fff;
-}
-div.login-name div a:visited{
-  color: #fff;
-}
-nav ul.nav{
-  display: flex;
-}
-
-nav ul li.nav_flex{
-  width: 100%;
-  height: 40px;
-  text-align:center;
-  background-color: #ddd;
-  color: #000;
-}
-
 /*――――――――――――――――――――――以下、自分が記述した箇所――――――――――――――――――――――――――――――――――――――――――――――――*/
 /* buy.htmlで使用したところ */
 table.buytable{
   width: 800px;
+  margin-top: 100px;
 }
 table.buytable tr td{
   text-align: center;
@@ -90,13 +27,6 @@ table.buytable tr td{
   text-align: left;
 }
 
-.cart_t td{
-  width: 200px;
-}
-
-.cart_t img{
-  width: 100px;
-}
 
 input.det_button{
   padding: 2px 40px;
@@ -136,7 +66,35 @@ input.buy_submit:hover{
   border-color: #faa;
 }
 
-.center{
-  width: 100%;
+h1.h_1{
+  margin-top: 120px;
+}
+
+table{
   margin: 0 auto;
+}
+
+td.cart_tr{
+  height: 60px;
+  vertical-align: middle;
+  text-align: center;
+  border-top: rgb(83, 83, 83) solid 2px;
+}
+
+td.cart_tr p{
+  font-size: 1.3rem;
+}
+
+td.cart_td{
+  vertical-align: middle;
+  text-align: center;
+}
+
+.cart_t td{
+  width: 200px;
+}
+
+.cart_t img{
+  width: 100px;
+  padding: 10px;
 }
