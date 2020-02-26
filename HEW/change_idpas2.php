@@ -18,7 +18,7 @@
 
 
      //データベースに接続する
-     $pdo=new PDO('mysql:host=localhost;dbname=haldb;charset=utf8','dbadmin','dbadmin');
+     $pdo = connect();
 
      //ログイン情報を検索し、検索結果をステートメントに設定する($loginidはPOSTで持ってきたもの) ここをprepareにする
      $st=$pdo->prepare("SELECT * FROM user_tbl WHERE user_id=?");
@@ -185,8 +185,8 @@
       <br>
 
       <div>
-        <input type="submit" value="次へ" class="button" name ="change_idpas_last">
         <input type="button" value="修正" class="button" onclick="history.back()">
+        <input type="submit" value="次へ" class="button" name ="change_idpas_last">
       </div>
 
     </form>

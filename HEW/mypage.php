@@ -72,7 +72,7 @@ if(!empty($id) && !empty($password)){
         $_SESSION['password'] = $password;
 
     }else{
-        print '認証成功しない';
+       
     }
 
     //}
