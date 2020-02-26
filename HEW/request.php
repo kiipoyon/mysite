@@ -140,18 +140,20 @@ $(function() {
 
   <body>
 <!-- ヘッダー -->
-  <nav class="login">
-    <div>
-        <?php
-          if ($flg == 1) {
-              echo "<div><p>ようこそ".$id.'さん!</p></div>';
-              echo "<div><a href='mypage.php'>会員情報</a></div>";
-              echo "<div><a href='session_out.php'>ログアウト</a></div>";
-          } else {
-              echo 'ログイン(新規登録)';
-          }
-          ?>
-    </div>
+<nav class="login">
+    <a href="login.php" class="login">
+      <div>
+          <?php
+            if ($flg == 1) {
+                echo "<div><p>ようこそ".$id.'さん!</p></div>';
+                echo "<div><a href='mypage.php'>会員情報</a></div>";
+                echo "<div><a href='session_out.php'>ログアウト</a></div>";
+            } else {
+                echo 'ログイン(新規登録)';
+            }
+            ?>
+      </div>
+    </a>
   </nav>
 
   <header>
