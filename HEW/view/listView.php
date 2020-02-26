@@ -9,8 +9,9 @@
     <title>特産横丁</title>
 
     <link rel="stylesheet" href="css/reset.css">
-    <link rel="stylesheet" href="css/list.css">
     <link rel="stylesheet" href="css/common.css">
+    <link rel="stylesheet" href="css/list.css">
+
     <!-- googleアイコン -->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   </head>
@@ -19,17 +20,19 @@
 
 <!-- ヘッダー -->
   <nav class="login">
-    <a href="login.php" class="login">
-      <?php
-      if($flg == 1){
-          echo "<a href='mypage.php' class='login-name'>ようこそ".$id."さん!</a>";
-          echo "<a href='mypage.php' class='login-name'>会員情報</a>";
-          echo "<a href='index.php' class='login-name'>ログアウト</a>";
-      }else{
-          echo "ログイン(新規登録)";
-      }
-      ?>
-    </a>
+      <a href="login.php" class="login">
+        <div>
+            <?php
+              if ($flg == 1) {
+                  echo "<div><p>ようこそ".$id.'さん!</p></div>';
+                  echo "<div><a href='mypage.php'>会員情報</a></div>";
+                  echo "<div><a href='session_out.php'>ログアウト</a></div>";
+              } else {
+                  echo 'ログイン(新規登録)';
+              }
+              ?>
+        </div>
+      </a>
   </nav>
   <header>
     <h1><a href="index.php"><img src="images/logo.png" alt="ろご"></a></h1>
@@ -60,7 +63,8 @@
 <div class="main">
   <!-- サイドバー -->
   <div class="main_flex1">
-      <p class="conditions">絞り込み条件</p>
+    <p>対象商品数</p>
+    <p class="count"><?php echo $row_count; ?>件</p>
       <p class="area_title">
         <i class="material-icons miCSS">search</i>
         エリア
@@ -138,7 +142,7 @@
         <p>価格（税込）を指定</p>
         <form action="list.php" method="post">
           <input type="text" name="mini" class="cost_t">～<input type="text" name="max" class="cost_t">円
-          <input type="submit" name="submit" value="絞り込み" class="btn-square">
+          <input type="submit" name="narrow_down" value="絞り込み" class="btn-square">
         </form>
       </div>
   </div>
@@ -157,20 +161,7 @@
         </select>
       </form>
     </div>
-    <div>
-      <p>
-        <?php
-          //ページネーションを表示
-              for ( $n = 1; $n <= $pages; $n ++){
-                  if ( $n == $now ){
-                      echo "<span style='padding: 5px;'>$now</span>";
-                  }else{
-                      echo "<a href='list.php?page_id=$n' style='padding: 5px;'>$n</a>";
-                  }
-              }
-        ?>
-      </p>
-    </div>
+
     <div class="syouhin">
     <?php
         /* 一覧を３つ並べて表示 */
@@ -187,8 +178,7 @@
                     <img class="gazou" src="images/<?php echo $g['images'] ?>">
                     <p><?php echo nl2br($g['product_name']) ?></p>
                     <p><?php echo nl2br($g['producing_area']) ?></p>
-                    <p><?php echo nl2br($g['additional_date']) ?></p>
-                    <p class="price"><?php echo($g['price']) ?>円</p>
+                    <p><?php echo($g['price']) ?>円</p>
                   </a>
                 </td>
               <?php if ($idx % $col == $col - 1) { ?>

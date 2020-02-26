@@ -18,18 +18,20 @@
 
   <body>
 <!-- ヘッダー -->
-    <nav class="login">
-    <a href="login.php" class="login">
-    	<?php
-     	if($flg==1){
-    	    echo "<a href='mypage.php' class='login-name'>ようこそ".$id."さん!</a>";
-    	    echo "<a href='mypage.php' class='login-name'>会員情報</a>";
-    	    echo "<a href='index.php' class='login-name'>ログアウト</a>";
-    	}else{
-    	    echo "ログイン(新規登録)";
-    	}
-    	?>
-    </a>
+  <nav class="login">
+        <a href="login.php" class="login">
+          <div>
+              <?php
+                if ($flg == 1) {
+                    echo "<div><p>ようこそ".$id.'さん!</p></div>';
+                    echo "<div><a href='mypage.php'>会員情報</a></div>";
+                    echo "<div><a href='session_out.php'>ログアウト</a></div>";
+                } else {
+                    echo 'ログイン(新規登録)';
+                }
+                ?>
+          </div>
+        </a>
   </nav>
   <header>
     <h1><a href="index.php"><img src="images/logo.png" alt="ろご"></a></h1>
@@ -56,22 +58,9 @@
 <!-- メインビジュアル -->
 <main>
 
-<script src="js/jquery-3.4.1.min.js"></script>
-<script src="js/mailaddress.js"></script>
-<script>
-$(document).ready(function(){
-  $(".email").emailautocomplete({ //補完機能をつけたい箇所を指定
-    domains: ["yahoo.co.jp", "gmail.com", "gmail.com", "ezweb.ne.jp", "au.com", "docomo.ne.jp", "i.softbank.jp", "softbank.ne.jp", "excite.co.jp", "googlemail.com", "hotmail.com", "icloud.com", "live.jp", "me.com", "mineo.jp", "nifty.com", "outlook.com", "outlook.jp", "yahoo.ne.jp", "ybb.ne.jp", "ymobile.ne.jp", ] //補完機能に追加したいドメインを記述
-  });
-});
-</script>
-
 
 <div class="main">
   <div class="main_flex1">
-
-
-
   <p class="conditions">絞り込み条件</p>
   <p class="area_title">
     <i class="material-icons miCSS">search</i>
@@ -278,7 +267,7 @@ $(document).ready(function(){
           <label for="star5">★</label>
         </div>
 
-          <input type="submit" class = "btn_submit" name="btn_submit" value="書き込む">
+          <input type = "submit" class = "btn_submit" name = "btn_submit" value = "書き込む">
         </form>
 
         <script> 
@@ -313,15 +302,6 @@ $(document).ready(function(){
               </p>
             </div>
               <p class="post_review"><?php echo nl2br($g['post_review']) ?></p>
-              <?php
-                if (isset ($_SESSION['roginid'])) {
-                  if ($id == $g['user_id']) {
-              ?>
-                <input type="submit" value="削除" name="delete">
-              <?php
-                }
-              }
-              ?>
           </div>
         <?php } ?>
         </form>

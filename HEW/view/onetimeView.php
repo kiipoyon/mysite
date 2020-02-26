@@ -10,6 +10,7 @@
 
     <link rel="stylesheet" href="css/reset.css">
     <link rel="stylesheet" href="css/login.css">
+    <link rel="stylesheet" href="css/common.css">
   </head>
 
   <body>

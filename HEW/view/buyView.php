@@ -11,36 +11,30 @@
     <link rel="stylesheet" href="css/reset.css">
     <link rel="stylesheet" href="css/buy.css">
     <link rel="stylesheet" href="css/common.css">
-    <link rel="stylesheet" type="text/css" href="slick/slick.css"/>
-    <link rel="stylesheet" type="text/css" href="slick/slick-theme.css"/>
   </head>
 
   <body>
 
   <nav class="login">
-    <a href="login.php" class="login">
-      <?php
-      if($flg == 1){
-          echo "<a href='mypage.php' class='login-name'>ようこそ".$id."さん!</a>";
-          echo "<a href='mypage.php' class='login-name'>会員情報</a>";
-          echo "<a href='index.php' class='login-name'>ログアウト</a>";
-      }else{
-          echo "ログイン(新規登録)";
-      }
-      ?>
-    </a>
+        <a href="login.php" class="login">
+          <div>
+              <?php
+                if ($flg == 1) {
+                    echo "<div><p>ようこそ".$id.'さん!</p></div>';
+                    echo "<div><a href='mypage.php'>会員情報</a></div>";
+                    echo "<div><a href='session_out.php'>ログアウト</a></div>";
+                } else {
+                    echo 'ログイン(新規登録)';
+                }
+                ?>
+          </div>
+        </a>
   </nav>
 
-    <header>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
-    <script src="js/common.js"></script>
-    <script type="text/javascript" src="slick/slick.min.js"></script>
-
-
-      <a href="index.php"><img class="rogo" src="images/logo.png" alt="ろご"></a>
-
+  <header>
+    <h1><a href="index.php"><img src="images/logo.png" alt="ろご"></a></h1>
 <!-- グローバルナビゲーション -->
-    <ul class="menu">
+<ul class="menu">
       <li class="menu__single">
         <a href="index.php" class="init-bottom">トップページへ</a>
       </li>
@@ -57,49 +51,58 @@
         <a href="request.php" class="init-bottom">お問い合わせをする</a>
       </li>
     </ul>
+  </header>
 
-    </header>
-<article>
 
-  <h1 class="h_1">カートの中身</h1>
+<main>
+<div class="main">
+  <h1 class="h_1">ご注文内容</h1>
 <hr>
+          <form action="credit.php" method="POST">
 
+          <div class="text_right">
+            <input class="buy_submit" type="submit" value="レジに進む">
+          </div>
+          </form>
           <table class="cart_t">
-            <?php foreach($rows as $r) { ?>
             <tr>
-                <td><img src="images/<?php echo $r->getImages() ?>"></td>
-                <td><?php echo $r->getName() ?></td>
-                <td><?php echo $r->getPrice() ?> 円 </td>
-                <td><?php echo $r->getNum() ?> 個 </td>
-                <td><?php echo $r->getPrice() * $r->getNum() ?> 円</td>
-                <td>
-                  <input type="submit" value="削除">
+              <th colspan="2">商品名</th>
+              <th>数量</th>
+              <th>小計（税込み）</th>
+              <th></th>
+            </tr>
+            <?php foreach($rows as $r) { ?>
+            <tr class="cart_tr1">
+                <td class="cart_td"><img src="images/<?php echo $r->getImages() ?>"></td>
+                <td class="cart_td"><?php echo $r->getName() ?></td>
+                <form action="buy.php" method="POST">
+                <td class="cart_td">
+                  <?php echo $r->getNum() ?> 個 
+                </td>
+                <td class="cart_td"><?php echo $r->getPrice() * $r->getNum() ?> 円</td>
+                <td class="cart_td">
+                <input type="checkbox" name="checkbox[]" value="<?php echo $r->getId(); ?>">
                 </td>
             </tr>
             <?php } ?>
+            <tr>
+              <td class="cart_tr"></td>
+              <td class="cart_tr"></td>
+              <td colspan="2" class="cart_tr"><p>合計金額（税込み） <?php echo $sum ?> 円 </p></td>
+              <td class="cart_tr"><input type="submit" value="×削除" name="deletebtn" onclick="doReload()"></td>
+              </form>
+            </tr>
         </table>
+          <a href="session_outcart.php">カートを空にする</a>
+          <a href="list.php">お買い物に戻る</a>
+  </div>
 
-<hr>
-<div class="text_right">
-  <p>合計 <?php echo $sum ?> 円 </p>
-</div>
-<br>
-<a href="list.php">お買い物に戻る</a>
-<div class="text_right"><form action="credit.php" method="POST" id="contact"><input class="buy_submit" type="submit" value="レジに進む"></form></div>
-
-</article>
-<!-- ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――― -->
-<!-- ランキング -->
 
   </main>
-
-
 <!-- フッター -->
 <hr>
   <footer>
     <div class="footer_copyright"><small>copyright &copy; 2019 K. All rights reserved.</small></div>
   </footer>
-
   </body>
-
 </html>
