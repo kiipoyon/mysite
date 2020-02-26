@@ -1,10 +1,7 @@
 <?php
 
-// ハッシュ化ファイル
-require "password.php";
+require "common/common.php";
 
-// セッション開始
-session_start();
 
 
 // エラーメッセージ、登録完了メッセージの初期化

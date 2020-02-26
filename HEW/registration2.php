@@ -1,10 +1,8 @@
 <?php
 
 // ハッシュ化ファイル
-require "password.php";
+require "common/common.php";
 
-// セッション開始
-session_start();
 
 // セッション情報の取得
 $id = $_SESSION['id'];
@@ -42,7 +40,7 @@ $errorMessage = "";
 
 try {
     // 接続完了
-    $pdo = new PDO('mysql:host=localhost;dbname=haldb;charset=utf8','dbadmin','dbadmin');
+    $pdo = connect();
 }catch (PDOException $e) {
     $errorMessage = 'データベースエラー';
     exit();
