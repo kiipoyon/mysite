@@ -47,7 +47,16 @@ input.button{
   width: 70px;
   height: 40px;
   margin: 5px;
+  color: #fff;
+  background-color: #dc954e;
+  cursor: pointer;
+  border: none;
 }
+
+input.button:hover{
+  opacity: 0.9;
+}
+
 
 /* 登録完了 */
 .comp{

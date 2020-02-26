@@ -46,4 +46,8 @@ input.button{
   border: none;
 }
 
+input.button:hover{
+  opacity: 0.9;
+}
+
 
