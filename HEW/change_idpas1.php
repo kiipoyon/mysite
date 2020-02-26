@@ -2,7 +2,6 @@
 require 'common/common.php';
 
 
-
 $flg=0;
 
 $errormessage="";
@@ -37,6 +36,7 @@ if(!empty($id) && !empty($password)){
 
     //ログイン成功フラグを初期化する（ログイン成功フラグ＝０にする）
     $flg=0;
+    
 
     if(password_verify($password, $logininfo['password'])){
         $flg=1;

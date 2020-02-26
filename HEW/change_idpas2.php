@@ -78,7 +78,7 @@
 
  try {
      // 接続完了
-     $pdo = new PDO('mysql:host=localhost;dbname=haldb;charset=utf8','dbadmin','dbadmin');
+     $pdo = connect();
  }catch (PDOException $e) {
      $errorMessage = 'データベースエラー';
      exit();
