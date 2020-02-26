@@ -22,7 +22,7 @@ $errorMessage = "";
 
 try {
     // 接続完了
-    $pdo = new PDO('mysql:host=localhost;dbname=haldb;charset=utf8','dbadmin','dbadmin');
+    $pdo = connect();
 }catch (PDOException $e) {
     $errorMessage = 'データベースエラー';
     exit();
@@ -95,11 +95,6 @@ if (isset($_POST['syusei'])) {
       <tr>
         <td class="chan">有効期限</td>
         <td><?php echo $date; ?></td>
-      </tr>
-
-      <tr>
-        <td class="chan">セキュリティコード</td>
-        <td><?php echo $security_code; ?></td>
       </tr>
 
       </table>
