@@ -2,40 +2,34 @@
 
 /* 共通のスタイル */
 
-body{
-  font-size: 1em;
-  line-height: 1.6em;
-  color: #000000;
-  background-color: #F4FBFF;
-  text-align: center;
-  margin: 0 auto;
-  width: 90%;
-}
-
-img{
-  vertical-align: bottom;
-}
-
-a:link{color: #0000ee;}
-a:visited{color: #551a8b;}
-a:hover{}
-a:active{color: #ff0000;}
-
-
-
 /* ――――――――――――――――――――credit.htmlで使用したところ―――――――――――――――――――― */
-
-table.sample{
-  margin: 0 auto;
-  padding: 0 auto;
+.table{
+  display: flex;
+  flex-wrap: wrap;
 }
+
+.table_flex1{
+  order: 1;
+  margin-left: 20px;
+}
+
+.table_flex2{
+  order: 2;
+  margin-left: 20px;
+}
+
+.table_flex3{
+  order: 3;
+  margin-left: 20px;
+}
+
 h1.credit{
   text-align: center;
   font-weight: normal;
   font-size: 20px;
 }
 table.credit{
-  width: 350px;
+  width: 310px;
   height: 450px;
   margin: 0 20px;
   padding: 0px 3px;
@@ -53,7 +47,7 @@ h1.credith1{
 .creditcard{
   margin: 20px 0 0 20px;
   border-collapse: collapse;
-  width: 300px;
+  width: 250px;
   text-align: left;
 }
 .creditcard tr td{
@@ -63,11 +57,16 @@ h1.credith1{
 .hurikomi{
   text-align: left;
   line-height: 250%;
-  font-size: 90%;
+}
+
+.hurikomi1{
+  margin: 20px 0 0 20px;
+  text-align: left;
+  line-height: 250%;
 }
 
 .creditinfo{
-  margin: 20px 0 20px 0px;
+  margin: 20px 20px 20px 20px;
   text-align: left;
   border-spacing: 5px 0;
 }
@@ -99,7 +98,7 @@ h1.credith1{
 
 .input_name{
   height: 30px;
-  width: 200px;
+  width: 160px;
   border-radius: 5px;
 }
 
@@ -138,6 +137,20 @@ input.submit:hover{
   border:2px #f66 solid;
 }
 
+input.change{
+  margin-left: 100px;
+  font-size: 1.2em;
+  width: 80px;
+  height: 30px;
+  background-color: #fff;
+  border:2px #aaa solid;
+  border-radius: 5px;
+}
+
+.change_button{
+  display: inline-flex;
+}
+
 .input_2{
   height: 30px;
   width: 120px;
@@ -147,7 +160,8 @@ input.submit:hover{
 
 
 img.c_logo{
-  width: 80%;
+  width: 30px;
+  vertical-align: middle;
 }
 div.c_logo{
   width: 50px
@@ -194,7 +208,7 @@ td.img{
 .credit2 tr td{
   width: 140px;
   text-align: left;
-  margin: 0 0 0 30px;
+  margin: 0 0 0 50px;
 }
 
 .muryou{
@@ -246,5 +260,9 @@ table.product{
  
  .scroll_d2{
    width: 150px;
+ }
+
+ .submit_iti{
+   margin-left: 20px;
  }
  

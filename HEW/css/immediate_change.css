@@ -1,0 +1,48 @@
+.settlement{
+  display:block;
+  width: 100px;
+  height:40px;
+  color: #FFF;
+  text-decoration: none;
+  text-align: center;
+  background-color: #f39800; /*ボタン色*/
+  border-radius: 5px; /*角丸*/
+  -webkit-transition: all 0.5s;
+  transition: all 0.5s;
+  margin: 35px auto;
+}
+
+input.settlement{
+  font-size: 1.2em;
+  width: 80px;
+  height: 30px;
+  background-color: #fff;
+  border:2px #aaa solid;
+  border-radius: 5px;
+  color: black;
+}
+
+input.back{
+  font-size: 1.2em;
+  width: 80px;
+  height: 30px;
+  background-color: #fff;
+  border:2px #aaa solid;
+  border-radius: 5px;
+  color: black;
+}
+
+.button{
+  display: inline-flex;
+}
+
+input.settlement1{
+  font-size: 1.2em;
+  width: 180px;
+  height: 30px;
+  background-color: #fff;
+  border:2px #aaa solid;
+  border-radius: 5px;
+  color: black;
+}
+

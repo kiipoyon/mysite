@@ -1,0 +1,45 @@
+div.pass_reset{
+  width: 60%;
+  margin:0 auto;
+}
+
+p.pass_reset{
+  font-size: 1.5rem;
+  padding: 20px;
+  text-align: left;
+}
+
+div.pass_reset1{
+  background-color: #fff;
+}
+
+.mail_address{
+  display: inline-block;
+  margin-top: 20px;
+}
+
+.mail_address1{
+  display: inline-block;
+  width: 300px;
+  height: 30px;
+  background-color: bisque;
+}
+
+.mail_address1:focus{
+  border-color: #ffa500;
+  border: 2px solid #ffa500;
+}
+
+.mail_address2{
+  display: inline-block;
+  height: 40px;
+  border-radius : 5%;          /* 角丸       */
+  font-size     : 1.3rem;        /* 文字サイズ */
+  text-align    : center;      /* 文字位置   */
+  cursor        : pointer;     /* カーソル   */
+  background    :  #ffa500;     /* 背景色     */
+  color         : #ffffff;     /* 文字色     */
+  line-height   : 1em;         /* 1行の高さ  */
+  transition    : .3s;         /* なめらか変化 */
+  border        : none;
+}

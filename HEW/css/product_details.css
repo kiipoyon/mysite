@@ -2,44 +2,10 @@
 
 /* 共通のスタイル */
 
-body{
-  font-size: 1em;
-  line-height: 1.6em;
-  color: #000000;
-  background-color: #F4FBFF;
-  text-align: center;
-  margin: 0 auto;
-  width: 1000px;
-}
-
-img{
-  vertical-align: bottom;
-}
-
-a:link{color: #0000ee;}
-a:visited{color: #551a8b;}
+a:link{color: #b16a23; text-decoration: none;}
+a:visited{color: #b16a23;}
 a:hover{}
-a:active{color: #ff0000;}
-
-nav.login{
-  margin: 15px 0 20px 0;
-}
-
-a.login{
-  text-align: right;
-  margin-left: 800px;
-}
-nav ul.nav{
-  display: flex;
-}
-
-nav ul li.nav_flex{
-  width: 100%;
-  height: 40px;
-  text-align:center;
-  background-color: #ddd;
-  color: #000;
-}
+a:active{color: #b16a23;}
 
 div#tabs{
   margin-top: 10px;
@@ -74,12 +40,15 @@ div.main{
   display: flex;
   width: 100%;
   margin: 0 auto;
+  flex-wrap: wrap;
 }
 
 /* サイドバー */
 div.main_flex1{
   width: 200px;
   display: block;
+  flex: 1;
+	order: 2;
 }
 
 /*searchアイコン作成*/
@@ -138,8 +107,9 @@ div.cost{
 
 
 div.main_flex2{
-  width: 700px;
+  width: 950px;
   margin:0 auto;
+  order: 1;
 }
 
 div.main_flex2 img{
@@ -154,11 +124,11 @@ div.container{
 }
 
 div.container_flex1{
-  width: 300px;
+  width: 600px;
 }
 
 div.container_flex2{
-  width: 400px;
+  width: 650px;
 }
 
 .kago{
@@ -324,8 +294,10 @@ h1{
 }
 
 div.postreview{
-  background-color: #99dfff;
-  margin: 2px;
+  background-color: lightgoldenrodyellow;
+  width: 80%;
+  margin: 0 auto;
+  margin-bottom: 20px;
   border-radius: 10px;
 }
 
@@ -434,8 +406,8 @@ p.post_star{
   left: -15px;
   content: '★★★★★';
   display: inline-block;
-  height: 16px;
-  line-height: 16px;
+  height: 22px;
+  line-height: 22px;
 }
 .rate:before {
   color: #ddd;
@@ -451,39 +423,39 @@ p.post_star{
 }
 
 .rate1:after {
-  width: 16px;
+  width: 23px;
 }
 
 .rate1-5:after {
-  width: 24px;
+  width: 39px;
 }
 
 .rate2:after {
-  width: 32px;
+  width: 49px;
 }
 
 .rate2-5:after {
-  width: 40px;
+  width: 65px;
 }
 
 .rate3:after {
-  width: 48px;
+  width: 75px;
 }
 
 .rate3-5:after {
-  width: 56px;
+  width: 91px;
 }
 
 .rate4:after {
-  width: 64px;
+  width: 101px;
 }
 
 .rate4-5:after {
-  width: 72px;
+  width: 117px;
 }
 
 .rate5:after {
-  width: 80px;
+  width: 130px;
 }
 
 .wrap {

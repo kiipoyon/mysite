@@ -1,86 +1,23 @@
 @charset "utf-8";
 
-/* 共通のスタイル */
-
-body{
-  font-size: 1em;
-  line-height: 1.6em;
-  color: #000000;
-  background-color: #F4FBFF;
-  text-align: center;
-  margin: 0 auto;
-  width: 1000px;
-}
-
-img{
-  vertical-align: bottom;
-}
-
-a:link{color: #0000ee;}
-a:visited{color: #551a8b;}
-a:hover{}
-a:active{color: #ff0000;}
-
-nav.login{
-  margin: 15px 0 20px 0;
-}
-
-a.login{
-  text-align: right;
-  margin-left: 800px;
-}
-nav ul.nav{
-  display: flex;
-}
-
-nav ul li.nav_flex{
-  width: 100%;
-  height: 40px;
-  text-align:center;
-  background-color: #ddd;
-  color: #000;
-}
-
-div#tabs{
-  margin-top: 10px;
-}
-
-.tab {
-  border-bottom: 3px solid #fb4343;
-}
-.tab li {
-  color: #333;
-  float: left;
-  margin: 0 10px -1px 0;
-  padding: 10px 20px;
-  border: 1px solid #fb4343;
-  cursor: pointer;
-  list-style: none;
-  transition: .3s;
-}
-.tab li.active {
-  color: #fff;
-  background: #fb4343;
-  cursor: auto;
-}
-
-.area ul {
-  display: none;
-}
-.area ul.show {
-  display: block;
-}
 div.main{
   display: flex;
-  width: 100%;
-  background-color: #fff;
-  margin: 0 auto;
+	width: 100%;
+	margin: 0 auto;
+	flex-wrap: wrap;
 }
 
 /* サイドバー */
 div.main_flex1{
+	margin-top: 30px;
   width: 200px;
-  display: block;
+	display: block;
+	flex: 1;
+	order: 2;
+}
+.count{
+	font-size: 2rem;
+	padding: 5px;
 }
 
 /*searchアイコン作成*/
@@ -139,8 +76,9 @@ div.cost{
 
 
 div.main_flex2{
-  width: 700px;
-  margin:0 auto;
+	margin:0 auto;
+	width: 950px;
+	order: 1;
 }
 
 div.syouhin{
@@ -156,7 +94,7 @@ div.syouhin{
 /*並べ替え*/
 .cp_ipselect {
 	overflow: hidden;
-	width: 50%;
+	width: 200px;
 	margin: 2em auto;
 	text-align: center;
 }
@@ -222,8 +160,6 @@ p.syouhin_tihou{
   font-size: 0.7rem;
   text-decoration: underline;
 }
-
-
 
 td{
 	width:300px;
