@@ -92,6 +92,9 @@ unset($_SESSION["query"]);
 
       }
 
+      unset($_SESSION['sql']);
+      unset($_SESSION['query']);
+
 
 
       //売れ筋ランキングとおすすめの表示

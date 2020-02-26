@@ -41,7 +41,7 @@ $flg=0;
 
         
             //データベースに接続する
-            $pdo=new PDO('mysql:host=localhost;dbname=haldb;charset=utf8','dbadmin','dbadmin');
+            $pdo = connect();
 
             //ログイン情報を検索し、検索結果をステートメントに設定する($loginidはPOSTで持ってきたもの) ここをprepareにする
             $st=$pdo->prepare("SELECT * FROM user_tbl WHERE user_id=?");
@@ -54,19 +54,16 @@ $flg=0;
 
             //処理結果を配列logininfoに設定する loginidが主キーならこの処理はいらない
             $logininfo=$st->fetch();
-            var_dump($logininfo);
 
             //ログイン成功フラグを初期化する（ログイン成功フラグ＝０にする）
             $flg=0;
             //パスワードが一致しているかどうかチェックする
             if(password_verify($password, $logininfo['password'])){
-            print '認証成功';
             $flg=1;
             session_regenerate_id(true); // セッションIDをふりなおす
             $_SESSION['roginid'] = $id; // ユーザーIDをセッション変数にセット
             $_SESSION['password'] = $password;
             }else{
-            print '認証成功しない';
             }
 
       }
@@ -103,14 +100,10 @@ $pdo = new PDO('mysql:host=localhost;dbname=haldb;charset=utf8','dbadmin','dbadm
             INNER JOIN product_tbl
             ON orderdetails_tbl.product_id = product_tbl.product_id
             where orderdetails_tbl.order_no= '$res'";
-
-
-            var_dump($lo);
             //処理結果を配列logininfoに設定する loginidが主キーならこの処理はいらない
 	// SQL実行
 	$log = $pdo->query($lo);
 
-            var_dump($log);
 
 // 変数とタイムゾーンを初期化
 $auto_reply_subject = null;

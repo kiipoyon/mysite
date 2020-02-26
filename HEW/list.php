@@ -60,8 +60,16 @@ $flg=0;
             session_regenerate_id(true); // セッションIDをふりなおす
             $_SESSION['roginid'] = $id; // ユーザーIDをセッション変数にセット
             $_SESSION['password'] = $password;
+            if(isset($logininfo['secret_id'])){
+                //2段階認証
+                if(isset($_SESSION['secret_id'])){
+                }else{
+                header ('location:onetimea.php');
+                }
             }else{
             }
+        }else{
+        }
 
           $st2=$pdo->prepare("select name from user_details_tbl where user_id=?");
           //bindValueメソッドでパラメータをセット
@@ -80,9 +88,33 @@ $flg=0;
     //一ページに表示する記事の数をmax_viewに定数として定義
     define('max_view',9);
 
+if(isset($_GET['rank'])){
+    $rank = $_GET['rank'];
+
+        //商品を検索する
+        //基本の構文
+        $sta = $pdo->query("SELECT * FROM product_tbl
+        INNER JOIN orderdetails_tbl 
+        ON product_tbl.product_id = orderdetails_tbl.product_id
+        WHERE orderdetails_tbl.order_date > current_timestamp + interval -30 day
+        group by product_tbl.product_id
+        ORDER BY SUM(orderdetails_tbl.quantity) DESC");
+        //$product_tbl = $sta->fetchAll();
+
+        $sta = " INNER JOIN orderdetails_tbl 
+                ON product_tbl.product_id = orderdetails_tbl.product_id
+                WHERE orderdetails_tbl.order_date > current_timestamp + interval -30 day
+                group by product_tbl.product_id
+                ORDER BY SUM(orderdetails_tbl.quantity) DESC";
+
+        //sql文をセッションに入れる
+        $_SESSION['sql'] = $sta;
+
+
+}
+
 if(isset($_GET['idd'])){
     $idd = $_GET['idd'];
-    echo $idd;
     //地図から検索
     if ($idd == 1) {
         $area = "北海道";
@@ -182,6 +214,23 @@ if($categoly == 1){
     //sql文をセッションに入れる
     $_SESSION['sql'] = $sta;
 
+}elseif(isset($_POST['narrow_down'])){
+    $sta = $_SESSION['sql'];
+//価格で検索
+if(!empty($_POST["mini"])){
+    $mini = $_POST["mini"];
+    $sta .= " AND price >='$mini'";
+}
+if(!empty($_POST["max"])){
+    $max = $_POST["max"];
+    $sta .= " AND price <='$max'";
+}
+
+if(!empty($sta)){
+    //sql文をセッションに入れる
+    $_SESSION['sql'] = $sta;
+}
+
 }elseif (isset($_POST['submit'])){
     //詳細検索をする
     $area = "検索結果";
@@ -222,7 +271,6 @@ if($categoly == 1){
 }elseif(!empty($_POST["sort"])){
     if (isset ($_SESSION['sql'])) {
         $sta = $_SESSION['sql'];
-        var_dump($sta);
       }
     $sort = $_POST["sort"];
     if($sort == "cheap_price"){
@@ -231,21 +279,18 @@ if($categoly == 1){
         $query .= " $sort1 ";
         $query .= " ASC";
         $_SESSION['query'] = $query;
-        var_dump($query);
     }elseif($sort == "high_price"){
         $sort1 = "price";
         $query = " ORDER BY ";
         $query .= " $sort1 ";
         $query .= " DESC";
         $_SESSION['query'] = $query;
-        var_dump($query);
     }elseif($sort == "additional_date"){
         $sort1 = "additional_date";
         $query = " ORDER BY ";
         $query .= " $sort1 ";
         $query .= " DESC";
         $_SESSION['query'] = $query;
-        var_dump($query);
     }
 }else{
     $sta = "";
@@ -264,6 +309,12 @@ if($categoly == 1){
         $count .= $sta;
         $count = $pdo->prepare($count);
         $count->execute();
+
+        $counta = "SELECT * FROM product_tbl";
+        $counta .= $sta;
+        $counta = $pdo->prepare($counta);
+        $counta->execute();
+        $row_count = $counta->rowCount();
 
         $total_count = $count->fetch(PDO::FETCH_ASSOC);
         $total = intval($total_count);

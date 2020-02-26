@@ -1,19 +1,4 @@
 <?php
-//COPYRIGHT="All Rights Reserved. Copyright 2019 (C) HAL.AC.JP"
-//
-/*
- * ショッピングカート
- *
- * ファイル名　　：　index.php
- * ファイル説明　：　初期処理
- * 　　　　　　　　　
- * 更新履歴		更新日	  担当者	内容
- *　1.0.0	 2019/05/01	  HAL石丸	新規作成
- *
- */
-
-
-
 // 共通部品を呼び出す
 require 'common/common.php';
 // Daoを呼び出す
@@ -51,7 +36,7 @@ $flg=0;
 
         
             //データベースに接続する
-            $pdo=new PDO('mysql:host=localhost;dbname=haldb;charset=utf8','dbadmin','dbadmin');
+            $pdo = connect();
 
             //ログイン情報を検索し、検索結果をステートメントに設定する($loginidはPOSTで持ってきたもの) ここをprepareにする
             $st=$pdo->prepare("SELECT * FROM user_tbl WHERE user_id=?");
@@ -76,21 +61,17 @@ $flg=0;
             }else{
             }
 
-          $st2=$pdo->prepare("select name from user_details_tbl where user_id=?");
+          $st2=$pdo->prepare("SELECT name FROM user_details_tbl WHERE user_id=?");
           //bindValueメソッドでパラメータをセット
           $st2->bindValue(1,$id);
-
           //executeでクエリを実行
           $st2->execute();
-
           $logininfo2=$st2->fetchAll();
 
           foreach($logininfo2 as $login2){
               $name=$login2['name'];
           }
-
       }
-
 
     // 一覧の初期化
     $rows = array();
@@ -104,9 +85,28 @@ $flg=0;
         @$_SESSION['cart'][$_POST['code']] += $_POST['num'];
     }
 
+    	// 削除するボタンを押した場合
+	if(isset($_POST['deletebtn'])) {
+		// チェックボックスにチェックを入れた場合
+		if(isset($_POST['checkbox'])) {
+			// チェックボックスをチェックした数分繰り返す
+			foreach($_POST['checkbox'] as $chkkey => $chkval) {
+                // チェックした配列を削除する。
+                unset($_SESSION['cart'][$chkval]);
+			}
+        }
+
+    }
+
     // カート内商品点数分繰り返す
     foreach($_SESSION['cart'] as $code => $num) {
     // 商品テーブルを検索する
+    if(isset($_POST['amount'])){
+        $fgt = $_POST['amount'];
+        echo $fgt;
+        $num = $fgt;
+    }
+    
     $goods_dao = new GoodsDao();
     $goods = new Goods();
     $goods = $goods_dao->getGoodsByCode($code);
@@ -122,35 +122,6 @@ $flg=0;
     // セッション情報の取得
     $sum = $_SESSION['sum'];
     }
-
-
-
-    // 一覧の初期化
-    $def = array();
-
-    //削除ボタンが押された場合
-    //if(isset($_POST["deletebtn"])){
-        //foreach($_SESSION['delete'] as $_POST["scales"] => "3") {
-        //$def[] = $_POST["scales"];
-        //echo $ff;
-        //var_dump($def);
-        //unset($_SESSION['cart'][$def]);
-    //}
-//}
-if(isset($_POST["deletebtn"])){
-    foreach ($_SESSION['cart'] as $key => $value){
-        echo "</br>";
-        echo '買い物番号'. $key. 'は、'. $value. 'です。<br/>';
-        if (isset($_POST['scales'])) {
-            $ff = $_POST['scales'];
-            echo $ff;
-            echo "チェックが入っています!";
-        } else {
-            echo 'チェックされていません。';
-        }
-        //unset($_SESSION['cart'][$key]);
-    }
-}
 
 // 最初の画面を表示する
 require 'view/buyView.php';

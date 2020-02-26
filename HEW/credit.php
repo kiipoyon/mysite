@@ -39,7 +39,7 @@ $flg=0;
 
         
             //データベースに接続する
-            $pdo=new PDO('mysql:host=localhost;dbname=haldb;charset=utf8','dbadmin','dbadmin');
+            $pdo = connect();
 
             //ログイン情報を検索し、検索結果をステートメントに設定する($loginidはPOSTで持ってきたもの) ここをprepareにする
             $st=$pdo->prepare("SELECT * FROM user_tbl WHERE user_id=?");
@@ -57,13 +57,11 @@ $flg=0;
             $flg=0;
 
             if(password_verify($password, $logininfo['password'])){
-            print '認証成功';
             $flg=1;
             session_regenerate_id(true); // セッションIDをふりなおす
             $_SESSION['roginid'] = $id; // ユーザーIDをセッション変数にセット
             $_SESSION['password'] = $password;
             }else{
-            print '認証成功しない';
             }
 
           $st2=$pdo->prepare("SELECT * FROM user_details_tbl WHERE user_id=?");
@@ -85,14 +83,11 @@ $flg=0;
           $st3->execute();
 
           $logininfo3=$st3->fetchAll();
-          
-
       }
 
     if (isset ($_SESSION['sum'])) {
         // セッション情報の取得
         $sum = $_SESSION['sum'];
-        echo $sum;
       }else{
         //買い物かごの中身が無ければ商品一覧を表示する
         header("Location: list.php");
@@ -132,28 +127,20 @@ $flg=0;
           for( $i=0; $i<$string_length; $i++ ) {
               $res .= $base_string[mt_rand( 0, count($base_string)-1)];
           }
-
           $_SESSION["res"] = $res;
-  
-          var_dump($res);
 
           foreach($_SESSION['cart'] as $code => $num) {
             //execメソッドでクエリを実行。insert文を実行した場合挿入件数が戻り値として返る
             $count = $pdo->exec("INSERT INTO order_tbl(order_id,product_id,method,card_no,expiration_month,expiration_year,nominee,delivery,delivery_day,delivery_time,Destination)
             VALUES('','$code','$method','$card_no','$expiration_month','$expiration_year','$nominee','$delivery','$delivery_day','$delivery_time','$res')");
             }
-            echo "{$count}件データを挿入しました。".PHP_EOL;
-            
+
           foreach($_SESSION['cart'] as $code => $num) {
             //execメソッドでクエリを実行。insert文を実行した場合挿入件数が戻り値として返る
             $count1 = $pdo->exec("INSERT INTO orderdetails_tbl(order_id,user_id,product_id,quantity,order_no)
             VALUES('','$id','$code','$num','$res')");
             }
-            echo "{$count1}件データを挿入しました。".PHP_EOL;
-
-
           header("Location: buyout.php");
-
         }
 
 //再送信のエラーを消す

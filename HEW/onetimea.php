@@ -38,7 +38,7 @@ $flg=0;
 
         
             //データベースに接続する
-            $pdo=new PDO('mysql:host=localhost;dbname=haldb;charset=utf8','dbadmin','dbadmin');
+            $pdo = connect();
 
             //ログイン情報を検索し、検索結果をステートメントに設定する($loginidはPOSTで持ってきたもの) ここをprepareにする
             $st=$pdo->prepare("SELECT * FROM user_tbl WHERE user_id=?");
@@ -62,9 +62,7 @@ $flg=0;
                 $_SESSION['roginid'] = $id; // ユーザーIDをセッション変数にセット
                 $_SESSION['password'] = $password;
                 if(!empty($logininfo['secret_id'])){
-                    echo"入ってる";
                 }else{
-                    echo"入ってない";
                 }
             }else{
             }
@@ -100,10 +98,8 @@ $flg=0;
      $checkResult = $ga->verifyCode($logininfo['secret_id'], $oneCode, $discrepancy);
      if ($checkResult) {
         $_SESSION['secret_id'] = $logininfo['secret_id'];
-         echo 'OK';
          header ('location:index.php');
      } else {
-         echo 'FAILED';
      }
 
 

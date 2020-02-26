@@ -1,19 +1,4 @@
 <?php
-//COPYRIGHT="All Rights Reserved. Copyright 2019 (C) HAL.AC.JP"
-//
-/*
- * ショッピングカート
- *
- * ファイル名　　：　index.php
- * ファイル説明　：　初期処理
- * 　　　　　　　　　
- * 更新履歴		更新日	  担当者	内容
- *　1.0.0	 2019/05/01	  HAL石丸	新規作成
- *
- */
-
-
-
 // 共通部品を呼び出す
 require 'common/common.php';
 // データベースに接続する
@@ -38,23 +23,18 @@ $flg=0;
   	         echo "パスワードが未入力です";
   	     }
        }
-       
+
        if (isset ($_SESSION['roginid'])) {
         $id = $_SESSION['roginid'];
         //画面入力のパスワードを取得する
         $password=$_SESSION["password"];
       }
 
-
-
-
-
   	 //IDとパスワードが一致しているか確認する
   	 if(!empty($id) && !empty($password)){
 
-        
             //データベースに接続する
-            $pdo=new PDO('mysql:host=localhost;dbname=haldb;charset=utf8','dbadmin','dbadmin');
+            $pdo = connect();
 
             //ログイン情報を検索し、検索結果をステートメントに設定する($loginidはPOSTで持ってきたもの) ここをprepareにする
             $st=$pdo->prepare("SELECT * FROM user_tbl WHERE user_id=?");
@@ -73,27 +53,15 @@ $flg=0;
             //ログイン成功フラグを初期化する（ログイン成功フラグ＝０にする）
             $flg=0;
             //パスワードが一致しているかどうかチェックする
-            //foreach($logininfo as $login){
-            //ログイン情報のパスワードと画面d入力したパスワードが一致しているか比較する
-
-
-
-
-
             if(password_verify($password, $logininfo['password'])){
-            print '認証成功';
             $flg=1;
             session_regenerate_id(true); // セッションIDをふりなおす
             $_SESSION['roginid'] = $id; // ユーザーIDをセッション変数にセット
             $_SESSION['password'] = $password;
             }else{
-            print '認証成功しない';
             }
 
-          //}
-
-
-          $st2=$pdo->prepare("select name from user_details_tbl where user_id=?");
+          $st2=$pdo->prepare("SELECT name FROM user_details_tbl WHERE user_id=?");
           //bindValueメソッドでパラメータをセット
           $st2->bindValue(1,$id);
 
@@ -105,13 +73,7 @@ $flg=0;
           foreach($logininfo2 as $login2){
               $name=$login2['name'];
           }
-
-
       }
-
-
-
-
 
 /* idを受け取っているかの判断 */
 if (isset($_GET['iddd'])) {
@@ -123,18 +85,15 @@ if (isset($_SESSION['syouhin'])) {
     $iddd = $_SESSION['syouhin'];
 }
 
-
 // 商品を検索する
 $sta = $pdo->query("SELECT * FROM product_tbl where $iddd = product_id");
 $product_tbl = $sta->fetchAll();
-
 
 // セッション情報の保存
 $_SESSION['code'] = $iddd;
 
 // セッション情報の取得
 $product_id = $_SESSION['code'];
-
 
 // レビュー機能
 if (isset($_POST['btn_submit'])) {
@@ -147,8 +106,10 @@ if (isset($_POST['btn_submit'])) {
           $id = "";
       }
     //execメソッドでクエリを実行。insert文を実行した場合挿入件数が戻り値として返る
-    $count = $pdo->exec("INSERT INTO postreview_tbl(review_id,user_id,product_id,post_name,post_review,star,additional_date)
-    VALUES('','$id',$product_id,'$view_name','$message','$star',now())");
+    $count = $pdo->exec("INSERT INTO postreview_tbl
+                        (review_id,user_id,product_id,post_name,post_review,star,additional_date)
+                         VALUES('','$id',$product_id,'$view_name','$message','$star',now())");
+    //２重投稿禁止
     header('Location: ');
 }
 
@@ -168,6 +129,7 @@ $stmt = $pdo->prepare($selectcs); $stmt->execute();
 $row = $stmt->fetchColumn();
 $rowa = intval($row);
 
+//星の数を0.5刻みで表示する
 if(isset($rowa)){
     if($row_count != 0){
         $review = $rowa / $row_count;
@@ -178,8 +140,6 @@ if(isset($rowa)){
         $reviewc = 0;
     }
 }
-
-
 
 if (isset($_POST['delete'])) {
 // SQL文を作成
