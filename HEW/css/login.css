@@ -17,12 +17,22 @@ img{
 }
 
 
-h1.login{
-  margin-top: 20px;
+h2.login{
+  margin-top: 30px;
 }
+
 
 table{
   margin: 0 auto;
+  background: none;
+}
+
+table tr td{
+  padding: 5px;
+}
+
+input{
+  border: 1px solid #ccc;
 }
 
 input.button{
@@ -30,6 +40,10 @@ input.button{
   width: 70px;
   height: 40px;
   margin: 5px;
+  color: #fff;
+  background-color: #dc954e;
+  cursor: pointer;
+  border: none;
 }
 
 
