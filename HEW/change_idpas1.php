@@ -174,6 +174,8 @@ if (isset($_POST['syusei'])) {
 
       </table>
 
+      <div class="onetime"><a href="onetime.php">二段階認証を追加したい方はこちら</a></div>
+
 
       <br>
 
