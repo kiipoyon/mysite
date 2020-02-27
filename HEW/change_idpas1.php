@@ -123,21 +123,15 @@ if (isset($_POST['syusei'])) {
   </head>
 
   <body>
-   <nav class="login">
-    <a href="login.php" class="login">
-    	<?php
-
-
-     	if($flg==1){
-     	    echo "<a href='mypage.php' class='login-name'>ようこそ".$id."さん!</a>";
-    	    echo "<a href='change.php' class='login-name'>会員情報</a>";
-    	    echo "<a href='session_out.php' class='login-name'>ログアウト</a>";
-    	}else{
-    	    echo "ログイン(新規登録)";
-    	}
-
-    	?>
-    </a>
+  <nav class="login">
+    <div>
+        <?php
+          if ($flg == 1) {
+              echo "<p>ようこそ".$id.'さん!</p>';
+              echo "<a href='session_out.php'>ログアウト</a>";
+          }
+          ?>
+    </div>
   </nav>
 
     <header>
