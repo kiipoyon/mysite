@@ -9,8 +9,9 @@
     <title>特産横丁</title>
 
     <link rel="stylesheet" href="css/reset.css">
-    <link rel="stylesheet" href="css/buy.css">
     <link rel="stylesheet" href="css/common.css">
+    <link rel="stylesheet" href="css/buy.css">
+
   </head>
 
   <body>
@@ -58,12 +59,6 @@
 <div class="main">
   <h1 class="h_1">ご注文内容</h1>
 <hr>
-          <form action="credit.php" method="POST">
-
-          <div class="text_right">
-            <input class="buy_submit" type="submit" value="レジに進む">
-          </div>
-          </form>
           <table class="cart_t">
             <tr>
               <th colspan="2">商品名</th>
@@ -92,8 +87,27 @@
               <td class="cart_tr"><input type="submit" value="×削除" name="deletebtn" onclick="doReload()"></td>
               </form>
             </tr>
+            <tr>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td><a href="session_outcart.php">カートを空にする</a></td>
+            </tr>
+            <tr>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td>
+              <form action="credit.php" method="POST">
+                <div class="text_right">
+                  <input class="buy_submit" type="submit" value="レジに進む">
+                </div>
+              </form>
+              </td>
+            </tr>
         </table>
-          <a href="session_outcart.php">カートを空にする</a>
           <a href="list.php">お買い物に戻る</a>
   </div>
 
