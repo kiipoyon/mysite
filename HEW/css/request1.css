@@ -16,14 +16,6 @@ img{
   vertical-align: bottom;
 }
 
-nav.login{
-  margin: 15px 0 20px 0;
-}
-
-a.login{
-  text-align: right;
-  margin-left: 800px;
-}
 nav ul.nav{
   display: flex;
 }
@@ -39,7 +31,7 @@ nav ul li.nav_flex{
 
 div#tabs{
   width: 90%;
-  margin: 0 auto;
+  margin: 150px auto 10px auto;
 }
 
 div.panel{
