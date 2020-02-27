@@ -97,6 +97,10 @@ nav ul li.nav_flex{
   margin-bottom: 30px;
 }
 
+form{
+  width: 100%;
+}
+
 table{
   width: 600px;
   margin: 0 auto;
@@ -106,6 +110,16 @@ table{
 
 table tr,td{
   border: 1px #000 solid;
+}
+
+.onetime{
+  text-align: right;
+  width: 75%;
+  font-size: 14px;
+}
+
+.onetime a:hover{
+  text-decoration: underline;
 }
 
 .chan{
