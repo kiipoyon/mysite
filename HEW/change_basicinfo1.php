@@ -160,10 +160,8 @@ if(isset($_POST['syusei'])){
     <div>
         <?php
           if ($flg == 1) {
-              echo "<div><p>ようこそ".$id.'さん!</p></div>';
-              echo "<div><a href='session_out.php'>ログアウト</a></div>";
-          } else {
-              echo "<div><a href='login.php'>ログイン(新規登録)</a></div>";
+              echo "<p>ようこそ".$id.'さん!</p>';
+              echo "<a href='session_out.php'>ログアウト</a>";
           }
           ?>
     </div>
