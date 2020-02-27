@@ -23,7 +23,7 @@
 <!-- メインビジュアル -->
     <main>
 
-      <h1 class="login">ログイン</h1>
+      <h2 class="login">ログイン</h2>
 
       <br><br>
 
@@ -50,6 +50,8 @@
       <br>
 
       <a href="registration1.php" class="btn-border-bottom">新規会員登録の方はこちら</a>
+      <br>
+      <a href="resetting.php" class="btn-border-bottom">パスワードをお忘れの方はこちら</a>
 
       <br>
       <br>
