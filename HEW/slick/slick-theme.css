@@ -208,7 +208,7 @@
     width: 80%;
 }
 .slider img{
-    height: 300px;
+    height: auto;
     width: 100%;
 }
 /*slick setting*/
