@@ -223,7 +223,7 @@ $order_tbl = $st->fetchAll();
 	<br>
 
 
-       <section id="tobe2"><h1 class="midasi">購入履歴</h1></section>
+       <section id="tobe2"><h2 class="midasi">購入履歴</h2></section>
 
     <div class="multiple">
       <?php foreach ($order_tbl as $g) {
