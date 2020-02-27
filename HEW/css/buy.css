@@ -3,6 +3,11 @@
 /*――――――――――――――――――――――以下、自分が記述した箇所――――――――――――――――――――――――――――――――――――――――――――――――*/
 
 /* buy.htmlで使用したところ */
+div.main{
+  margin: 0 auto;
+  width: 90%;
+}
+
 table.buytable{
   width: 800px;
   margin-top: 100px;
@@ -82,6 +87,11 @@ td.cart_tr{
   vertical-align: middle;
   text-align: center;
   border-top: rgb(83, 83, 83) solid 2px;
+}
+
+/* 削除チェックボタン */
+.del_check{
+  transform: scale(1.4);
 }
 
 td.cart_tr p{
