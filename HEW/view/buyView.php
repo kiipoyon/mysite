@@ -76,7 +76,7 @@
                 </td>
                 <td class="cart_td"><?php echo $r->getPrice() * $r->getNum() ?> 円</td>
                 <td class="cart_td">
-                <input type="checkbox" name="checkbox[]" value="<?php echo $r->getId(); ?>">
+                <input type="checkbox" class="del_check" name="checkbox[]" value="<?php echo $r->getId(); ?>">
                 </td>
             </tr>
             <?php } ?>
