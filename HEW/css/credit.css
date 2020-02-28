@@ -265,4 +265,7 @@ table.product{
  .submit_iti{
    margin-left: 20px;
  }
+ table{
+  background: none;
+ }
  
