@@ -55,6 +55,17 @@ $flg=0;
             //処理結果を配列logininfoに設定する loginidが主キーならこの処理はいらない
             $logininfo=$st->fetch();
 
+            $sta=$pdo->prepare("SELECT * FROM user_details_tbl WHERE user_id=?");
+
+            //bindValueメソッドでパラメータをセット
+            $sta->bindValue(1,$id);
+
+            //executeでクエリを実行
+            $sta->execute();
+
+            //処理結果を配列logininfoに設定する loginidが主キーならこの処理はいらない
+            $logininfo2=$sta->fetch();
+
             //ログイン成功フラグを初期化する（ログイン成功フラグ＝０にする）
             $flg=0;
             //パスワードが一致しているかどうかチェックする
@@ -90,12 +101,13 @@ $flg=0;
         $rows[] = $goods;
         }
 
+        // セッション情報の取得
+        $sum = $_SESSION['sum'];
+
         $res = $_SESSION["res"];
 
 //PDOオブジェクトの生成
-$pdo = new PDO('mysql:host=localhost;dbname=haldb;charset=utf8','dbadmin','dbadmin');
-
-
+$pdo = connect();
             $lo = "SELECT * FROM orderdetails_tbl
             INNER JOIN product_tbl
             ON orderdetails_tbl.product_id = product_tbl.product_id
@@ -123,14 +135,13 @@ $auto_reply_text .= "ご注文日時：" . date("Y-m-d H:i") . "\n";
 // 取得したデータを出力
 foreach( $log as $logber ) {
 $auto_reply_text .= "商品名：" . "$logber[product_name] ". "\n\n";
-$auto_reply_text .= "価格：" . "$logber[price] ". "\n\n";
 }
+$auto_reply_text .= "合計金額：" . "$sum". "\n\n";
 $auto_reply_text .= "あなたのユーザーID：" . $id . "\n";
-//$auto_reply_text .= "メールアドレス：" . $loginin['mail_address'] . "\n\n";
 $auto_reply_text .= "特産横丁";
 
 // メール送信
-mb_send_mail("k.ishimaru0821@gmail.com", $auto_reply_subject, $auto_reply_text);
+mb_send_mail($logininfo2['mail_address'], $auto_reply_subject, $auto_reply_text);
 
 
 

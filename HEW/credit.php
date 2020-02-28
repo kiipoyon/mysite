@@ -85,12 +85,12 @@ $flg=0;
           $logininfo3=$st3->fetchAll();
       }
 
-    if (isset ($_SESSION['sum'])) {
+    if (!empty ($_SESSION['cart'])) {
         // セッション情報の取得
         $sum = $_SESSION['sum'];
       }else{
         //買い物かごの中身が無ければ商品一覧を表示する
-        header("Location: list.php");
+        header("Location: buy.php");
        exit;
       }
 
