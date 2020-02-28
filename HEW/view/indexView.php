@@ -41,14 +41,13 @@
   <script src="js/common.js"></script>
   <script type="text/javascript" src="slick/slick.min.js"></script>
   <ul class="slider">
-    <li><a href="#"><img src="images/01.jpg" alt="image01"></a></li>
-    <li><a href="#"><img src="images/02.jpg" alt="image02"></a></li>
-    <li><a href="#"><img src="images/03.jpg" alt="image03"></a></li>
-    <li><a href="#"><img src="images/04.jpg" alt="image04"></a></li>
-    <li><a href="#"><img src="images/05.jpg" alt="image05"></a></li>
-    <li><a href="#"><img src="images/06.jpg" alt="image06"></a></li>
-    <li><a href="#"><img src="images/07.jpg" alt="image07"></a></li>
-    <li><a href="#"><img src="images/08.jpg" alt="image08"></a></li>
+    <li><a href="list.php?idd=1"><img src="images/slide01.png" alt="image01"></a></li>
+    <li><a href="list.php?idd=2"><img src="images/slide02.png" alt="image02"></a></li>
+    <li><a href="list.php?idd=3"><img src="images/slide03.png" alt="image03"></a></li>
+    <li><a href="list.php?idd=4"><img src="images/slide04.png" alt="image04"></a></li>
+    <li><a href="list.php?idd=5"><img src="images/slide05.png" alt="image05"></a></li>
+    <li><a href="list.php?idd=6"><img src="images/slide06.png" alt="image06"></a></li>
+    <li><a href="list.php?idd=7"><img src="images/slide07.png" alt="image07"></a></li>
   </ul>
   <script type="text/javascript">
     $('.slider').slick({
