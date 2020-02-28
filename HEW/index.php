@@ -75,6 +75,7 @@ unset($_SESSION["query"]);
                     $fff = "";
                 }
             }else{
+                 header ('location:login.php');
             }
 
           $st2=$pdo->prepare("select name from user_details_tbl where user_id=?");
