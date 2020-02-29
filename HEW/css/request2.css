@@ -109,6 +109,14 @@ td.other{
   vertical-align: middle;
 }
 
+/* ボタン */
+.button input{
+  text-align: center;
+  width: 70px;
+  height: 30px;
+  margin: 5px;
+  cursor: pointer;
+}
 
 .button{
   padding: 5px 0;

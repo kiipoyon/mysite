@@ -16,10 +16,6 @@ img{
   vertical-align: bottom;
 }
 
-a:link{color: #0000ee;}
-a:visited{color: #551a8b;}
-a:hover{}
-a:active{color: #ff0000;}
 
 nav.login{
   margin: 15px 0 20px 0;
@@ -64,7 +60,12 @@ h2.request{
 a.link{
   display: block;
   margin: 20px 0 40px 0;
+  color: #b16a23;
+  text-decoration: none;
 }
+
+a.link:visited{color: #b16a23;}
+a.link:active{color: #b16a23;}
 
 table.request{
   width: 90%;
