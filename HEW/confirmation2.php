@@ -98,8 +98,8 @@ $mail = htmlspecialchars($_POST["mail"]);
       </tr>
       <tr>
         <td colspan="3" class="button">
+          <input type="button" value="再入力" onclick="history.back()">
           <input type="submit" name="" value="送信" class="sousin">
-          <button type="button" onclick="history.back()">再入力</button>
         </td>
       </tr>
     </table>

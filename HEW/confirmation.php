@@ -140,10 +140,10 @@
       </tr>
       <tr>
         <td colspan="3" class="button">
-          <input type="submit" name="" value="送信" class="sousin">
           <input type="hidden" name="flag" value="1">
           <input type="hidden" name="image" value="<?php print $rename;?>">
-          <button type="button" onclick="history.back()">再入力</button>
+          <input type="button" value="再入力" onclick="history.back()">
+          <input type="submit" name="" value="送信" class="sousin">
         </td>
       </tr>
     </table>

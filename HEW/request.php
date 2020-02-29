@@ -270,8 +270,8 @@ $(document).ready(function(){
         </tr>
         <tr>
           <td colspan="4" class="button">
-            <input type="submit" name="submit" value="確認" class="kakunin">
             <input type="reset" class="reset">
+            <input type="submit" name="submit" value="確認" class="kakunin">
           </td>
         </tr>
       </table>
@@ -321,9 +321,9 @@ $(document).ready(function(){
         <td class="i_fourth"><span id="i_msg6"></span></td>
       </tr>
       <tr>
-        <td colspan="4" class="button">
-          <input type="submit" name="submit" value="確認" class="kakunin">
+        <td colspan="4" class="button">       
           <input type="reset" class="reset">
+          <input type="submit" name="submit" value="確認" class="kakunin">
         </td>
       </tr>
     </table>
@@ -375,8 +375,8 @@ $(document).ready(function(){
       </tr>
       <tr>
         <td colspan="4" class="button">
-          <input type="submit" name="submit" value="確認" class="kakunin">
           <input type="reset" class="reset">
+          <input type="submit" name="submit" value="確認" class="kakunin">
         </td>
       </tr>
     </table>
