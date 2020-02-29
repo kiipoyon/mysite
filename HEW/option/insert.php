@@ -123,8 +123,8 @@ if (isset ($_SESSION['user_id'])) {
   </table>
 
   <div class="button">
-    <input type="submit" value="登録">
     <input type="reset" class="reset">
+    <input type="submit" value="登録">
   </div>
 
   </form>

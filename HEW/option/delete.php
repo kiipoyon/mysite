@@ -14,7 +14,6 @@ if(!empty($_POST['del'])){
   $c="";
   foreach ($del_id as $d){
     $c.= ",".$d;
-    var_dump($c);
   }
 
 
@@ -103,10 +102,10 @@ if (isset($_POST['delete'])) {
 
   <div class="button">
 
-  <input type="submit" class="delete" name="delete" value="削除する">
-  <button type="button" class="button" onclick="history.back()">戻る</button>
+    <input type="button" class="button" value="戻る" onclick="history.back()">
+    <input type="submit" class="delete" name="delete" value="削除する">
 
-    </div>
+  </div>
 
 </form>
 

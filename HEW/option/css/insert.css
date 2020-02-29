@@ -1,6 +1,6 @@
 @charset "utf-8";
 
-/* 共通のスタイル */
+/* 商品の追加 */
 
 h1{
     margin: 25px auto;
@@ -8,12 +8,17 @@ h1{
 
 table{
     margin: 0 auto;
+    background-color: #fffaf4;
 }
-
 
 table tr,
 table td{
   border: 1px #aaa solid;
+}
+
+table tr td{
+    padding: 20px 0;
+    vertical-align: middle;
 }
 
 td.left{
@@ -33,6 +38,21 @@ textarea.description{
 
 div.button{
     margin: 20px auto;
+}
+
+.button input{
+    text-align: center;
+    width: 70px;
+    height: 40px;
+    margin: 5px;
+    color: #fff;
+    background-color: #dc954e;
+    cursor: pointer;
+    border: none;
+}
+  
+.button input:hover{
+    opacity: 0.9;
 }
 
 img.insert_img{

@@ -1,9 +1,11 @@
 @charset "utf-8";
 
-/* 共通のスタイル */
+/* 削除ページ */
 
 table{
-    margin: 20px auto;
+    margin: 100px auto 0 auto;
+    border-collapse: separate;
+    border-spacing: 20px;
 }
 
 table td{
@@ -11,12 +13,26 @@ table td{
 }
 
 div.button{
-    margin: 20px auto 10px auto;
+    margin: 60px auto 10px auto;
 }
 
 a.return{
     display: block;
-    margin: 10px auto;
+    margin: 30px auto;
 }
 
+.button input{
+    text-align: center;
+    width: 70px;
+    height: 40px;
+    margin: 5px;
+    color: #fff;
+    background-color: #dc954e;
+    cursor: pointer;
+    border: none;
+}
+  
+.button input:hover{
+    opacity: 0.9;
+}
 

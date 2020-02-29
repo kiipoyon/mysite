@@ -4,15 +4,32 @@
 
 table{
     margin: 20px auto;
+    border-collapse: separate;
+    border-spacing: 3px 25px;
 }
 
 table td{
     padding: 2px;
 }
 
-input.delete{
-    margin-bottom: 20px;
+.i_ex input{
+    transform: scale(1.4);
 }
+
+input.delete{
+    text-align: center;
+    width: 70px;
+    height: 40px;
+    margin: 5px auto 20px auto;
+    color: #fff;
+    background-color: #dc954e;
+    cursor: pointer;
+    border: none;
+  }
+  
+  input.delete:hover{
+    opacity: 0.9;
+  }
 
 a.return{
     display: block;

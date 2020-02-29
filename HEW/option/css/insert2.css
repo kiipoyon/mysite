@@ -1,6 +1,21 @@
 @charset "utf-8";
 
-/* 共通のスタイル */
+.button input{
+    text-align: center;
+    width: 70px;
+    height: 40px;
+    margin: 5px;
+    color: #fff;
+    background-color: #dc954e;
+    cursor: pointer;
+    border: none;
+}
+  
+.button input:hover{
+    opacity: 0.9;
+}
+
+
 
 
 

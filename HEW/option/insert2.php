@@ -134,8 +134,10 @@ if (isset($_POST['submit'])) {
         </tr>
       </table>
 
-      <input type="submit" name="submit" value="登録">
-      <button type="button" onclick="history.back()">再入力</button>
+      <div class="button">
+        <input type="button" value="再入力" onclick="history.back()">
+        <input type="submit" name="submit" value="登録">
+      </div>
 
     </form>
 
