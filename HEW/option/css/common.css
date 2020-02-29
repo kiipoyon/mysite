@@ -30,3 +30,6 @@ div.top{
   margin: 10px 10px 0 0;
 }
 
+div.top p{
+  margin-bottom: 10px;
+}
