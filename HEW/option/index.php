@@ -36,10 +36,13 @@ if (isset ($_SESSION['user_id'])) {
 
     <main>
 
-      <a href="product.php">商品</a><br>
-      <a href="order.php">注文履歴</a><br>
-      <a href="inquiry.php">お問い合わせ確認</a><br>
-      <a href="request.php">リクエスト確認</a>
+
+      <ul>
+        <li><a href="product.php">商品</a></li>
+        <li><a href="order.php">注文履歴</a></li>
+        <li><a href="inquiry.php">お問い合わせ確認</a></li>
+        <li><a href="request.php">リクエスト確認</a></li>
+      </ul>
 
     </main>
 

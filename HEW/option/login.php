@@ -57,7 +57,7 @@ if (isset($_POST['loginbtn'])) {
 
   <body>
 
-    <h1>ログイン</h1>
+    <h1>管理者ログイン</h1>
 
     <?php echo $errormessage; ?>
 
@@ -76,8 +76,8 @@ if (isset($_POST['loginbtn'])) {
 
 
       <div class="login">
-        <input type=submit value="ログイン" class="button" name="loginbtn">
         <input type=reset value="クリア" class="button">
+        <input type=submit value="ログイン" class="button" name="loginbtn">
       </div>
 
     </form>
