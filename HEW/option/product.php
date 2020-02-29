@@ -36,8 +36,10 @@ if (isset ($_SESSION['user_id'])) {
 
   <main>
 
-    <a href="product1.php">商品一覧</a><br>
-    <a href="insert.php">商品の追加</a>
+    <ul>
+      <li><a href="product1.php">商品一覧</a></li>
+      <li><a href="insert.php">商品の追加</a></li>
+    </ul>
   </main>
 
   <a href="index.php" class="return">トップに戻る</a>
