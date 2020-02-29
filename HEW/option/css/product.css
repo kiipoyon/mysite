@@ -1,23 +1,30 @@
 @charset "utf-8";
 
-/* 共通のスタイル */
+/* 商品 */
 
 div.top{
     text-align: right;
     margin: 10px 10px 0 0;
 }
 
-main a{
-  display: block;
+main ul li{
+  margin: 70px;
+  list-style: none;
+}
+
+main ul li a{
   font-size: 1.4em;
   text-align: center;
   margin-top: 10px;
   text-decoration: none;
 }
 
-main a:link{color: #000;}
-main a:visited{color: #000;}
-main a:active{color: #000;}
+main ul li a:link{color: #000;}
+main ul li a:visited{color: #000;}
+main ul li a:active{color: #000;}
+main ul li a:hover{
+  border-bottom: 2px solid #777;
+}
 
 a.return{
   display: block;
