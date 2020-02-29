@@ -1,0 +1,12 @@
+CREATE TABLE `option_user_tbl` (
+	`user_key` BIGINT(20) UNSIGNED NOT NULL AUTO_INCREMENT COMMENT 'ユーザキー',
+	`user_id` VARCHAR(20) NULL DEFAULT NULL COMMENT 'ユーザID' COLLATE 'utf8_unicode_ci',
+	`user_pass` VARCHAR(256) NULL DEFAULT NULL COMMENT 'パスワード' COLLATE 'utf8_unicode_ci',
+	PRIMARY KEY (`user_key`),
+	UNIQUE INDEX `user_key` (`user_key`)
+)
+COMMENT='管理者ユーザテーブル'
+COLLATE='utf8_unicode_ci'
+ENGINE=InnoDB
+AUTO_INCREMENT=2
+;

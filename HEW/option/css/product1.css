@@ -1,0 +1,22 @@
+@charset "utf-8";
+
+/* 共通のスタイル */
+
+table{
+    margin: 20px auto;
+}
+
+table td{
+    padding: 2px;
+}
+
+input.delete{
+    margin-bottom: 20px;
+}
+
+a.return{
+    display: block;
+    margin: 10px auto;
+}
+
+

@@ -1,0 +1,60 @@
+@charset "utf-8";
+
+/* 共通のスタイル */
+
+h1{
+  font-size: 1.2em;
+  margin: 15px 0;
+}
+
+h2{
+  font-size: 1.2em;
+  margin: 15px 0 15px 0;
+}
+
+table{
+  margin: 0 auto 20px auto;
+}
+
+tr,td.i_first{
+  border: 1px #000 solid;
+}
+
+td.i_first{
+  width: 9rem;
+  vertical-align: middle;
+}
+
+td.i_second{
+  width: 6rem;
+  vertical-align: middle;
+}
+
+td.i_third{
+  width: 10rem;
+  padding: 0.5% 0;
+  text-align: left;
+  vertical-align: middle;
+}
+
+td.i_connect{
+  padding: 0.5% 0;
+  text-align: left;
+  vertical-align: middle;
+}
+
+.inquiry_other{
+  width: 35em;
+  height: 5em;
+  margin-left: 5px;
+}
+
+.inquiry_email{
+  margin-left: 5px;
+}
+
+img.img{
+  width: 100px;;
+}
+
+

@@ -1,0 +1,49 @@
+@charset "utf-8";
+
+/* 共通のスタイル */
+
+body{
+  text-align: center;
+}
+
+h1{
+  font-size: 1.2em;
+  text-align: center;
+  margin: 15px 0;
+}
+
+div.inquiry{
+  margin-top: 50px;
+}
+
+table{
+  margin: 0 auto;
+}
+
+td.left{
+  width: 2em;
+  font-size: 1.4em;
+}
+
+a{
+  display: block;
+  font-size: 1.4em;
+  text-align: center;
+  margin-top: 10px;
+}
+
+div a:link{color: #000;}
+div a:visited{color: #000;}
+div a:hover{}
+div a:active{color: #000;}
+
+a.return{
+  display: block;
+  margin-top: 30px;
+}
+
+
+a.return:link{color: #0000ee;}
+a.return:visited{color: #551a8b;}
+a.return:hover{}
+a.return:active{color: #ff0000;}

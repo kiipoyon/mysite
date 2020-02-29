@@ -1,0 +1,22 @@
+@charset "utf-8";
+
+/* 共通のスタイル */
+
+table{
+    margin: 20px auto;
+}
+
+table td{
+    padding: 2px;
+}
+
+div.button{
+    margin: 20px auto 10px auto;
+}
+
+a.return{
+    display: block;
+    margin: 10px auto;
+}
+
+
