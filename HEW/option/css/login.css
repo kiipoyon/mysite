@@ -1,25 +1,20 @@
 @charset "utf-8";
 
-/* 共通のスタイル */
-
-img{
-  vertical-align: bottom;
-}
-
-a:link{color: #0000ee;}
-a:visited{color: #551a8b;}
-a:hover{}
-a:active{color: #ff0000;}
+/* ログイン */
 
 h1{
   font-size: 1.2em;
   text-align: center;
-  margin: 15px 0;
+  margin: 100px 0 50px 0;
 }
 
 table{
+  text-align: right;
   margin: 0 auto;
+  border-collapse: separate;
+  border-spacing: 10px;
 }
+
 
 td.left{
   width: 7rem;
@@ -28,6 +23,21 @@ td.left{
 div.login{
   text-align: center;
   margin: 20px 0;
+}
+
+input.button{
+  text-align: center;
+  width: 70px;
+  height: 40px;
+  margin: 5px;
+  color: #fff;
+  background-color: #dc954e;
+  cursor: pointer;
+  border: none;
+}
+
+input.button:hover{
+  opacity: 0.9;
 }
 
 
