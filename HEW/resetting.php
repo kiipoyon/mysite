@@ -25,7 +25,7 @@ $flg=0;
           if(!empty($logininfo2)){
 
             $passResetToken = md5(uniqid(rand(),true));
-            $passToken = "http://localhost/tokusan/shop/reset_change_idpas1.php?passReset=$passResetToken&Mail=$mail";
+            $passToken = "http://localhost/HEW/reset_change_idpas1.php?passReset=$passResetToken&Mail=$mail";
             $code = date("Y/m/d H:i:s");
             //execメソッドでクエリを実行。insert文を実行した場合挿入件数が戻り値として返る
             $count = $pdo->exec("INSERT INTO password_tbl(password_id,currenta_time,parameters)

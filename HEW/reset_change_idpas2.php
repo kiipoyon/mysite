@@ -9,7 +9,6 @@ $pdo = connect();
 
  $errorMessage = "";
  $newpas1 = $_SESSION['newpas1'];
- var_dump($newpas1);
  $mail = $_SESSION['mail'];
 
  try {
