@@ -58,6 +58,7 @@
 <main>
 <div class="main">
   <h1 class="h_1">ご注文内容</h1>
+  <p class="cart"><?php echo $cart ?></p>
 <hr>
           <table class="cart_t">
             <tr>
