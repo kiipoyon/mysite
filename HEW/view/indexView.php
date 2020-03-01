@@ -17,6 +17,7 @@
                 echo "<div><p>ようこそ".$id.'さん!</p></div>';
                 echo "<div><a href='mypage.php'>会員情報</a></div>";
                 echo "<div><a href='session_out.php'>ログアウト</a></div>";
+                echo "<div>$fff</div>";
             } else {
                 echo 'ログイン(新規登録)';
             }
