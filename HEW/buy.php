@@ -123,6 +123,12 @@ $flg=0;
     $sum = $_SESSION['sum'];
     }
 
+    if (!empty ($_SESSION['cart'])) {
+        $cart = "";
+      }else{
+        $cart = "カートが空です";
+      }
+
 // 最初の画面を表示する
 require 'view/buyView.php';
 
