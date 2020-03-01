@@ -4,8 +4,9 @@
   <meta charset="utf-8">
   <title>特産横丁</title>
   <link rel="stylesheet" href="css/reset.css">
+  <link rel="stylesheet" href="css/common.css">
   <link rel="stylesheet" href="css/credit.css">
-  <link rel="stylesheet" href="css/common.css"> </head>
+  </head>
 <body>
   <!-- ヘッダー -->
   <nav class="login">
