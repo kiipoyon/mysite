@@ -47,12 +47,10 @@ if(isset($_GET['passReset'])){
   
   $logininfo3=$st3->fetch();
   if(empty($logininfo3)){
-    echo "error";
     exit;
   }else{
     $limittime = date("Y-m-d H:i:s",strtotime("-1 minute"));
     if(strtotime($logininfo3['currenta_time']) >= ($limittime)){
-      echo "成功";
     }else{
       exit;
     }
