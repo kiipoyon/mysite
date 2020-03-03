@@ -26,7 +26,7 @@
      //$id = $_POST['id']; // ユーザーIDをセッション変数にセット
 
      //bindValueメソッドでパラメータをセット
-     $st->bindValue(1,$password);
+     $st->bindValue(1,$id);
 
      //executeでクエリを実行
      $st->execute();
