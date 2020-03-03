@@ -129,7 +129,9 @@ if (isset($_POST['syusei'])) {
           if ($flg == 1) {
               echo "<p>ようこそ".$id.'さん!</p>';
               echo "<a href='session_out.php'>ログアウト</a>";
-          }
+          }else{
+            header ('location:login.php');
+           }
           ?>
     </div>
   </nav>
