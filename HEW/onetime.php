@@ -88,7 +88,7 @@ $flg=0;
       $stmt->bindParam(':secret_id',$secret,PDO::PARAM_STR);
       $stmt->bindParam(':id',$id,PDO::PARAM_STR);
 
-      $stmt->execute();
+      //$stmt->execute();
 
 
       // 変数とタイムゾーンを初期化

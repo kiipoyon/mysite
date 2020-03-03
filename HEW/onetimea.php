@@ -88,7 +88,7 @@ $flg=0;
      
      // ユーザーが生成したTOTP
      $oneCode = filter_input(INPUT_POST, 'oneCode');
-     echo $oneCode;
+     $oneCode;
      
      // サーバーとクライアントで許容する時間のずれ
      // $discrepancy × 30秒 許容します（デフォルト値は1です）
