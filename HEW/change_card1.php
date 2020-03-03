@@ -71,6 +71,11 @@
 
  }
 
+ if ($flg == 0) {
+  header ('location:login.php');
+
+}
+
 $creditinfo=$st->fetchAll();
 
 foreach($creditinfo as $credit){
